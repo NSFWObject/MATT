@@ -1,0 +1,6 @@
+framework module CocoaMark {
+  umbrella header "CocoaMark-umbrella.h"
+
+  export *
+  module * { export * }
+}
