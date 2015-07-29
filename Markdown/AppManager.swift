@@ -73,6 +73,12 @@ class AppManager {
     }
     
     private func scriptWay() {
+        if ScriptManager().isScriptInstalled() {
+            // execute script
+        } else {
+            // prompt to install and retry
+        }
+        
         if let URL = NSFileManager.defaultManager().URLForDirectory(.ApplicationScriptsDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: false, error: nil) {
             println(URL)
             let scriptURL = URL.URLByAppendingPathComponent("PasteboardHelper.scpt")
