@@ -1,2 +1,2 @@
-bundle:
-	carthage update --use-submodules --platform Mac
+update:
+	carthage update --use-submodules --platform Mac --verbose
