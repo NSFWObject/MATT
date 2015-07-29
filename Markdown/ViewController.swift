@@ -50,7 +50,9 @@ class ViewController: NSViewController {
                             // no-op
                             break
                         case .Install:
-                            break
+                            scriptManager.installScript { success in
+                                self.alertScriptInstallationResult(success)
+                            }
                         case .ShowScript:
                             break
                         }
@@ -163,6 +165,13 @@ class ViewController: NSViewController {
         let styleURL = NSBundle.mainBundle().URLForResource("default-style", withExtension: "css")!
         return String(contentsOfURL: styleURL, encoding: NSUTF8StringEncoding, error: nil)!
     }()
+    
+    private func alertScriptInstallationResult(success: Bool) {
+        let alert = NSAlert()
+        alert.alertStyle = success ? NSAlertStyle.InformationalAlertStyle : NSAlertStyle.WarningAlertStyle
+        alert.messageText = success ? "Script installed successfully" : "Script installation failed"
+        alert.runModal()
+    }
     
     private func styleHTML(HTML: String) -> String {
         return "<head><style>\(defaultStyle)</style><body>\(HTML)</body>"
