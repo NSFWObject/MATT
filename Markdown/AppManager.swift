@@ -49,15 +49,14 @@ class AppManager {
         println("Captured app: \(capturedApp)")
     }
     
-    
-    // MARK: - Private
-    
-    private func writeToPasteboard(attributedString: NSAttributedString) {
+    func writeToPasteboard(attributedString: NSAttributedString) {
         let pasteborad = NSPasteboard.generalPasteboard()
         pasteborad.clearContents()
         pasteborad.writeObjects([attributedString])
     }
-
+    
+    // MARK: - Private
+    
     private func sendCmdV() {
         //        carbonWay()
         scriptWay()
