@@ -37,16 +37,21 @@ class ViewController: NSViewController {
 
     @IBAction func doneButtonAction(sender: AnyObject) {
         if let markdown = textView.string {
-            let HTMLString = renderer.render(markdown: markdown)
-            if let attributedString = renderer.render(HTML: HTMLString) {
-                self.manager.pasteAttributedString(attributedString) { success in
-                    if !success {
-                        let alert = NSAlert()
-                        alert.alertStyle = .CriticalAlertStyle
-                        alert.messageText = "Something went wrong :("
-                        alert.runModal()
+            let HTML = renderer.render(markdown: markdown)
+            if let styledHTML = StyleManager().process(content: HTML),
+                attributedString = renderer.render(HTML: styledHTML) {
+                    if self.manager.capturedApp != nil {
+                        self.manager.pasteAttributedString(attributedString) { success in
+                            if !success {
+                                let alert = NSAlert()
+                                alert.alertStyle = .CriticalAlertStyle
+                                alert.messageText = "Something went wrong :("
+                                alert.runModal()
+                            }
+                        }
+                    } else {
+                        self.manager.writeToPasteboard(attributedString)
                     }
-                }
             } else {
                 let alert = NSAlert()
                 alert.alertStyle = .CriticalAlertStyle
