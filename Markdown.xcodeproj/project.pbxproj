@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C0B4FB71B6899650098DDF3 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0B4FB31B6899520098DDF3 /* MASShortcut.framework */; };
+		5C0B4FB81B6899650098DDF3 /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0B4FB31B6899520098DDF3 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5C0B4FB91B6899650098DDF3 /* Mustache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0B4FB41B6899520098DDF3 /* Mustache.framework */; };
+		5C0B4FBA1B6899650098DDF3 /* Mustache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0B4FB41B6899520098DDF3 /* Mustache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5C0B4FBC1B689A280098DDF3 /* StyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0B4FBB1B689A280098DDF3 /* StyleManager.swift */; };
+		5C0B4FBE1B689AAD0098DDF3 /* Template.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 5C0B4FBD1B689AAD0098DDF3 /* Template.mustache */; };
 		5C1FA31B1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1FA31A1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift */; };
 		5C1FA31E1B67CC3F001CC4AD /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C1FA31D1B67CC3F001CC4AD /* Preferences.storyboard */; };
 		5C1FA3201B67CC9F001CC4AD /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1FA31F1B67CC9F001CC4AD /* PreferencesManager.swift */; };
 		5C1FA3221B67CDB9001CC4AD /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1FA3211B67CDB9001CC4AD /* WindowController.swift */; };
 		5C1FA3231B67CE57001CC4AD /* MASPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1FA3161B67CBDC001CC4AD /* MASPreferences.framework */; };
 		5C1FA3241B67CE57001CC4AD /* MASPreferences.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1FA3161B67CBDC001CC4AD /* MASPreferences.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5C1FA3391B67D481001CC4AD /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1FA32E1B67D450001CC4AD /* MASShortcut.framework */; };
-		5C1FA33A1B67D481001CC4AD /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1FA32E1B67D450001CC4AD /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C56CD2D1B6086A8003CFEF5 /* PasteboardHelper.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 5C56CD2C1B6086A4003CFEF5 /* PasteboardHelper.scpt */; };
 		5C739DF61B5F6A5D001EF259 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C739DF51B5F6A5D001EF259 /* AppDelegate.swift */; };
 		5C739DF81B5F6A5D001EF259 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C739DF71B5F6A5D001EF259 /* ViewController.swift */; };
@@ -31,44 +35,6 @@
 		5CB58F201B67179600A01CC7 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB58F1F1B67179600A01CC7 /* HotkeyManager.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		5C1FA32D1B67D450001CC4AD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5C1FA3271B67D450001CC4AD /* MASShortcut.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0D827CD31990D4420010B8EF;
-			remoteInfo = MASShortcut;
-		};
-		5C1FA32F1B67D450001CC4AD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5C1FA3271B67D450001CC4AD /* MASShortcut.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0D827D8319910AFF0010B8EF;
-			remoteInfo = MASShortcutTests;
-		};
-		5C1FA3311B67D450001CC4AD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5C1FA3271B67D450001CC4AD /* MASShortcut.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0D827D371990D5E70010B8EF;
-			remoteInfo = Demo;
-		};
-		5C1FA3341B67D469001CC4AD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5C1FA3271B67D450001CC4AD /* MASShortcut.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 0D827CD21990D4420010B8EF;
-			remoteInfo = MASShortcut;
-		};
-		5C1FA33B1B67D481001CC4AD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5C1FA3271B67D450001CC4AD /* MASShortcut.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 0D827CD21990D4420010B8EF;
-			remoteInfo = MASShortcut;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		5C56CE071B61400A003CFEF5 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -76,9 +42,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				5C0B4FBA1B6899650098DDF3 /* Mustache.framework in Embed Frameworks */,
 				5C1FA3241B67CE57001CC4AD /* MASPreferences.framework in Embed Frameworks */,
 				5CB58F0B1B667FCA00A01CC7 /* hoedown.framework in Embed Frameworks */,
-				5C1FA33A1B67D481001CC4AD /* MASShortcut.framework in Embed Frameworks */,
+				5C0B4FB81B6899650098DDF3 /* MASShortcut.framework in Embed Frameworks */,
 				5CB58F091B667FCA00A01CC7 /* CocoaMark.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -87,12 +54,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5C0B4FB31B6899520098DDF3 /* MASShortcut.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MASShortcut.framework; path = Carthage/Build/Mac/MASShortcut.framework; sourceTree = "<group>"; };
+		5C0B4FB41B6899520098DDF3 /* Mustache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mustache.framework; path = Carthage/Build/Mac/Mustache.framework; sourceTree = "<group>"; };
+		5C0B4FBB1B689A280098DDF3 /* StyleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleManager.swift; sourceTree = "<group>"; };
+		5C0B4FBD1B689AAD0098DDF3 /* Template.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Template.mustache; path = Resources/Template.mustache; sourceTree = "<group>"; };
 		5C1FA3161B67CBDC001CC4AD /* MASPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MASPreferences.framework; path = Carthage/Build/Mac/MASPreferences.framework; sourceTree = "<group>"; };
 		5C1FA31A1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
 		5C1FA31D1B67CC3F001CC4AD /* Preferences.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
 		5C1FA31F1B67CC9F001CC4AD /* PreferencesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
 		5C1FA3211B67CDB9001CC4AD /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
-		5C1FA3271B67D450001CC4AD /* MASShortcut.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MASShortcut.xcodeproj; path = Carthage/Checkouts/MASShortcut/MASShortcut.xcodeproj; sourceTree = "<group>"; };
 		5C56CD2C1B6086A4003CFEF5 /* PasteboardHelper.scpt */ = {isa = PBXFileReference; lastKnownFileType = file; path = PasteboardHelper.scpt; sourceTree = "<group>"; };
 		5C739DF01B5F6A5D001EF259 /* Markdown All The Things.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Markdown All The Things.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C739DF41B5F6A5D001EF259 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,9 +88,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C0B4FB91B6899650098DDF3 /* Mustache.framework in Frameworks */,
 				5C1FA3231B67CE57001CC4AD /* MASPreferences.framework in Frameworks */,
 				5CB58F0A1B667FCA00A01CC7 /* hoedown.framework in Frameworks */,
-				5C1FA3391B67D481001CC4AD /* MASShortcut.framework in Frameworks */,
+				5C0B4FB71B6899650098DDF3 /* MASShortcut.framework in Frameworks */,
 				5CB58F081B667FCA00A01CC7 /* CocoaMark.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,6 +99,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C0B4FB21B6897230098DDF3 /* Markdown */ = {
+			isa = PBXGroup;
+			children = (
+				5CB58F151B67151C00A01CC7 /* MarkdownRenderer.swift */,
+				5C0B4FBB1B689A280098DDF3 /* StyleManager.swift */,
+			);
+			name = Markdown;
+			sourceTree = "<group>";
+		};
 		5C1FA31C1B67CC28001CC4AD /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,20 +119,11 @@
 			name = Preferences;
 			sourceTree = "<group>";
 		};
-		5C1FA3281B67D450001CC4AD /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5C1FA32E1B67D450001CC4AD /* MASShortcut.framework */,
-				5C1FA3301B67D450001CC4AD /* MASShortcutTests.xctest */,
-				5C1FA3321B67D450001CC4AD /* Demo.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		5C56CDC81B60BFCD003CFEF5 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				5C1FA3271B67D450001CC4AD /* MASShortcut.xcodeproj */,
+				5C0B4FB31B6899520098DDF3 /* MASShortcut.framework */,
+				5C0B4FB41B6899520098DDF3 /* Mustache.framework */,
 				5C1FA3161B67CBDC001CC4AD /* MASPreferences.framework */,
 				5CB58F041B667FBE00A01CC7 /* CocoaMark.framework */,
 				5CB58F051B667FBE00A01CC7 /* hoedown.framework */,
@@ -181,19 +152,19 @@
 		5C739DF21B5F6A5D001EF259 /* Markdown */ = {
 			isa = PBXGroup;
 			children = (
+				5C0B4FB21B6897230098DDF3 /* Markdown */,
 				5CB58F0C1B66831F00A01CC7 /* Resources */,
 				5C739DF51B5F6A5D001EF259 /* AppDelegate.swift */,
 				5C1FA3211B67CDB9001CC4AD /* WindowController.swift */,
 				5CB58F1F1B67179600A01CC7 /* HotkeyManager.swift */,
 				5C739DF71B5F6A5D001EF259 /* ViewController.swift */,
 				5C739E1A1B5FE850001EF259 /* AppManager.swift */,
-				5CB58F151B67151C00A01CC7 /* MarkdownRenderer.swift */,
 				5C739E151B5F6B5A001EF259 /* Bridging-Header.h */,
 				5C56CD2C1B6086A4003CFEF5 /* PasteboardHelper.scpt */,
 				5C739DF91B5F6A5D001EF259 /* Images.xcassets */,
 				5C739DFB1B5F6A5D001EF259 /* Main.storyboard */,
-				5C739DF31B5F6A5D001EF259 /* Supporting Files */,
 				5C1FA31C1B67CC28001CC4AD /* Preferences */,
+				5C739DF31B5F6A5D001EF259 /* Supporting Files */,
 			);
 			path = Markdown;
 			sourceTree = "<group>";
@@ -228,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				5CB58F0D1B66833100A01CC7 /* default-style.css */,
+				5C0B4FBD1B689AAD0098DDF3 /* Template.mustache */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -247,8 +219,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				5C1FA3351B67D469001CC4AD /* PBXTargetDependency */,
-				5C1FA33C1B67D481001CC4AD /* PBXTargetDependency */,
 			);
 			name = Markdown;
 			productName = Markdown;
@@ -286,42 +256,12 @@
 			mainGroup = 5C739DE71B5F6A5D001EF259;
 			productRefGroup = 5C739DF11B5F6A5D001EF259 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 5C1FA3281B67D450001CC4AD /* Products */;
-					ProjectRef = 5C1FA3271B67D450001CC4AD /* MASShortcut.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				5C739DEF1B5F6A5D001EF259 /* Markdown */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		5C1FA32E1B67D450001CC4AD /* MASShortcut.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = MASShortcut.framework;
-			remoteRef = 5C1FA32D1B67D450001CC4AD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5C1FA3301B67D450001CC4AD /* MASShortcutTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = MASShortcutTests.xctest;
-			remoteRef = 5C1FA32F1B67D450001CC4AD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5C1FA3321B67D450001CC4AD /* Demo.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Demo.app;
-			remoteRef = 5C1FA3311B67D450001CC4AD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5C739DEE1B5F6A5D001EF259 /* Resources */ = {
@@ -330,6 +270,7 @@
 			files = (
 				5C56CD2D1B6086A8003CFEF5 /* PasteboardHelper.scpt in Resources */,
 				5C739DFA1B5F6A5D001EF259 /* Images.xcassets in Resources */,
+				5C0B4FBE1B689AAD0098DDF3 /* Template.mustache in Resources */,
 				5C739DFD1B5F6A5D001EF259 /* Main.storyboard in Resources */,
 				5C1FA31E1B67CC3F001CC4AD /* Preferences.storyboard in Resources */,
 				5CB58F0E1B66833100A01CC7 /* default-style.css in Resources */,
@@ -350,25 +291,13 @@
 				5C739DF61B5F6A5D001EF259 /* AppDelegate.swift in Sources */,
 				5C1FA3221B67CDB9001CC4AD /* WindowController.swift in Sources */,
 				5C8446CF1B686701002FE2C3 /* StylePreferencesViewController.swift in Sources */,
+				5C0B4FBC1B689A280098DDF3 /* StyleManager.swift in Sources */,
 				5C739E1B1B5FE850001EF259 /* AppManager.swift in Sources */,
 				5C1FA31B1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		5C1FA3351B67D469001CC4AD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MASShortcut;
-			targetProxy = 5C1FA3341B67D469001CC4AD /* PBXContainerItemProxy */;
-		};
-		5C1FA33C1B67D481001CC4AD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MASShortcut;
-			targetProxy = 5C1FA33B1B67D481001CC4AD /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5C739DFB1B5F6A5D001EF259 /* Main.storyboard */ = {

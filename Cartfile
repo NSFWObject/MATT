@@ -1,2 +1,3 @@
 github "shpakovski/MASShortcut" "master"
 github "zats/MASPreferences" "master"
+github "groue/GRMustache.swift" == 0.9.3
