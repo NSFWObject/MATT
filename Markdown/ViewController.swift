@@ -45,7 +45,15 @@ class ViewController: NSViewController {
                 } else {
                     // prompt to install and retry
                     scriptManager.promptScriptInstallation(self.view.window!) { shouldInstall in
-                        
+                        switch shouldInstall {
+                        case .Cancel:
+                            // no-op
+                            break
+                        case .Install:
+                            break
+                        case .ShowScript:
+                            break
+                        }
                     }
                 }
 
