@@ -10,6 +10,8 @@ import AppKit
 import Carbon
 import ApplicationServices
 
+let AppName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as! String
+
 class AppManager {
     static let sharedInstance = AppManager()
     
