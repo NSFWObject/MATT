@@ -9,11 +9,15 @@
 import AppKit
 
 public struct ScriptManager {
-    private let ScriptFilename = "PasteboardHelper.scpt"
+    private static let ScriptFilename: String = "PasteboardHelper.scpt"
+    
+    private func originalScriptURL() -> NSURL {
+        return NSBundle.mainBundle().URLForResource(ScriptManager.ScriptFilename.stringByDeletingPathExtension, withExtension: ScriptManager.ScriptFilename.pathExtension)!
+    }
     
     private func destinationScriptURL() -> NSURL? {
         if let appScriptURL = NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.ApplicationScriptsDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: true, error: nil) {
-            return appScriptURL.URLByAppendingPathComponent(ScriptFilename)
+            return appScriptURL.URLByAppendingPathComponent(ScriptManager.ScriptFilename)
         }
         return nil
     }
@@ -28,6 +32,36 @@ public struct ScriptManager {
     
     public enum PromptResult {
         case Cancel, Install, ShowScript
+    }
+    
+    public func installScript(completion: Bool -> Void) {
+        if let scriptsFolderURL = NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.ApplicationScriptsDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: true, error: nil) {
+            let openPanel = NSOpenPanel()
+            openPanel.directoryURL = scriptsFolderURL
+            openPanel.canChooseDirectories = true
+            openPanel.canChooseFiles = false
+            openPanel.prompt = "Install script"
+            openPanel.message = "Please select the \(scriptsFolderURL.relativePath!) folder"
+            openPanel.beginWithCompletionHandler{ status in
+                if status != NSFileHandlingPanelOKButton {
+                    completion(false)
+                    return
+                }
+                if let selectedURL = openPanel.URL {
+                    if selectedURL == scriptsFolderURL {
+                        let destinationURL = selectedURL.URLByAppendingPathComponent(ScriptManager.ScriptFilename)
+                        let sourceURL = self.originalScriptURL()
+                        if NSFileManager.defaultManager().copyItemAtURL(sourceURL, toURL: destinationURL, error: nil) {
+                            completion(true)
+                            return
+                        }
+                    }
+                }
+                completion(false)
+            }
+        } else {
+            completion(false)
+        }
     }
     
     /**
