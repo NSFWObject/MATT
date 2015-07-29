@@ -24,7 +24,8 @@ public class HotkeyManager {
         registerHotkey(shortcut)
     }
     
-    private func registerHotkey(shortcut: MASShortcut) {
+    public func registerHotkey(shortcut: MASShortcut) {
+        self.shortcut = shortcut
         manager.unregisterAllShortcuts()
         manager.registerShortcut(shortcut) {
             if let handler = self.handler {

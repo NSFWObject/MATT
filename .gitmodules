@@ -1,0 +1,6 @@
+[submodule "Carthage/Checkouts/MASPreferences"]
+	path = Carthage/Checkouts/MASPreferences
+	url = https://github.com/zats/MASPreferences.git
+[submodule "Carthage/Checkouts/MASShortcut"]
+	path = Carthage/Checkouts/MASShortcut
+	url = https://github.com/shpakovski/MASShortcut.git
