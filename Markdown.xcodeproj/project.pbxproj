@@ -26,6 +26,7 @@
 		5C6172FE1B69E240009BF6B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C6172FC1B69E240009BF6B6 /* Main.storyboard */; };
 		5C6173161B69E404009BF6B6 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6173151B69E404009BF6B6 /* ServiceManagement.framework */; };
 		5C6173171B69E458009BF6B6 /* MATT Helper.app in Copy Helper.app */ = {isa = PBXBuildFile; fileRef = 5C6172F21B69E240009BF6B6 /* MATT Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5C61731C1B69EB1F009BF6B6 /* LoginItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C61731B1B69EB1F009BF6B6 /* LoginItemManager.swift */; };
 		5C739DF61B5F6A5D001EF259 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C739DF51B5F6A5D001EF259 /* AppDelegate.swift */; };
 		5C739DF81B5F6A5D001EF259 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C739DF71B5F6A5D001EF259 /* ViewController.swift */; };
 		5C739DFA1B5F6A5D001EF259 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C739DF91B5F6A5D001EF259 /* Images.xcassets */; };
@@ -99,6 +100,7 @@
 		5C6172FA1B69E240009BF6B6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5C6172FD1B69E240009BF6B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5C6173151B69E404009BF6B6 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		5C61731B1B69EB1F009BF6B6 /* LoginItemManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItemManager.swift; sourceTree = "<group>"; };
 		5C739DF01B5F6A5D001EF259 /* MATT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MATT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C739DF41B5F6A5D001EF259 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C739DF51B5F6A5D001EF259 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -201,6 +203,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		5C61731A1B69EB14009BF6B6 /* Login Item */ = {
+			isa = PBXGroup;
+			children = (
+				5C61731B1B69EB1F009BF6B6 /* LoginItemManager.swift */,
+			);
+			name = "Login Item";
+			sourceTree = "<group>";
+		};
 		5C739DE71B5F6A5D001EF259 = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +233,7 @@
 		5C739DF21B5F6A5D001EF259 /* Markdown */ = {
 			isa = PBXGroup;
 			children = (
+				5C61731A1B69EB14009BF6B6 /* Login Item */,
 				5C4D470C1B691DF3004138D8 /* Scripting */,
 				5C739DF51B5F6A5D001EF259 /* AppDelegate.swift */,
 				5C1FA3211B67CDB9001CC4AD /* WindowController.swift */,
@@ -389,6 +400,7 @@
 				5C8446CF1B686701002FE2C3 /* StylePreferencesViewController.swift in Sources */,
 				5C0B4FBC1B689A280098DDF3 /* StyleManager.swift in Sources */,
 				5C739E1B1B5FE850001EF259 /* AppManager.swift in Sources */,
+				5C61731C1B69EB1F009BF6B6 /* LoginItemManager.swift in Sources */,
 				5C4D470E1B691E02004138D8 /* ScriptManager.swift in Sources */,
 				5C06F5441B69B86000FF1A37 /* ScriptPreferencesViewController.swift in Sources */,
 				5C1FA31B1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift in Sources */,
@@ -583,6 +595,7 @@
 				5C61730C1B69E240009BF6B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5C739DEB1B5F6A5D001EF259 /* Build configuration list for PBXProject "Markdown" */ = {
 			isa = XCConfigurationList;
