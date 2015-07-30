@@ -20,7 +20,6 @@ struct PreferenceManager {
                 general.hotkeyManager = hotkeyManager
                 let preferencesWindow = MASPreferencesWindowController(viewControllers: [general, styles])
                 preferencesWindow.showWindow(nil)
-                preferencesWindow.selectControllerWithIdentifier("style")
                 windowController = preferencesWindow
         }
         
