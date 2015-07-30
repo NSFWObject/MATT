@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C06F5441B69B86000FF1A37 /* ScriptPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06F5431B69B86000FF1A37 /* ScriptPreferencesViewController.swift */; };
+		5C06F5461B69C06400FF1A37 /* ShortcutPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06F5451B69C06400FF1A37 /* ShortcutPreferencesViewController.swift */; };
 		5C0B4FB71B6899650098DDF3 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0B4FB31B6899520098DDF3 /* MASShortcut.framework */; };
 		5C0B4FB81B6899650098DDF3 /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0B4FB31B6899520098DDF3 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C0B4FB91B6899650098DDF3 /* Mustache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0B4FB41B6899520098DDF3 /* Mustache.framework */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		5C06F5431B69B86000FF1A37 /* ScriptPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptPreferencesViewController.swift; sourceTree = "<group>"; };
+		5C06F5451B69C06400FF1A37 /* ShortcutPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutPreferencesViewController.swift; sourceTree = "<group>"; };
 		5C0B4FB31B6899520098DDF3 /* MASShortcut.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MASShortcut.framework; path = Carthage/Build/Mac/MASShortcut.framework; sourceTree = "<group>"; };
 		5C0B4FB41B6899520098DDF3 /* Mustache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mustache.framework; path = Carthage/Build/Mac/Mustache.framework; sourceTree = "<group>"; };
 		5C0B4FBB1B689A280098DDF3 /* StyleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleManager.swift; sourceTree = "<group>"; };
@@ -102,6 +104,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C06F5471B69C19200FF1A37 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				5C1FA31A1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift */,
+				5C06F5431B69B86000FF1A37 /* ScriptPreferencesViewController.swift */,
+				5C06F5451B69C06400FF1A37 /* ShortcutPreferencesViewController.swift */,
+			);
+			name = General;
+			sourceTree = "<group>";
+		};
 		5C0B4FB21B6897230098DDF3 /* Markdown */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,10 +127,9 @@
 			isa = PBXGroup;
 			children = (
 				5C1FA31F1B67CC9F001CC4AD /* PreferencesManager.swift */,
-				5C1FA31A1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift */,
+				5C06F5471B69C19200FF1A37 /* General */,
 				5C8446CE1B686701002FE2C3 /* StylePreferencesViewController.swift */,
 				5C1FA31D1B67CC3F001CC4AD /* Preferences.storyboard */,
-				5C06F5431B69B86000FF1A37 /* ScriptPreferencesViewController.swift */,
 			);
 			name = Preferences;
 			sourceTree = "<group>";
@@ -305,6 +316,7 @@
 				5C8446CF1B686701002FE2C3 /* StylePreferencesViewController.swift in Sources */,
 				5C0B4FBC1B689A280098DDF3 /* StyleManager.swift in Sources */,
 				5C739E1B1B5FE850001EF259 /* AppManager.swift in Sources */,
+				5C06F5461B69C06400FF1A37 /* ShortcutPreferencesViewController.swift in Sources */,
 				5C4D470E1B691E02004138D8 /* ScriptManager.swift in Sources */,
 				5C06F5441B69B86000FF1A37 /* ScriptPreferencesViewController.swift in Sources */,
 				5C1FA31B1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift in Sources */,
