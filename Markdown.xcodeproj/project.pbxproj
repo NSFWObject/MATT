@@ -22,7 +22,6 @@
 		5C1FA3241B67CE57001CC4AD /* MASPreferences.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1FA3161B67CBDC001CC4AD /* MASPreferences.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C4D470E1B691E02004138D8 /* ScriptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4D470D1B691E02004138D8 /* ScriptManager.swift */; };
 		5C6172F71B69E240009BF6B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6172F61B69E240009BF6B6 /* AppDelegate.swift */; };
-		5C6172F91B69E240009BF6B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6172F81B69E240009BF6B6 /* ViewController.swift */; };
 		5C6172FB1B69E240009BF6B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C6172FA1B69E240009BF6B6 /* Images.xcassets */; };
 		5C6172FE1B69E240009BF6B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C6172FC1B69E240009BF6B6 /* Main.storyboard */; };
 		5C6173161B69E404009BF6B6 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6173151B69E404009BF6B6 /* ServiceManagement.framework */; };
@@ -97,7 +96,6 @@
 		5C6172F21B69E240009BF6B6 /* MATT Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MATT Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C6172F51B69E240009BF6B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C6172F61B69E240009BF6B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5C6172F81B69E240009BF6B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5C6172FA1B69E240009BF6B6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5C6172FD1B69E240009BF6B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5C6173151B69E404009BF6B6 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
@@ -188,7 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				5C6172F61B69E240009BF6B6 /* AppDelegate.swift */,
-				5C6172F81B69E240009BF6B6 /* ViewController.swift */,
 				5C6172FA1B69E240009BF6B6 /* Images.xcassets */,
 				5C6172FC1B69E240009BF6B6 /* Main.storyboard */,
 				5C6172F41B69E240009BF6B6 /* Supporting Files */,
@@ -375,7 +372,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C6172F91B69E240009BF6B6 /* ViewController.swift in Sources */,
 				5C6172F71B69E240009BF6B6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
