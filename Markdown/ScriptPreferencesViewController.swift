@@ -31,7 +31,10 @@ class ScriptPreferencesViewController: NSViewController {
     
     private func updateUI() {
         let isScriptInstalled = scriptManager.isScriptInstalled()
-        scriptStatusLabel.stringValue = isScriptInstalled ? "Script is installed, you can install it again if you want to" : "Script is not installed or not accessible. Click the button above to fix it."
-        installScriptButton.title = isScriptInstalled ? "Install Again" : "Install"
+        scriptStatusLabel.stringValue = isScriptInstalled ?
+            "Script is installed and accessible." :
+            "Script is not installed or not accessible. Click the button above to fix it."
+        installScriptButton.title = isScriptInstalled ? "Installed" : "Install"
+        installScriptButton.enabled = !isScriptInstalled
     }
 }
