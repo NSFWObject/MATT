@@ -10,15 +10,14 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-
+        let components = NSBundle.mainBundle().bundlePath.pathComponents
+        if components.count > 4 {
+            let parentComponents = Array(components[0..<components.count-4])
+            let parentPath = String.pathWithComponents(parentComponents)
+            NSWorkspace.sharedWorkspace().launchApplication(parentPath)
+            NSApplication.sharedApplication().terminate(nil)
+        }
     }
-
-    func applicationWillTerminate(aNotification: NSNotification) {
-        // Insert code here to tear down your application
-    }
-
-
 }
 
