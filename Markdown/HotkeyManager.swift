@@ -36,17 +36,18 @@ public class HotkeyManager {
     
     public func save() {
         if let shortcut = shortcut {
-            let archiver = NSKeyedArchiver()
+            let data = NSMutableData()
+            let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
             archiver.encodeObject(shortcut)
             archiver.finishEncoding()
-            NSUserDefaults.standardUserDefaults().setObject(archiver, forKey: ShortcutKey)
+            NSUserDefaults.standardUserDefaults().setObject(data, forKey: ShortcutKey)
             NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
     
     public func load() {
         if let shortcutData = NSUserDefaults.standardUserDefaults().objectForKey(ShortcutKey) as? NSData {
-            let unarchiver = NSKeyedUnarchiver()
+            let unarchiver = NSKeyedUnarchiver(forReadingWithData: shortcutData)
             if let shortcut = unarchiver.decodeObject() as? MASShortcut {
                 registerHotkey(shortcut)
             }
