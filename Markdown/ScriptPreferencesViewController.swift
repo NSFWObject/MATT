@@ -13,7 +13,6 @@ class ScriptPreferencesViewController: NSViewController {
     
     private let scriptManager = ScriptManager()
     
-    @IBOutlet weak var scriptStatusLabel: NSTextField!
     @IBOutlet weak var installScriptButton: NSButton!
     
     override func viewDidLoad() {
@@ -31,10 +30,6 @@ class ScriptPreferencesViewController: NSViewController {
     
     private func updateUI() {
         let isScriptInstalled = scriptManager.isScriptInstalled()
-        scriptStatusLabel.stringValue = isScriptInstalled ?
-            "Script is installed and accessible." :
-            "Script is not installed or not accessible. Click the button above to fix it."
         installScriptButton.title = isScriptInstalled ? "Installed" : "Install"
-        installScriptButton.enabled = !isScriptInstalled
     }
 }
