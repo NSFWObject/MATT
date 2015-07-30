@@ -25,6 +25,8 @@
 		5C6172F91B69E240009BF6B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6172F81B69E240009BF6B6 /* ViewController.swift */; };
 		5C6172FB1B69E240009BF6B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C6172FA1B69E240009BF6B6 /* Images.xcassets */; };
 		5C6172FE1B69E240009BF6B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C6172FC1B69E240009BF6B6 /* Main.storyboard */; };
+		5C6173161B69E404009BF6B6 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6173151B69E404009BF6B6 /* ServiceManagement.framework */; };
+		5C6173171B69E458009BF6B6 /* MATT Helper.app in Copy Helper.app */ = {isa = PBXBuildFile; fileRef = 5C6172F21B69E240009BF6B6 /* MATT Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5C739DF61B5F6A5D001EF259 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C739DF51B5F6A5D001EF259 /* AppDelegate.swift */; };
 		5C739DF81B5F6A5D001EF259 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C739DF71B5F6A5D001EF259 /* ViewController.swift */; };
 		5C739DFA1B5F6A5D001EF259 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C739DF91B5F6A5D001EF259 /* Images.xcassets */; };
@@ -40,6 +42,16 @@
 		5CB58F201B67179600A01CC7 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB58F1F1B67179600A01CC7 /* HotkeyManager.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5C6173121B69E2FB009BF6B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C739DE81B5F6A5D001EF259 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C6172F11B69E240009BF6B6;
+			remoteInfo = "MATT Helper";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		5C56CE071B61400A003CFEF5 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -54,6 +66,17 @@
 				5CB58F091B667FCA00A01CC7 /* CocoaMark.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C6173111B69E2D9009BF6B6 /* Copy Helper.app */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				5C6173171B69E458009BF6B6 /* MATT Helper.app in Copy Helper.app */,
+			);
+			name = "Copy Helper.app";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -77,7 +100,8 @@
 		5C6172F81B69E240009BF6B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5C6172FA1B69E240009BF6B6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5C6172FD1B69E240009BF6B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5C739DF01B5F6A5D001EF259 /* Markdown All The Things.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Markdown All The Things.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C6173151B69E404009BF6B6 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		5C739DF01B5F6A5D001EF259 /* MATT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MATT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C739DF41B5F6A5D001EF259 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C739DF51B5F6A5D001EF259 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C739DF71B5F6A5D001EF259 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C6173161B69E404009BF6B6 /* ServiceManagement.framework in Frameworks */,
 				5C0B4FB91B6899650098DDF3 /* Mustache.framework in Frameworks */,
 				5C1FA3231B67CE57001CC4AD /* MASPreferences.framework in Frameworks */,
 				5CB58F0A1B667FCA00A01CC7 /* hoedown.framework in Frameworks */,
@@ -149,6 +174,7 @@
 		5C56CDC81B60BFCD003CFEF5 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				5C6173151B69E404009BF6B6 /* ServiceManagement.framework */,
 				5C0B4FB31B6899520098DDF3 /* MASShortcut.framework */,
 				5C0B4FB41B6899520098DDF3 /* Mustache.framework */,
 				5C1FA3161B67CBDC001CC4AD /* MASPreferences.framework */,
@@ -191,7 +217,7 @@
 		5C739DF11B5F6A5D001EF259 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5C739DF01B5F6A5D001EF259 /* Markdown All The Things.app */,
+				5C739DF01B5F6A5D001EF259 /* MATT.app */,
 				5C6172F21B69E240009BF6B6 /* MATT Helper.app */,
 			);
 			name = Products;
@@ -256,22 +282,24 @@
 			productReference = 5C6172F21B69E240009BF6B6 /* MATT Helper.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5C739DEF1B5F6A5D001EF259 /* Markdown */ = {
+		5C739DEF1B5F6A5D001EF259 /* MATT */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C739E0C1B5F6A5D001EF259 /* Build configuration list for PBXNativeTarget "Markdown" */;
+			buildConfigurationList = 5C739E0C1B5F6A5D001EF259 /* Build configuration list for PBXNativeTarget "MATT" */;
 			buildPhases = (
 				5C739DEC1B5F6A5D001EF259 /* Sources */,
 				5C739DED1B5F6A5D001EF259 /* Frameworks */,
 				5C739DEE1B5F6A5D001EF259 /* Resources */,
 				5C56CE071B61400A003CFEF5 /* Embed Frameworks */,
+				5C6173111B69E2D9009BF6B6 /* Copy Helper.app */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5C6173131B69E2FB009BF6B6 /* PBXTargetDependency */,
 			);
-			name = Markdown;
+			name = MATT;
 			productName = Markdown;
-			productReference = 5C739DF01B5F6A5D001EF259 /* Markdown All The Things.app */;
+			productReference = 5C739DF01B5F6A5D001EF259 /* MATT.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -286,9 +314,11 @@
 				TargetAttributes = {
 					5C6172F11B69E240009BF6B6 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 5KE88HWMKJ;
 					};
 					5C739DEF1B5F6A5D001EF259 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 5KE88HWMKJ;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -310,7 +340,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5C739DEF1B5F6A5D001EF259 /* Markdown */,
+				5C739DEF1B5F6A5D001EF259 /* MATT */,
 				5C6172F11B69E240009BF6B6 /* MATT Helper */,
 			);
 		};
@@ -371,6 +401,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5C6173131B69E2FB009BF6B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C6172F11B69E240009BF6B6 /* MATT Helper */;
+			targetProxy = 5C6173121B69E2FB009BF6B6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		5C6172FC1B69E240009BF6B6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -395,6 +433,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -402,7 +441,6 @@
 				);
 				INFOPLIST_FILE = "MATT Helper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -411,10 +449,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "MATT Helper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -504,6 +542,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Markdown/Markdown All The Things.entitlements";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -512,8 +551,8 @@
 				);
 				INFOPLIST_FILE = Markdown/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_NAME = "Markdown All The Things";
-				SWIFT_OBJC_BRIDGING_HEADER = "${TARGET_NAME}/Bridging-Header.h";
+				PRODUCT_NAME = MATT;
+				SWIFT_OBJC_BRIDGING_HEADER = "Markdown/Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -522,6 +561,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Markdown/Markdown All The Things.entitlements";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -530,8 +570,8 @@
 				);
 				INFOPLIST_FILE = Markdown/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_NAME = "Markdown All The Things";
-				SWIFT_OBJC_BRIDGING_HEADER = "${TARGET_NAME}/Bridging-Header.h";
+				PRODUCT_NAME = MATT;
+				SWIFT_OBJC_BRIDGING_HEADER = "Markdown/Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -555,7 +595,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C739E0C1B5F6A5D001EF259 /* Build configuration list for PBXNativeTarget "Markdown" */ = {
+		5C739E0C1B5F6A5D001EF259 /* Build configuration list for PBXNativeTarget "MATT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C739E0D1B5F6A5D001EF259 /* Debug */,
