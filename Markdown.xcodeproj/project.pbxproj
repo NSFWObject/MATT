@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C06F5441B69B86000FF1A37 /* ScriptPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06F5431B69B86000FF1A37 /* ScriptPreferencesViewController.swift */; };
+		5C06F5461B69C06400FF1A37 /* ShortcutPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06F5451B69C06400FF1A37 /* ShortcutPreferencesViewController.swift */; };
 		5C0B4FB71B6899650098DDF3 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0B4FB31B6899520098DDF3 /* MASShortcut.framework */; };
 		5C0B4FB81B6899650098DDF3 /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0B4FB31B6899520098DDF3 /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C0B4FB91B6899650098DDF3 /* Mustache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0B4FB41B6899520098DDF3 /* Mustache.framework */; };
@@ -27,6 +28,7 @@
 		5C6173161B69E404009BF6B6 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6173151B69E404009BF6B6 /* ServiceManagement.framework */; };
 		5C6173171B69E458009BF6B6 /* MATT Helper.app in Copy Helper.app */ = {isa = PBXBuildFile; fileRef = 5C6172F21B69E240009BF6B6 /* MATT Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5C61731C1B69EB1F009BF6B6 /* LoginItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C61731B1B69EB1F009BF6B6 /* LoginItemManager.swift */; };
+		5C61731E1B69F242009BF6B6 /* PasteboardHelper.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 5C4D470F1B692126004138D8 /* PasteboardHelper.scpt */; };
 		5C739DF61B5F6A5D001EF259 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C739DF51B5F6A5D001EF259 /* AppDelegate.swift */; };
 		5C739DF81B5F6A5D001EF259 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C739DF71B5F6A5D001EF259 /* ViewController.swift */; };
 		5C739DFA1B5F6A5D001EF259 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C739DF91B5F6A5D001EF259 /* Images.xcassets */; };
@@ -83,6 +85,7 @@
 
 /* Begin PBXFileReference section */
 		5C06F5431B69B86000FF1A37 /* ScriptPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptPreferencesViewController.swift; sourceTree = "<group>"; };
+		5C06F5451B69C06400FF1A37 /* ShortcutPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutPreferencesViewController.swift; sourceTree = "<group>"; };
 		5C0B4FB31B6899520098DDF3 /* MASShortcut.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MASShortcut.framework; path = Carthage/Build/Mac/MASShortcut.framework; sourceTree = "<group>"; };
 		5C0B4FB41B6899520098DDF3 /* Mustache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mustache.framework; path = Carthage/Build/Mac/Mustache.framework; sourceTree = "<group>"; };
 		5C0B4FBB1B689A280098DDF3 /* StyleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleManager.swift; sourceTree = "<group>"; };
@@ -143,6 +146,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C06F5471B69C19200FF1A37 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				5C1FA31A1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift */,
+				5C06F5431B69B86000FF1A37 /* ScriptPreferencesViewController.swift */,
+				5C06F5451B69C06400FF1A37 /* ShortcutPreferencesViewController.swift */,
+			);
+			name = General;
+			sourceTree = "<group>";
+		};
 		5C0B4FB21B6897230098DDF3 /* Markdown */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,10 +169,9 @@
 			isa = PBXGroup;
 			children = (
 				5C1FA31F1B67CC9F001CC4AD /* PreferencesManager.swift */,
-				5C1FA31A1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift */,
+				5C06F5471B69C19200FF1A37 /* General */,
 				5C8446CE1B686701002FE2C3 /* StylePreferencesViewController.swift */,
 				5C1FA31D1B67CC3F001CC4AD /* Preferences.storyboard */,
-				5C06F5431B69B86000FF1A37 /* ScriptPreferencesViewController.swift */,
 			);
 			name = Preferences;
 			sourceTree = "<group>";
@@ -216,9 +228,9 @@
 		5C739DE71B5F6A5D001EF259 = {
 			isa = PBXGroup;
 			children = (
-				5C739DF21B5F6A5D001EF259 /* Markdown */,
-				5C56CDC81B60BFCD003CFEF5 /* Vendor */,
+				5C739DF21B5F6A5D001EF259 /* MATT */,
 				5C6172F31B69E240009BF6B6 /* MATT Helper */,
+				5C56CDC81B60BFCD003CFEF5 /* Vendor */,
 				5C739DF11B5F6A5D001EF259 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -232,7 +244,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5C739DF21B5F6A5D001EF259 /* Markdown */ = {
+		5C739DF21B5F6A5D001EF259 /* MATT */ = {
 			isa = PBXGroup;
 			children = (
 				5C61731A1B69EB14009BF6B6 /* Login Item */,
@@ -249,6 +261,7 @@
 				5C1FA31C1B67CC28001CC4AD /* Preferences */,
 				5C739DF31B5F6A5D001EF259 /* Supporting Files */,
 			);
+			name = MATT;
 			path = Markdown;
 			sourceTree = "<group>";
 		};
@@ -375,6 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C61731E1B69F242009BF6B6 /* PasteboardHelper.scpt in Resources */,
 				5C739DFA1B5F6A5D001EF259 /* Images.xcassets in Resources */,
 				5C0B4FBE1B689AAD0098DDF3 /* Template.mustache in Resources */,
 				5C739DFD1B5F6A5D001EF259 /* Main.storyboard in Resources */,
@@ -407,6 +421,7 @@
 				5C8446CF1B686701002FE2C3 /* StylePreferencesViewController.swift in Sources */,
 				5C0B4FBC1B689A280098DDF3 /* StyleManager.swift in Sources */,
 				5C739E1B1B5FE850001EF259 /* AppManager.swift in Sources */,
+				5C06F5461B69C06400FF1A37 /* ShortcutPreferencesViewController.swift in Sources */,
 				5C61731C1B69EB1F009BF6B6 /* LoginItemManager.swift in Sources */,
 				5C4D470E1B691E02004138D8 /* ScriptManager.swift in Sources */,
 				5C06F5441B69B86000FF1A37 /* ScriptPreferencesViewController.swift in Sources */,
