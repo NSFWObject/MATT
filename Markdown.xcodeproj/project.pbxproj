@@ -42,6 +42,7 @@
 		5CB58F0E1B66833100A01CC7 /* default-style.css in Resources */ = {isa = PBXBuildFile; fileRef = 5CB58F0D1B66833100A01CC7 /* default-style.css */; };
 		5CB58F161B67151C00A01CC7 /* MarkdownRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB58F151B67151C00A01CC7 /* MarkdownRenderer.swift */; };
 		5CB58F201B67179600A01CC7 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB58F1F1B67179600A01CC7 /* HotkeyManager.swift */; };
+		5CFB2A591B6A7AD40006D951 /* LoginItemPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		5CB58F151B67151C00A01CC7 /* MarkdownRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownRenderer.swift; sourceTree = "<group>"; };
 		5CB58F1F1B67179600A01CC7 /* HotkeyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
 		5CF32B601B62936A0020ABE1 /* Markdown All The Things.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Markdown All The Things.entitlements"; sourceTree = "<group>"; };
+		5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItemPreferencesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				5C1FA31A1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift */,
 				5C06F5431B69B86000FF1A37 /* ScriptPreferencesViewController.swift */,
 				5C06F5451B69C06400FF1A37 /* ShortcutPreferencesViewController.swift */,
+				5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesViewController.swift */,
 			);
 			name = General;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				5C4D470E1B691E02004138D8 /* ScriptManager.swift in Sources */,
 				5C06F5441B69B86000FF1A37 /* ScriptPreferencesViewController.swift in Sources */,
 				5C1FA31B1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift in Sources */,
+				5CFB2A591B6A7AD40006D951 /* LoginItemPreferencesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,7 +468,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MATT Helper/MATT Helper.entitlements";
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -482,7 +485,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MATT Helper/MATT Helper.entitlements";
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "MATT Helper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -576,7 +578,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Markdown/Markdown All The Things.entitlements";
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -595,7 +596,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Markdown/Markdown All The Things.entitlements";
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

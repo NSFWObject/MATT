@@ -24,8 +24,8 @@ public struct LoginItemManager {
                 }
             }
         }
-
         return false
+    }
     
     public func setLoginItemsEnabled(enabled: Bool) -> Bool {
         return SMLoginItemSetEnabled(HelperBundleId as CFStringRef, Boolean(booleanLiteral: enabled)).boolValue
