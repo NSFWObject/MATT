@@ -28,6 +28,7 @@
 		5C6173161B69E404009BF6B6 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6173151B69E404009BF6B6 /* ServiceManagement.framework */; };
 		5C6173171B69E458009BF6B6 /* MATT Helper.app in Copy Helper.app */ = {isa = PBXBuildFile; fileRef = 5C6172F21B69E240009BF6B6 /* MATT Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5C61731C1B69EB1F009BF6B6 /* LoginItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C61731B1B69EB1F009BF6B6 /* LoginItemManager.swift */; };
+		5C61731E1B69F242009BF6B6 /* PasteboardHelper.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 5C4D470F1B692126004138D8 /* PasteboardHelper.scpt */; };
 		5C739DF61B5F6A5D001EF259 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C739DF51B5F6A5D001EF259 /* AppDelegate.swift */; };
 		5C739DF81B5F6A5D001EF259 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C739DF71B5F6A5D001EF259 /* ViewController.swift */; };
 		5C739DFA1B5F6A5D001EF259 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C739DF91B5F6A5D001EF259 /* Images.xcassets */; };
@@ -227,9 +228,9 @@
 		5C739DE71B5F6A5D001EF259 = {
 			isa = PBXGroup;
 			children = (
-				5C739DF21B5F6A5D001EF259 /* Markdown */,
-				5C56CDC81B60BFCD003CFEF5 /* Vendor */,
+				5C739DF21B5F6A5D001EF259 /* MATT */,
 				5C6172F31B69E240009BF6B6 /* MATT Helper */,
+				5C56CDC81B60BFCD003CFEF5 /* Vendor */,
 				5C739DF11B5F6A5D001EF259 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -243,7 +244,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5C739DF21B5F6A5D001EF259 /* Markdown */ = {
+		5C739DF21B5F6A5D001EF259 /* MATT */ = {
 			isa = PBXGroup;
 			children = (
 				5C61731A1B69EB14009BF6B6 /* Login Item */,
@@ -260,6 +261,7 @@
 				5C1FA31C1B67CC28001CC4AD /* Preferences */,
 				5C739DF31B5F6A5D001EF259 /* Supporting Files */,
 			);
+			name = MATT;
 			path = Markdown;
 			sourceTree = "<group>";
 		};
@@ -386,6 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C61731E1B69F242009BF6B6 /* PasteboardHelper.scpt in Resources */,
 				5C739DFA1B5F6A5D001EF259 /* Images.xcassets in Resources */,
 				5C0B4FBE1B689AAD0098DDF3 /* Template.mustache in Resources */,
 				5C739DFD1B5F6A5D001EF259 /* Main.storyboard in Resources */,
