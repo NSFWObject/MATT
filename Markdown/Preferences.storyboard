@@ -8,13 +8,13 @@
         <!--General Preferences View Controller-->
         <scene sceneID="GFR-cS-xnZ">
             <objects>
-                <viewController storyboardIdentifier="General" id="PtQ-cu-yH5" customClass="GeneralPreferencesViewController" customModule="Markdown_All_The_Things" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="General" id="PtQ-cu-yH5" customClass="GeneralPreferencesViewController" customModule="MATT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="LIN-3v-tzN">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="121"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="200"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="brS-Um-Dpb">
-                                <rect key="frame" x="0.0" y="61" width="450" height="60"/>
+                                <rect key="frame" x="0.0" y="140" width="450" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Tof-EP-lyE"/>
                                 </constraints>
@@ -24,14 +24,14 @@
                                 </connections>
                             </containerView>
                             <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="fuX-Z8-AHf">
-                                <rect key="frame" x="20" y="58" width="410" height="5"/>
+                                <rect key="frame" x="20" y="137" width="410" height="5"/>
                                 <animations/>
                                 <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <font key="titleFont" metaFont="system"/>
                             </box>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="5yg-UZ-VZq">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="60"/>
+                                <rect key="frame" x="0.0" y="79" width="450" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="PzQ-61-mGK"/>
                                 </constraints>
@@ -40,16 +40,38 @@
                                     <segue destination="xlT-wF-TTA" kind="embed" id="OzH-sL-xjd"/>
                                 </connections>
                             </containerView>
+                            <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="AgE-2b-Ilk">
+                                <rect key="frame" x="20" y="77" width="410" height="5"/>
+                                <animations/>
+                                <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <font key="titleFont" metaFont="system"/>
+                            </box>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="PIg-cr-MM2">
+                                <rect key="frame" x="0.0" y="25" width="450" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="aI8-FJ-px4"/>
+                                </constraints>
+                                <animations/>
+                                <connections>
+                                    <segue destination="4nZ-ca-Mrk" kind="embed" id="bFu-fV-An5"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="AgE-2b-Ilk" secondAttribute="trailing" constant="20" id="6fw-9X-uWC"/>
                             <constraint firstItem="brS-Um-Dpb" firstAttribute="leading" secondItem="LIN-3v-tzN" secondAttribute="leading" id="883-wd-x5P"/>
+                            <constraint firstAttribute="trailing" secondItem="PIg-cr-MM2" secondAttribute="trailing" id="Eiy-Wc-j1b"/>
                             <constraint firstItem="brS-Um-Dpb" firstAttribute="top" secondItem="LIN-3v-tzN" secondAttribute="top" id="F7T-YR-JSz"/>
                             <constraint firstItem="fuX-Z8-AHf" firstAttribute="top" secondItem="brS-Um-Dpb" secondAttribute="bottom" id="MaL-fr-y99"/>
                             <constraint firstItem="5yg-UZ-VZq" firstAttribute="top" secondItem="fuX-Z8-AHf" secondAttribute="bottom" id="VUT-Tt-Qvd"/>
+                            <constraint firstItem="AgE-2b-Ilk" firstAttribute="top" secondItem="5yg-UZ-VZq" secondAttribute="bottom" constant="-1" id="W6x-0i-R4H"/>
                             <constraint firstItem="5yg-UZ-VZq" firstAttribute="trailing" secondItem="fuX-Z8-AHf" secondAttribute="trailing" constant="20" id="XxN-UG-sAq"/>
                             <constraint firstItem="5yg-UZ-VZq" firstAttribute="leading" secondItem="LIN-3v-tzN" secondAttribute="leading" id="aol-vu-fnH"/>
+                            <constraint firstItem="PIg-cr-MM2" firstAttribute="top" secondItem="AgE-2b-Ilk" secondAttribute="bottom" id="bES-2S-buq"/>
+                            <constraint firstItem="PIg-cr-MM2" firstAttribute="leading" secondItem="LIN-3v-tzN" secondAttribute="leading" id="bmL-Ld-Wj9"/>
+                            <constraint firstItem="AgE-2b-Ilk" firstAttribute="leading" secondItem="LIN-3v-tzN" secondAttribute="leading" constant="20" id="dxh-Af-mZX"/>
                             <constraint firstItem="fuX-Z8-AHf" firstAttribute="leading" secondItem="5yg-UZ-VZq" secondAttribute="leading" constant="20" id="ipV-eJ-nhU"/>
-                            <constraint firstAttribute="bottom" secondItem="5yg-UZ-VZq" secondAttribute="bottom" id="jDg-Bi-cjm"/>
                             <constraint firstAttribute="trailing" secondItem="brS-Um-Dpb" secondAttribute="trailing" id="k0H-Bl-GNQ"/>
                             <constraint firstAttribute="trailing" secondItem="5yg-UZ-VZq" secondAttribute="trailing" id="ymC-eN-2CE"/>
                         </constraints>
@@ -69,7 +91,7 @@
         <!--Style Preferences View Controller-->
         <scene sceneID="9Da-g5-DHV">
             <objects>
-                <viewController storyboardIdentifier="Styles" id="Xc2-YQ-Wob" customClass="StylePreferencesViewController" customModule="Markdown_All_The_Things" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Styles" id="Xc2-YQ-Wob" customClass="StylePreferencesViewController" customModule="MATT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Bp8-rR-dYm">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -197,7 +219,7 @@
         <!--Script Preferences View Controller-->
         <scene sceneID="P7R-kS-gMK">
             <objects>
-                <viewController id="xlT-wF-TTA" customClass="ScriptPreferencesViewController" customModule="Markdown_All_The_Things" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xlT-wF-TTA" customClass="ScriptPreferencesViewController" customModule="MATT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="LtV-wQ-GEI">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="60"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -246,7 +268,7 @@
         <!--Shortcut Preferences View Controller-->
         <scene sceneID="OCp-1Z-OMu">
             <objects>
-                <viewController id="kjj-W7-xW1" customClass="ShortcutPreferencesViewController" customModule="Markdown_All_The_Things" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kjj-W7-xW1" customClass="ShortcutPreferencesViewController" customModule="MATT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Rs1-ls-FB9">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="57"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -284,6 +306,41 @@
                 <customObject id="w9h-OL-POw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="297" y="98.5"/>
+        </scene>
+        <!--Login Item Preferences View Controller-->
+        <scene sceneID="Oja-A3-UQD">
+            <objects>
+                <viewController id="4nZ-ca-Mrk" customClass="LoginItemPreferencesViewController" customModule="MATT" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="GgE-bO-ylM">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="FEP-i1-4aI">
+                                <rect key="frame" x="203" y="18" width="188" height="18"/>
+                                <animations/>
+                                <buttonCell key="cell" type="check" title="Open automatically at login" bezelStyle="regularSquare" imagePosition="left" inset="2" id="yLK-LK-CPS">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="loginItemCheckoutAction:" target="4nZ-ca-Mrk" id="hjm-xT-6pI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="FEP-i1-4aI" firstAttribute="top" secondItem="GgE-bO-ylM" secondAttribute="top" constant="20" id="87N-J1-2sq"/>
+                            <constraint firstAttribute="bottom" secondItem="FEP-i1-4aI" secondAttribute="bottom" constant="20" id="ORG-Po-vUA"/>
+                            <constraint firstAttribute="centerX" secondItem="FEP-i1-4aI" secondAttribute="leading" constant="20" id="fe7-YD-zlp"/>
+                        </constraints>
+                        <animations/>
+                    </view>
+                    <connections>
+                        <outlet property="loginItemCheckout" destination="FEP-i1-4aI" id="w8W-P5-bps"/>
+                    </connections>
+                </viewController>
+                <customObject id="8hx-NC-Cxy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="297" y="220"/>
         </scene>
     </scenes>
 </document>
