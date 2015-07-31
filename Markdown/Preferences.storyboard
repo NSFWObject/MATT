@@ -17,21 +17,21 @@
                                 <rect key="frame" x="0.0" y="100" width="400" height="40"/>
                                 <animations/>
                                 <connections>
-                                    <segue destination="4nZ-ca-Mrk" kind="embed" id="bFu-fV-An5"/>
+                                    <segue destination="4nZ-ca-Mrk" kind="embed" identifier="LoginItem" id="bFu-fV-An5"/>
                                 </connections>
                             </containerView>
                             <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="brS-Um-Dpb" userLabel="Shortcut Container">
                                 <rect key="frame" x="0.0" y="60" width="400" height="40"/>
                                 <animations/>
                                 <connections>
-                                    <segue destination="kjj-W7-xW1" kind="embed" id="uzj-tb-dme"/>
+                                    <segue destination="kjj-W7-xW1" kind="embed" identifier="Shortcut" id="uzj-tb-dme"/>
                                 </connections>
                             </containerView>
                             <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5yg-UZ-VZq" userLabel="Script Container">
                                 <rect key="frame" x="0.0" y="20" width="400" height="40"/>
                                 <animations/>
                                 <connections>
-                                    <segue destination="xlT-wF-TTA" kind="embed" id="OzH-sL-xjd"/>
+                                    <segue destination="xlT-wF-TTA" kind="embed" identifier="Script" id="OzH-sL-xjd"/>
                                 </connections>
                             </containerView>
                         </subviews>

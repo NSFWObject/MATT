@@ -12,6 +12,14 @@ import MASPreferences
 
 class GeneralPreferencesViewController: NSViewController, MASPreferencesViewController {
     
+    var shortcutManager: ShortcutManager!
+    
+    var shortcutViewController: ShortcutPreferencesViewController! {
+        didSet {
+            shortcutViewController.shortcutManager = shortcutManager
+        }
+    }
+    
     // MARK: - MASPreferencesViewController
     
     var toolbarItemImage: NSImage! {
@@ -22,6 +30,22 @@ class GeneralPreferencesViewController: NSViewController, MASPreferencesViewCont
     var toolbarItemLabel: String! {
         return "General"
     }
-
+    
+    // MARK: - NSViewController
+    
+    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "LoginItem":
+                break
+            case "Script":
+                break
+            case "Shortcut":
+                self.shortcutViewController = segue.destinationController as! ShortcutPreferencesViewController
+            default:
+                break
+            }
+        }
+    }
 }
 

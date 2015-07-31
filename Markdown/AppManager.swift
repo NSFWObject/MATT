@@ -16,14 +16,11 @@ class AppManager {
     static let sharedInstance = AppManager()
     
     private(set) var capturedApp: NSRunningApplication?
-    
-    init() {
-    }
-    
+        
     // MARK: - Public
     
     func pasteAttributedString(attributedString: NSAttributedString, completion: Bool -> Void) {
-        self.goBackToCapturedApp{ [unowned self] success in
+        goBackToCapturedApp{ [unowned self] success in
             if !success {
                 completion(false)
                 return
@@ -34,7 +31,7 @@ class AppManager {
     }
     
     func hideMe() {
-        self.goBackToCapturedApp(completion: nil)
+        goBackToCapturedApp(completion: nil)
     }
     
     func activateMeCapturingActiveApp() {
@@ -44,11 +41,10 @@ class AppManager {
     
     func captureActiveApp() {
         if let app = activeApp() {
-            self.capturedApp = app
+            capturedApp = app
         } else {
-            self.capturedApp = nil
+            capturedApp = nil
         }
-        println("Captured app: \(capturedApp)")
     }
     
     func writeToPasteboard(attributedString: NSAttributedString) {
@@ -109,7 +105,6 @@ class AppManager {
     private let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
     private func pollForCapturedApp(capturedApp: NSRunningApplication, completion: Bool -> Void) {
         dispatch_async(queue) {
-            println("Looking for \(capturedApp)")
             var app: NSRunningApplication?
             do {
                 app = self.activeApp()

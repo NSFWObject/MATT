@@ -13,7 +13,7 @@ import hoedown
 
 
 class ViewController: NSViewController {
-    let hotkeyManager = HotkeyManager()
+    let shortcutManager = ShortcutManager()
     let renderer = MarkdownRenderer()
     var manager: AppManager!
     
@@ -24,11 +24,11 @@ class ViewController: NSViewController {
     // MARK: - Actions
     
     @IBAction func preferencesMenuAction(sender: AnyObject) {
-        PreferenceManager.showPreferences(hotkeyManager)
+        PreferenceManager.showPreferences(shortcutManager)
     }
 
     private func toggleAppVisibilityAction() {
-        self.toggleAppVisibility()
+        toggleAppVisibility()
     }
     
     private func pasteMarkdownAction() {
@@ -136,29 +136,12 @@ class ViewController: NSViewController {
     }
     
     private func setupSystemWideHotkey() {
-        hotkeyManager.registerHotkey()
-        hotkeyManager.handler = toggleAppVisibilityAction
+        shortcutManager.load()
+        shortcutManager.handler = toggleAppVisibilityAction
     }
     
     private func setupTextView() {
         textView.font = NSFont.userFixedPitchFontOfSize(12)
-    }
-    
-    private func writeToPasteborad(markdown: String) {
-
-        if let html = CocoaMark.renderMarkdown(markdown) {
-            let styledHTML = styleHTML(html)
-            if let htmlData = styledHTML.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true) {
-                let baseURL = NSURL(string:"127.0.0.1")!
-                var attributes = [:]
-                let attributesPointer: AutoreleasingUnsafeMutablePointer<NSDictionary?> = AutoreleasingUnsafeMutablePointer(&attributes)
-                if let attributedString = NSAttributedString(HTML: htmlData, baseURL: baseURL, documentAttributes: attributesPointer) {
-                    let pasteboard = NSPasteboard.generalPasteboard()
-                    pasteboard.clearContents()
-                    pasteboard.writeObjects([attributedString])
-                }
-            }
-        }
     }
     
     private let defaultStyle: String = {
