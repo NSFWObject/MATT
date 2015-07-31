@@ -26,9 +26,7 @@ class ShortcutPreferencesViewController: NSViewController {
     }
     
     private func shortcutValueDidChange(shortcutView: MASShortcutView!) {
-        if let shortcut = shortcutView.shortcutValue {
-            shortcutManager.registerHotkey(shortcut)
-            shortcutManager.save()
-        }
+        shortcutManager.registerHotkey(shortcutView.shortcutValue)
+        shortcutManager.save()
     }
 }

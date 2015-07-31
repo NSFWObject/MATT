@@ -24,12 +24,14 @@ public class ShortcutManager {
         registerHotkey(shortcut)
     }
     
-    public func registerHotkey(shortcut: MASShortcut) {
+    public func registerHotkey(shortcut: MASShortcut?) {
         self.shortcut = shortcut
         manager.unregisterAllShortcuts()
-        manager.registerShortcut(shortcut) {
-            if let handler = self.handler {
-                handler()
+        if let shortcut = shortcut {
+            manager.registerShortcut(shortcut) {
+                if let handler = self.handler {
+                    handler()
+                }
             }
         }
     }
@@ -41,8 +43,10 @@ public class ShortcutManager {
             archiver.encodeObject(shortcut)
             archiver.finishEncoding()
             NSUserDefaults.standardUserDefaults().setObject(data, forKey: ShortcutKey)
-            NSUserDefaults.standardUserDefaults().synchronize()
+        } else {
+            NSUserDefaults.standardUserDefaults().removeObjectForKey(ShortcutKey)
         }
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     public func load() {
