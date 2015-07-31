@@ -25,17 +25,3 @@ struct PreferenceManager {
         
     }
 }
-
-
-class PrefrencesWindowController: MASPreferencesWindowController {
-//    private override func windowDidLoad() {
-//        super.windowDidLoad()
-//        if let items = self.toolbar?.items as? [NSToolbarItem] {
-//
-//            for item in items {
-////                item.view
-//            }
-////            toolbar.focusRingType = 
-//        }
-//    }
-}

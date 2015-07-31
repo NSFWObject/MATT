@@ -144,23 +144,6 @@ class ViewController: NSViewController {
         textView.font = NSFont.userFixedPitchFontOfSize(12)
     }
     
-    private func writeToPasteborad(markdown: String) {
-
-        if let html = CocoaMark.renderMarkdown(markdown) {
-            let styledHTML = styleHTML(html)
-            if let htmlData = styledHTML.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true) {
-                let baseURL = NSURL(string:"127.0.0.1")!
-                var attributes = [:]
-                let attributesPointer: AutoreleasingUnsafeMutablePointer<NSDictionary?> = AutoreleasingUnsafeMutablePointer(&attributes)
-                if let attributedString = NSAttributedString(HTML: htmlData, baseURL: baseURL, documentAttributes: attributesPointer) {
-                    let pasteboard = NSPasteboard.generalPasteboard()
-                    pasteboard.clearContents()
-                    pasteboard.writeObjects([attributedString])
-                }
-            }
-        }
-    }
-    
     private let defaultStyle: String = {
         let styleURL = NSBundle.mainBundle().URLForResource("default-style", withExtension: "css")!
         return String(contentsOfURL: styleURL, encoding: NSUTF8StringEncoding, error: nil)!
