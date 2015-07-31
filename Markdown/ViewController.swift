@@ -13,7 +13,7 @@ import hoedown
 
 
 class ViewController: NSViewController {
-    let hotkeyManager = HotkeyManager()
+    let shortcutManager = HotkeyManager()
     let renderer = MarkdownRenderer()
     var manager: AppManager!
     
@@ -24,11 +24,11 @@ class ViewController: NSViewController {
     // MARK: - Actions
     
     @IBAction func preferencesMenuAction(sender: AnyObject) {
-        PreferenceManager.showPreferences(hotkeyManager)
+        PreferenceManager.showPreferences(shortcutManager)
     }
 
     private func toggleAppVisibilityAction() {
-        self.toggleAppVisibility()
+        toggleAppVisibility()
     }
     
     private func pasteMarkdownAction() {
@@ -136,8 +136,8 @@ class ViewController: NSViewController {
     }
     
     private func setupSystemWideHotkey() {
-        hotkeyManager.registerHotkey()
-        hotkeyManager.handler = toggleAppVisibilityAction
+        shortcutManager.load()
+        shortcutManager.handler = toggleAppVisibilityAction
     }
     
     private func setupTextView() {

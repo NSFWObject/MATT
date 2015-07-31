@@ -12,7 +12,7 @@ import MASShortcut
 
 class ShortcutPreferencesViewController: NSViewController {
     
-    private let shortcutManager = HotkeyManager()
+    var shortcutManager: HotkeyManager!
     
     @IBOutlet weak var shortcutView: MASShortcutView! {
         didSet {
