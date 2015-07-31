@@ -12,7 +12,7 @@ import MASPreferences
 
 class GeneralPreferencesViewController: NSViewController, MASPreferencesViewController {
     
-    var shortcutManager: HotkeyManager!
+    var shortcutManager: ShortcutManager!
     
     var shortcutViewController: ShortcutPreferencesViewController! {
         didSet {

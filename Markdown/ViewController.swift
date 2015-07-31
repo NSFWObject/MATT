@@ -13,7 +13,7 @@ import hoedown
 
 
 class ViewController: NSViewController {
-    let shortcutManager = HotkeyManager()
+    let shortcutManager = ShortcutManager()
     let renderer = MarkdownRenderer()
     var manager: AppManager!
     

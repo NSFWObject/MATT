@@ -1,5 +1,5 @@
 //
-//  HotkeyManager.swift
+//  ShortcutManager.swift
 //  Markdown
 //
 //  Created by Sash Zats on 7/27/15.
@@ -10,7 +10,7 @@ import Foundation
 import MASShortcut
 
 
-public class HotkeyManager {
+public class ShortcutManager {
     
     private let ShortcutKey = "com.zats.MATT.shortcut"
     
