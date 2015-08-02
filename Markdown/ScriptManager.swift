@@ -22,6 +22,33 @@ public struct ScriptManager {
         return nil
     }
     
+    public func shouldInstallScriptFile() -> Bool {
+        if let URL = destinationScriptURL() {
+            let manager = NSFileManager.defaultManager()
+            if !manager.fileExistsAtPath(URL.relativePath!) {
+                return true
+            }
+            if let destinationModificationDate = (manager.attributesOfItemAtPath(URL.relativePath!, error: nil) as? NSDictionary)?.fileModificationDate(),
+                sourceModificationDate = (manager.attributesOfItemAtPath(originalScriptURL().relativePath!, error: nil) as? NSDictionary)?.fileModificationDate() {
+                    return sourceModificationDate.compare(destinationModificationDate) == .OrderedDescending
+            }
+
+        }
+        return false
+    }
+    
+    public func executeScript(completion: Bool -> Void) {
+        if let scriptURL = self.destinationScriptURL(), task = NSUserAppleScriptTask(URL: scriptURL, error: nil) {
+            task.executeWithCompletionHandler{ error in
+                completion(error == nil)
+                assert(error == nil, "Failed to execute script: \(error)")
+            }
+        } else {
+            completion(false)
+            assertionFailure("No script or no task")
+        }
+    }
+    
     public func isScriptInstalled() -> Bool {
         if let scriptURL = destinationScriptURL() {
             var isDirectory: ObjCBool = false
@@ -49,11 +76,22 @@ public struct ScriptManager {
                 }
                 if let selectedURL = openPanel.URL {
                     if selectedURL == scriptsFolderURL {
+                        let fileManager = NSFileManager.defaultManager()
                         let destinationURL = selectedURL.URLByAppendingPathComponent(ScriptManager.ScriptFilename)
                         let sourceURL = self.originalScriptURL()
-                        if NSFileManager.defaultManager().copyItemAtURL(sourceURL, toURL: destinationURL, error: nil) {
+                        var error: NSError?
+                        if fileManager.fileExistsAtPath(destinationURL.relativePath!) {
+                            if !fileManager.removeItemAtURL(destinationURL, error: &error) {
+                                assertionFailure("Failed to remove file: \(error)")
+                                completion(false)
+                                return
+                            }
+                        }
+                        if fileManager.copyItemAtURL(sourceURL, toURL: destinationURL, error: &error) {
                             completion(true)
                             return
+                        } else {
+                            assertionFailure("Failed to copy file \(error)")
                         }
                     }
                 }

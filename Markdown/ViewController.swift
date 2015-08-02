@@ -16,6 +16,7 @@ class ViewController: NSViewController {
     let shortcutManager = ShortcutManager()
     let renderer = MarkdownRenderer()
     var manager: AppManager!
+    let scriptManager = ScriptManager()
     
     let monitor: MASShortcutMonitor = MASShortcutMonitor.sharedMonitor()
     
@@ -24,7 +25,7 @@ class ViewController: NSViewController {
     // MARK: - Actions
     
     @IBAction func preferencesMenuAction(sender: AnyObject) {
-        PreferenceManager.showPreferences(shortcutManager)
+        PreferenceManager.showPreferences(shortcutManager: shortcutManager, scriptManager: scriptManager)
     }
 
     private func toggleAppVisibilityAction() {
