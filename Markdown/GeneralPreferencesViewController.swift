@@ -13,6 +13,13 @@ import MASPreferences
 class GeneralPreferencesViewController: NSViewController, MASPreferencesViewController {
     
     var shortcutManager: ShortcutManager!
+    var scriptManager: ScriptManager!
+    
+    var scriptViewController: ScriptPreferencesViewController! {
+        didSet {
+            scriptViewController.scriptManager = scriptManager
+        }
+    }
     
     var shortcutViewController: ShortcutPreferencesViewController! {
         didSet {
@@ -39,6 +46,7 @@ class GeneralPreferencesViewController: NSViewController, MASPreferencesViewCont
             case "LoginItem":
                 break
             case "Script":
+                self.scriptViewController = segue.destinationController as! ScriptPreferencesViewController
                 break
             case "Shortcut":
                 self.shortcutViewController = segue.destinationController as! ShortcutPreferencesViewController

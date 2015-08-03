@@ -10,8 +10,8 @@ import AppKit
 
 
 class ScriptPreferencesViewController: NSViewController {
-    
-    private let scriptManager = ScriptManager()
+
+    var scriptManager: ScriptManager!
     
     @IBOutlet weak var installScriptButton: NSButton!
     
@@ -21,7 +21,9 @@ class ScriptPreferencesViewController: NSViewController {
     }
     
     @IBAction func installScriptButtonAction(sender: AnyObject) {
-        scriptManager.installScript{ completion in
+        scriptManager.installScript{ success in
+            // success == false might be jsut user canceled
+//            assert(success, "Failed to copy script")
             self.updateUI()
         }
     }
