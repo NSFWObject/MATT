@@ -19,7 +19,7 @@ public class ShortcutManager {
     
     public var handler: (Void -> Void)?
     
-    public func registerHotkey(keyCode: UInt = UInt(kVK_ANSI_D), modifier: NSEventModifierFlags = NSEventModifierFlags.AlternateKeyMask) {
+    public func registerHotkey(keyCode: UInt = UInt(kVK_ANSI_D), modifier: NSEventModifierFlags = .AlternateKeyMask) {
         let shortcut: MASShortcut = MASShortcut(keyCode: keyCode, modifierFlags: modifier.rawValue)
         registerHotkey(shortcut)
     }
