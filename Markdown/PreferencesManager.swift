@@ -19,7 +19,7 @@ struct PreferenceManager {
             styles = storyboard.instantiateControllerWithIdentifier("Styles") as? StylePreferencesViewController {
                 general.shortcutManager = shortcutManager
                 general.scriptManager = scriptManager
-                let preferencesWindow = MASPreferencesWindowController(viewControllers: [general, styles])
+                let preferencesWindow = MASPreferencesWindowController(viewControllers: [general])
                 preferencesWindow.showWindow(nil)
                 windowController = preferencesWindow
         }
