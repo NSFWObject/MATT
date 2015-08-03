@@ -22,6 +22,8 @@ class ScriptPreferencesViewController: NSViewController {
     
     @IBAction func installScriptButtonAction(sender: AnyObject) {
         scriptManager.installScript{ success in
+            // success == false might be jsut user canceled
+//            assert(success, "Failed to copy script")
             self.updateUI()
         }
     }

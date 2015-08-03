@@ -14,9 +14,10 @@ import hoedown
 
 class ViewController: NSViewController {
     let shortcutManager = ShortcutManager()
+    let styleManager = StyleManager()
     let renderer = MarkdownRenderer()
-    var manager: AppManager!
     let scriptManager = ScriptManager()
+    var appManager: AppManager!
     
     let monitor: MASShortcutMonitor = MASShortcutMonitor.sharedMonitor()
     
@@ -38,102 +39,24 @@ class ViewController: NSViewController {
 
     @IBAction func doneButtonAction(sender: AnyObject) {
         if let markdown = textView.string {
-            let HTML = renderer.render(markdown: markdown)
-            if let styledHTML = StyleManager().process(content: HTML), attributedString = renderer.render(HTML: styledHTML) {
-                let scriptManager = ScriptManager()
-                if scriptManager.isScriptInstalled() {
-                    // proceed
-                } else {
-                    // prompt to install and retry
-                    scriptManager.promptScriptInstallation(self.view.window!) { shouldInstall in
-                        switch shouldInstall {
-                        case .Cancel:
-                            // no-op
-                            break
-                        case .Install:
-                            scriptManager.installScript { success in
-                                self.alertScriptInstallationResult(success)
-                            }
-                        case .ShowScript:
-                            break
-                        }
-                    }
-                }
+            appManager.process(markdown: markdown, styleManager: styleManager, renderer: renderer, scriptManager: scriptManager) { success in
 
-                if self.manager.capturedApp != nil {
-                    self.manager.pasteAttributedString(attributedString) { success in
-                        if !success {
-                            let alert = NSAlert()
-                            alert.alertStyle = .CriticalAlertStyle
-                            alert.messageText = "Something went wrong :("
-                            alert.runModal()
-                        }
-                    }
-                } else {
-                    self.manager.writeToPasteboard(attributedString)
-                }
-            } else {
-                let alert = NSAlert()
-                alert.alertStyle = .CriticalAlertStyle
-                alert.messageText = "Failed to process markdown"
-                alert.runModal()
-            }
-
-        }
-    }
-    
-    @IBAction func installScriptMenuItemAction(sender: AnyObject) {
-        var error: NSError?
-        if let URL = NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.ApplicationScriptsDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: true, error: &error) {
-            let openPanel = NSOpenPanel()
-            openPanel.directoryURL = URL
-            openPanel.canChooseDirectories = true
-            openPanel.canChooseFiles = false
-            openPanel.prompt = "Select Script Folder"
-            openPanel.message = "Please select the User > Library > Application Scripts > \(NSBundle.mainBundle().bundleIdentifier!) folder"
-            openPanel.beginWithCompletionHandler{ status in
-                if status != NSFileHandlingPanelOKButton {
-                    return
-                }
-                if let selectedURL = openPanel.URL {
-                    if selectedURL == URL {
-                        let destinationURL = selectedURL.URLByAppendingPathComponent("PasteboardHelper.scpt")
-                        let sourceURL = NSBundle.mainBundle().URLForResource("PasteboardHelper", withExtension: "scpt")!
-                        if NSFileManager.defaultManager().copyItemAtURL(sourceURL, toURL: destinationURL, error: &error) {
-                            self.scriptMessage("Script successfully installed!", style: NSAlertStyle.InformationalAlertStyle)
-                        } else {
-                            self.scriptMessage("Failed to copy file from \(sourceURL) to \(destinationURL): \(error?.localizedDescription)")
-                        }
-                    } else {
-                        self.scriptMessage("You didn't select the right folder. Please try again.")
-                    }
-                } else {
-                    self.scriptMessage("You didn't select the right folder. Please try again.")
-                }
             }
         } else {
-            scriptMessage("Failed to create scripting folder")
+            assertionFailure("No text view")
         }
     }
     
     // MARK: - Private
-
+    
     private func toggleAppVisibility() {
-        if let activeApp = self.manager.activeApp() {
+        if let activeApp = self.appManager.activeApp() {
             if activeApp.bundleIdentifier == NSBundle.mainBundle().bundleIdentifier {
-                self.manager.hideMe()
+                self.appManager.hideMe()
             } else {
-                self.manager.activateMeCapturingActiveApp()
+                self.appManager.activateMeCapturingActiveApp()
             }
         }
-    }
-    
-    private func scriptMessage(message: String, style: NSAlertStyle = NSAlertStyle.WarningAlertStyle) {
-        let alert = NSAlert()
-        alert.messageText = message
-        alert.addButtonWithTitle("OK")
-        alert.alertStyle = style
-        alert.runModal()
     }
     
     private func setupSystemWideHotkey() {
@@ -143,6 +66,14 @@ class ViewController: NSViewController {
     
     private func setupTextView() {
         textView.font = NSFont.userFixedPitchFontOfSize(12)
+    }
+    
+    private func loadStyles() {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        styleManager.load(userDefaults) {
+            print("styleManager.appStyles: \(self.styleManager.appStyles)")
+        }
+        
     }
     
     private let defaultStyle: String = {
@@ -157,17 +88,37 @@ class ViewController: NSViewController {
         alert.runModal()
     }
     
-    private func styleHTML(HTML: String) -> String {
-        return "<head><style>\(defaultStyle)</style><body>\(HTML)</body>"
-    }
 
+    private func checkIfScriptNeedsToBeInstalled() {
+        if !scriptManager.shouldInstallScriptFile() {
+            return
+        }
+        
+        let alert = NSAlert()
+        alert.messageText = "Do you want to install pasteboard helper script?"
+        alert.informativeText = "Due to App Store limitations, without this script app can only copy formatted markdown in the Pasteboard."
+        alert.addButtonWithTitle("Install")
+        alert.addButtonWithTitle("Cancel")
+        alert.beginSheetModalForWindow(self.view.window!) { response in
+            if response == NSAlertFirstButtonReturn {
+                self.scriptManager.installScript{ _ in }
+            }
+        }
+    }
+    
     // MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadStyles()
         setupTextView()
         setupSystemWideHotkey()
+    }
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        checkIfScriptNeedsToBeInstalled()
     }
 }
 

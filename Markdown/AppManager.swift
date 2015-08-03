@@ -12,80 +12,81 @@ import ApplicationServices
 
 let AppName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as! String
 
-class AppManager {
+public class AppManager {
     static let sharedInstance = AppManager()
     
     private(set) var capturedApp: NSRunningApplication?
         
     // MARK: - Public
     
-    func pasteAttributedString(attributedString: NSAttributedString, completion: Bool -> Void) {
-        goBackToCapturedApp{ [unowned self] success in
-            if !success {
-                completion(false)
-                return
+    public func process(#markdown: String, styleManager: StyleManager, renderer: MarkdownRenderer, scriptManager: ScriptManager, completion: Bool -> Void) {
+        let cssContents = cssContentsForCapturedApp(capturedApp, styleManager: styleManager)
+        let (attributedString, HTML) = renderer.render(markdown: markdown, style: cssContents)
+        writeToPasteboard(attributedString, HTML: HTML)
+        if let _ = capturedApp {
+            switchToPreviouslyCapturedApp{ [unowned self] success in
+                if !success {
+                    completion(false)
+                    assertionFailure("Failed to switch back to the app")
+                } else {
+                    self.sendCmdV(scriptManager: scriptManager, completion: completion)
+                }
             }
-            self.writeToPasteboard(attributedString)
-            self.sendCmdV()
+        } else {
+            completion(true)
         }
     }
     
-    func hideMe() {
-        goBackToCapturedApp(completion: nil)
+    public func writeToPasteboard(attributedString: NSAttributedString, HTML: MarkdownRenderer.HTML) {
+        let pasteboard = NSPasteboard.generalPasteboard()
+        pasteboard.clearContents()
+        pasteboard.writeObjects([attributedString])
+        pasteboard.setString(HTML, forType: NSPasteboardTypeHTML)
     }
     
-    func activateMeCapturingActiveApp() {
+    public func hideMe() {
+        switchToPreviouslyCapturedApp(completion: nil)
+    }
+    
+    public func activateMeCapturingActiveApp() {
         captureActiveApp()
         NSApplication.sharedApplication().activateIgnoringOtherApps(true)
     }
     
-    func captureActiveApp() {
+    public func captureActiveApp() {
         if let app = activeApp() {
             capturedApp = app
         } else {
             capturedApp = nil
         }
     }
-    
-    func writeToPasteboard(attributedString: NSAttributedString) {
-        let pasteborad = NSPasteboard.generalPasteboard()
-        pasteborad.clearContents()
-        pasteborad.writeObjects([attributedString])
-    }
-    
+
     // MARK: - Private
     
-    private func sendCmdV() {
-        //        carbonWay()
-        scriptWay()
+    private func cssContentsForCapturedApp(app: NSRunningApplication?, styleManager: StyleManager) -> String {
+        return styleManager.cssContentsForBundleId(app?.bundleIdentifier)
+    }
+    
+    private func sendCmdV(#scriptManager: ScriptManager, completion: Bool -> Void) {
+//        carbonWay()
+        scriptWay(scriptManager: scriptManager, completion: completion)
     }
 
     private func carbonWay() {
-        var keyVDown : CGEvent = CGEventCreateKeyboardEvent(nil, CGKeyCode(kVK_ANSI_V), true).takeUnretainedValue()
+        let keyVDown: CGEvent = CGEventCreateKeyboardEvent(nil, CGKeyCode(kVK_ANSI_V), true).takeUnretainedValue()
         CGEventSetFlags(keyVDown, UInt64(kCGEventFlagMaskCommand))
         CGEventPost(UInt32(kCGHIDEventTap), keyVDown)
         
-        var keyVUp : CGEvent = CGEventCreateKeyboardEvent(nil, CGKeyCode(kVK_ANSI_V), false).takeUnretainedValue()
+        let keyVUp: CGEvent = CGEventCreateKeyboardEvent(nil, CGKeyCode(kVK_ANSI_V), false).takeUnretainedValue()
         CGEventSetFlags(keyVUp, UInt64(kCGEventFlagMaskCommand))
         CGEventPost(UInt32(kCGHIDEventTap), keyVUp)
     }
     
-    private func scriptWay() {
-        if let URL = NSFileManager.defaultManager().URLForDirectory(.ApplicationScriptsDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: false, error: nil) {
-            println(URL)
-            let scriptURL = URL.URLByAppendingPathComponent("PasteboardHelper.scpt")
-            var error: NSError? = nil
-            if let task = NSUserAppleScriptTask(URL: scriptURL, error: &error) {
-                task.executeWithCompletionHandler{ error in
-                    println("error: \(error)")
-                }
-            } else {
-                println("error: \(error)")
-            }
-        }
+    private func scriptWay(#scriptManager: ScriptManager, completion: Bool -> Void) {
+        scriptManager.executeScript(completion)
     }
     
-    private func goBackToCapturedApp(#completion: (Bool -> Void)?) {
+    private func switchToPreviouslyCapturedApp(#completion: (Bool -> Void)?) {
         if let app = capturedApp {
             app.activateWithOptions(NSApplicationActivationOptions.ActivateIgnoringOtherApps)
             pollForCapturedApp(app) { success in

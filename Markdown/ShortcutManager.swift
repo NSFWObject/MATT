@@ -12,7 +12,7 @@ import MASShortcut
 
 public class ShortcutManager {
     
-    private let ShortcutKey = "com.zats.MATT.shortcut"
+    private let ShortcutKey = "MATTGlobalShortcut"
     
     private let manager = MASShortcutMonitor.sharedMonitor()
     private(set) public var shortcut: MASShortcut?

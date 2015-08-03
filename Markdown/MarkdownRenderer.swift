@@ -11,32 +11,35 @@ import hoedown
 import CocoaMark
 
 
+
+
 public struct MarkdownRenderer {
-    let ext: hoedown_extensions
-    let processor: CocoaMarkDocumentProcessor
-    let renderer: CocoaMarkBasicRenderer
+    public typealias HTML = String
     
     public init() {
-        let ext = hoedown_extensions.ALL
-        let renderer = CocoaMarkRenderer(flags: Int32(ext.value))
-        self.ext = ext
-        self.renderer = renderer
-        self.processor = CocoaMarkDocumentProcessor(renderer: renderer, extensions: Int32(ext.value), maxNesting: 16)
+    }
+        
+    public func render(#markdown: String, style: String) -> (NSAttributedString, HTML) {
+        let html = render(markdown: markdown)
+        let styledHTML = "<html><head><style>\(style)</style></head><body>\(html)</body>"
+        let attributedString = render(HTML: styledHTML)
+        return (attributedString, styledHTML)
     }
 
-    public func render(#markdown: String) -> String {
+    // MARK: - Private
+    
+    private func render(#markdown: String) -> String {
+        let ext = hoedown_extensions.ALL
+        let renderer = CocoaMarkRenderer(flags: Int32(ext.value))
+        let processor = CocoaMarkDocumentProcessor(renderer: renderer, extensions: Int32(ext.value), maxNesting: 16)
         return processor.renderMarkdown(markdown)
     }
     
-    public func render(#HTML: String) -> NSAttributedString? {
+    private func render(#HTML: String) -> NSAttributedString {
         let documentAttributes: AutoreleasingUnsafeMutablePointer<NSDictionary?> = AutoreleasingUnsafeMutablePointer()
-        if let HTMLData = HTML.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true),
-            URL = NSURL(string:"127.0.0.1") {
-            if let attributedString = NSAttributedString(HTML: HTMLData, baseURL: URL, documentAttributes: documentAttributes) {
-                return attributedString
-            }
-        }
-        return nil
+        let HTMLData = HTML.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!
+        let attributedString = NSAttributedString(HTML: HTMLData, options:nil, documentAttributes: documentAttributes)!
+        return attributedString
     }
 }
 
