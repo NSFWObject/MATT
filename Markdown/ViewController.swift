@@ -75,19 +75,6 @@ class ViewController: NSViewController {
         }
         
     }
-    
-    private let defaultStyle: String = {
-        let styleURL = NSBundle.mainBundle().URLForResource("default-style", withExtension: "css")!
-        return String(contentsOfURL: styleURL, encoding: NSUTF8StringEncoding, error: nil)!
-    }()
-    
-    private func alertScriptInstallationResult(success: Bool) {
-        let alert = NSAlert()
-        alert.alertStyle = success ? NSAlertStyle.InformationalAlertStyle : NSAlertStyle.WarningAlertStyle
-        alert.messageText = success ? "Script installed successfully" : "Script installation failed"
-        alert.runModal()
-    }
-    
 
     private func checkIfScriptNeedsToBeInstalled() {
         if !scriptManager.shouldInstallScriptFile() {
