@@ -45,7 +45,7 @@ public class AppManager {
     }
     
     public func hideMe() {
-        switchToPreviouslyCapturedApp(completion: nil)
+        NSApplication.sharedApplication().hide(nil)
     }
     
     public func activateMeCapturingActiveApp() {
