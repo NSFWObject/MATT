@@ -93,6 +93,10 @@ class ViewController: NSViewController {
         }
     }
     
+    private func selectTextFieldContents() {
+        textView.selectAll(self)
+    }
+    
     // MARK: - UIViewController
     
     override func viewDidLoad() {
@@ -105,7 +109,9 @@ class ViewController: NSViewController {
     
     override func viewDidAppear() {
         super.viewDidAppear()
+
         checkIfScriptNeedsToBeInstalled()
+        selectTextFieldContents()
     }
 }
 
