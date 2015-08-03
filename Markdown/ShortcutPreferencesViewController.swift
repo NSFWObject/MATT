@@ -20,6 +20,7 @@ class ShortcutPreferencesViewController: NSViewController {
 
             shortcutManager.load()
             shortcutView.shortcutValue = shortcutManager.shortcut
+            shortcutView.shortcutValidator.allowAnyShortcutWithOptionModifier = true
             
             shortcutView.shortcutValueChange = shortcutValueDidChange
         }
