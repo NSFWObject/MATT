@@ -116,7 +116,6 @@
 		5CB58F1F1B67179600A01CC7 /* ShortcutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutManager.swift; sourceTree = "<group>"; };
 		5CBE30A41B6B1FDA0004FC34 /* CSS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CSS; path = Resources/CSS; sourceTree = "<group>"; };
 		5CC268101B6EC07000D05D18 /* MATT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MATT.entitlements; sourceTree = SOURCE_ROOT; };
-		5CF32B601B62936A0020ABE1 /* Markdown All The Things.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Markdown All The Things.entitlements"; sourceTree = "<group>"; };
 		5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItemPreferencesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,7 +219,6 @@
 		5C739DF21B5F6A5D001EF259 /* MATT */ = {
 			isa = PBXGroup;
 			children = (
-				5CC268101B6EC07000D05D18 /* MATT.entitlements */,
 				5C739DF51B5F6A5D001EF259 /* AppDelegate.swift */,
 				5C1FA3211B67CDB9001CC4AD /* WindowController.swift */,
 				5C739DF71B5F6A5D001EF259 /* ViewController.swift */,
@@ -237,8 +235,8 @@
 		5C739DF31B5F6A5D001EF259 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5CC268101B6EC07000D05D18 /* MATT.entitlements */,
 				5C739E151B5F6B5A001EF259 /* Bridging-Header.h */,
-				5CF32B601B62936A0020ABE1 /* Markdown All The Things.entitlements */,
 				5C739DF41B5F6A5D001EF259 /* Info.plist */,
 			);
 			name = "Supporting Files";
