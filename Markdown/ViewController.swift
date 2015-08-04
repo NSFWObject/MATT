@@ -64,8 +64,18 @@ class ViewController: NSViewController {
         shortcutManager.handler = toggleAppVisibilityAction
     }
     
+    private func setupView() {
+        self.view.wantsLayer = true
+        self.view.layer?.backgroundColor = NSColor.whiteColor().CGColor
+    }
+    
     private func setupTextView() {
-        textView.font = NSFont.userFixedPitchFontOfSize(12)
+        textView.textColor = NSColor(red:0.058, green:0.173, blue:0.166, alpha:1)
+        if let font = NSFont(name: "Menlo", size: 12) {
+            textView.font = font
+        } else {
+            textView.font = NSFont.userFixedPitchFontOfSize(12)
+        }
     }
     
     private func loadStyles() {
@@ -103,6 +113,7 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         
         loadStyles()
+        setupView()
         setupTextView()
         setupSystemWideHotkey()
     }

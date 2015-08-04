@@ -33,7 +33,12 @@ class WindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         
-        if let controller = self.contentViewController as? ViewController {
+        if let window = window {
+            window.titlebarAppearsTransparent = true
+            window.styleMask |= NSFullSizeContentViewWindowMask
+        }
+        
+        if let controller = contentViewController as? ViewController {
             controller.appManager = appManager
         }
         
