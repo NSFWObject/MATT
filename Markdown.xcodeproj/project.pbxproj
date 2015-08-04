@@ -39,6 +39,7 @@
 		5CB58F161B67151C00A01CC7 /* MarkdownRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB58F151B67151C00A01CC7 /* MarkdownRenderer.swift */; };
 		5CB58F201B67179600A01CC7 /* ShortcutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB58F1F1B67179600A01CC7 /* ShortcutManager.swift */; };
 		5CBE30A51B6B1FDA0004FC34 /* CSS in Resources */ = {isa = PBXBuildFile; fileRef = 5CBE30A41B6B1FDA0004FC34 /* CSS */; };
+		5CBFB4101B7065C9001B1F58 /* PasteboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */; };
 		5CFB2A591B6A7AD40006D951 /* LoginItemPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,7 @@
 		5CB58F151B67151C00A01CC7 /* MarkdownRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownRenderer.swift; sourceTree = "<group>"; };
 		5CB58F1F1B67179600A01CC7 /* ShortcutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutManager.swift; sourceTree = "<group>"; };
 		5CBE30A41B6B1FDA0004FC34 /* CSS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CSS; path = Resources/CSS; sourceTree = "<group>"; };
+		5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardController.swift; sourceTree = "<group>"; };
 		5CC268101B6EC07000D05D18 /* MATT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MATT.entitlements; sourceTree = SOURCE_ROOT; };
 		5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItemPreferencesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -261,6 +263,7 @@
 				5C4D470D1B691E02004138D8 /* ScriptManager.swift */,
 				5C0B4FBB1B689A280098DDF3 /* StyleManager.swift */,
 				5CB58F151B67151C00A01CC7 /* MarkdownRenderer.swift */,
+				5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				5C4D470E1B691E02004138D8 /* ScriptManager.swift in Sources */,
 				5C06F5441B69B86000FF1A37 /* ScriptPreferencesViewController.swift in Sources */,
 				5C1FA31B1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift in Sources */,
+				5CBFB4101B7065C9001B1F58 /* PasteboardController.swift in Sources */,
 				5CFB2A591B6A7AD40006D951 /* LoginItemPreferencesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
