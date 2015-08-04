@@ -21,6 +21,12 @@ struct PasteboardController {
         pasteboard.clearContents()
         pasteboard.writeObjects(items)
     }
+    
+    static func writeToPasteboard(writeBlock: NSPasteboard -> Void) {
+        let pasteboard = NSPasteboard.generalPasteboard()
+        pasteboard.clearContents()
+        writeBlock(pasteboard)
+    }
 }
 
 extension NSPasteboardItem: NSCopying {

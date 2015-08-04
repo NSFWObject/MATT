@@ -23,36 +23,31 @@ public class AppManager {
         let cssContents = cssContentsForCapturedApp(capturedApp, styleManager: styleManager)
         let (attributedString, HTML) = renderer.render(markdown: markdown, style: cssContents)
         
-        let preservedPasteboardContent = PasteboardController.pasteboardContents()
-        
-        writeToPasteboard(attributedString, HTML: HTML)
+        let pasteboardItems = (PasteboardController.pasteboardContents() ?? []).map{ $0.copy() as! NSPasteboardItem }
+
+        PasteboardController.writeToPasteboard{ pasteboard in
+            pasteboard.writeObjects([attributedString])
+            pasteboard.setString(HTML, forType: NSPasteboardTypeHTML)
+        }
         if let _ = capturedApp {
             switchToPreviouslyCapturedApp{ [unowned self] success in
                 if !success {
+                    PasteboardController.setPasteboardContents(pasteboardItems)
                     completion(false)
                     assertionFailure("Failed to switch back to the app")
                 } else {
                     self.sendCmdV(scriptManager: scriptManager){ success in
                         // restoring pasteboard content
-                        if let items = preservedPasteboardContent {
-                            let copy = items.map{ $0.copy() as! NSPasteboardItem }
-                            PasteboardController.setPasteboardContents(copy)
-                        }
+                        PasteboardController.setPasteboardContents(pasteboardItems)
                         completion(success)
                     }
                 }
 
             }
         } else {
+            PasteboardController.setPasteboardContents(pasteboardItems)
             completion(true)
         }
-    }
-    
-    public func writeToPasteboard(attributedString: NSAttributedString, HTML: MarkdownRenderer.HTML) {
-        let pasteboard = NSPasteboard.generalPasteboard()
-        pasteboard.clearContents()
-        pasteboard.writeObjects([attributedString])
-        pasteboard.setString(HTML, forType: NSPasteboardTypeHTML)
     }
     
     public func hideMe() {
