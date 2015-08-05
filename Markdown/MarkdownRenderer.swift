@@ -21,7 +21,7 @@ public struct MarkdownRenderer {
         
     public func render(#markdown: String, style: String) -> (NSAttributedString, HTML) {
         let html = render(markdown: markdown)
-        let styledHTML = "<html><head><style>\(style)</style></head><body>\(html)</body>"
+        let styledHTML = "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><style>\(style)</style></head><body>\(html)</body>"
         let attributedString = render(HTML: styledHTML)
         return (attributedString, styledHTML)
     }
