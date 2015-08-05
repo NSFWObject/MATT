@@ -35,10 +35,6 @@ class ViewController: NSViewController {
     @IBAction func preferencesMenuAction(sender: AnyObject) {
         PreferenceManager.showPreferences(shortcutManager: shortcutManager, scriptManager: scriptManager)
     }
-
-    private func toggleAppVisibilityAction() {
-        toggleAppVisibility()
-    }
     
     private func pasteMarkdownAction() {
         assertionFailure("Not implemented")
@@ -55,7 +51,7 @@ class ViewController: NSViewController {
     }
     
     // MARK: - Private
-    
+
     private func toggleAppVisibility() {
         if let activeApp = self.appManager.activeApp() {
             if activeApp.bundleIdentifier == NSBundle.mainBundle().bundleIdentifier {
@@ -66,9 +62,15 @@ class ViewController: NSViewController {
         }
     }
     
-    private func setupSystemWideHotkey() {
-        shortcutManager.load()
-        shortcutManager.handler = toggleAppVisibilityAction
+    private func processSelectedMarkdown() {
+        
+    }
+    
+    private func setupShortcuts() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        shortcutManager.load(defaults: defaults)
+        shortcutManager.appVisibilityHandler = toggleAppVisibility
+        shortcutManager.processMarkdownHandler = processSelectedMarkdown
     }
     
     private func setupView() {
@@ -122,7 +124,7 @@ class ViewController: NSViewController {
         loadStyles()
         setupView()
         setupTextView()
-        setupSystemWideHotkey()
+        setupShortcuts()
     }
     
     override func viewDidAppear() {

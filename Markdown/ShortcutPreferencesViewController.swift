@@ -17,17 +17,16 @@ class ShortcutPreferencesViewController: NSViewController {
     @IBOutlet weak var shortcutView: MASShortcutView! {
         didSet {
             shortcutView.style = MASShortcutViewStyleTexturedRect
-
-            shortcutManager.load()
-            shortcutView.shortcutValue = shortcutManager.shortcut
+            shortcutView.shortcutValue = shortcutManager.shortcutForType(.ToggleAppVisibility)
             shortcutView.shortcutValidator.allowAnyShortcutWithOptionModifier = true
-            
             shortcutView.shortcutValueChange = shortcutValueDidChange
         }
     }
     
     private func shortcutValueDidChange(shortcutView: MASShortcutView!) {
-        shortcutManager.registerHotkey(shortcutView.shortcutValue)
-        shortcutManager.save()
+        shortcutManager.registerShortcut(shortcutView.shortcutValue, type: .ToggleAppVisibility)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        shortcutManager.save(defaults: defaults)
+        defaults.synchronize()
     }
 }
