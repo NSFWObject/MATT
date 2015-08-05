@@ -23,6 +23,13 @@ class ViewController: NSViewController {
     
     @IBOutlet var textView: NSTextView!
     
+    // MARK: - Public 
+    
+    func windowWillAppear() {
+        checkIfScriptNeedsToBeInstalled()
+        selectTextFieldContents()        
+    }
+    
     // MARK: - Actions
     
     @IBAction func preferencesMenuAction(sender: AnyObject) {
@@ -117,12 +124,4 @@ class ViewController: NSViewController {
         setupTextView()
         setupSystemWideHotkey()
     }
-    
-    override func viewDidAppear() {
-        super.viewDidAppear()
-
-        checkIfScriptNeedsToBeInstalled()
-        selectTextFieldContents()
-    }
 }
-

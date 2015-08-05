@@ -9,7 +9,7 @@
 import AppKit
 
 
-class WindowController: NSWindowController {
+class WindowController: NSWindowController, NSWindowDelegate {
     let appManager = AppManager()
     
     // MARK: - Lifecycle
@@ -36,6 +36,7 @@ class WindowController: NSWindowController {
         if let window = window {
             window.titlebarAppearsTransparent = true
             window.styleMask |= NSFullSizeContentViewWindowMask
+            window.delegate = self
         }
         
         if let controller = contentViewController as? ViewController {
@@ -43,5 +44,23 @@ class WindowController: NSWindowController {
         }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationDidBecomeActiveObserver:"), name: NSApplicationDidBecomeActiveNotification, object: nil)
+    }
+    
+    override func showWindow(sender: AnyObject?) {
+        super.showWindow(sender)
+        
+        if let controller = contentViewController as? ViewController {
+            controller.windowWillAppear()
+        }
+    }
+    
+    // MARK: - NSWindowDelegate
+    
+    func windowDidChangeOcclusionState(notification: NSNotification) {
+        if let window = self.window, controller = self.contentViewController as? ViewController {
+            if window.occlusionState & NSWindowOcclusionState.Visible == NSWindowOcclusionState.Visible {
+                controller.windowWillAppear()
+            }
+        }
     }
 }
