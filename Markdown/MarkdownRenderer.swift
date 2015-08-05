@@ -56,6 +56,7 @@ extension hoedown_extensions {
             | HOEDOWN_EXT_QUOTE.value
             | HOEDOWN_EXT_SUPERSCRIPT.value
             | HOEDOWN_EXT_MATH.value
+            | HOEDOWN_HTML_ESCAPE.value
         )
     }
 }
