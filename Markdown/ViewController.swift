@@ -27,8 +27,7 @@ class ViewController: NSViewController {
     // MARK: - Public 
     
     func windowWillAppear() {
-        checkIfScriptNeedsToBeInstalled()
-        selectTextFieldContents()        
+        selectTextFieldContents()
     }
     
     // MARK: - Actions
@@ -124,5 +123,10 @@ class ViewController: NSViewController {
         setupView()
         setupTextView()
         setupSystemWideHotkey()
+    }
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        checkIfScriptNeedsToBeInstalled()
     }
 }
