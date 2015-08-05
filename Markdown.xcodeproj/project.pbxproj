@@ -40,6 +40,7 @@
 		5CB58F201B67179600A01CC7 /* ShortcutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB58F1F1B67179600A01CC7 /* ShortcutManager.swift */; };
 		5CBE30A51B6B1FDA0004FC34 /* CSS in Resources */ = {isa = PBXBuildFile; fileRef = 5CBE30A41B6B1FDA0004FC34 /* CSS */; };
 		5CBFB4101B7065C9001B1F58 /* PasteboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */; };
+		5CD2E9A11B71A5A5006E0873 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2E9A01B71A5A5006E0873 /* DefaultsManager.swift */; };
 		5CFB2A591B6A7AD40006D951 /* LoginItemPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +119,7 @@
 		5CBE30A41B6B1FDA0004FC34 /* CSS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CSS; path = Resources/CSS; sourceTree = "<group>"; };
 		5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardController.swift; sourceTree = "<group>"; };
 		5CC268101B6EC07000D05D18 /* MATT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MATT.entitlements; sourceTree = SOURCE_ROOT; };
+		5CD2E9A01B71A5A5006E0873 /* DefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
 		5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItemPreferencesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -264,6 +266,7 @@
 				5C0B4FBB1B689A280098DDF3 /* StyleManager.swift */,
 				5CB58F151B67151C00A01CC7 /* MarkdownRenderer.swift */,
 				5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */,
+				5CD2E9A01B71A5A5006E0873 /* DefaultsManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CB58F161B67151C00A01CC7 /* MarkdownRenderer.swift in Sources */,
+				5CD2E9A11B71A5A5006E0873 /* DefaultsManager.swift in Sources */,
 				5CB58F201B67179600A01CC7 /* ShortcutManager.swift in Sources */,
 				5C739DF81B5F6A5D001EF259 /* ViewController.swift in Sources */,
 				5C1FA3201B67CC9F001CC4AD /* PreferencesManager.swift in Sources */,

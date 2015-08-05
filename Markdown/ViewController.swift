@@ -13,6 +13,9 @@ import hoedown
 
 
 class ViewController: NSViewController {
+    
+    private let FirstRunKey = "MATTFirstRun"
+    
     let shortcutManager = ShortcutManager()
     let styleManager = StyleManager()
     let renderer = MarkdownRenderer()
@@ -47,7 +50,7 @@ class ViewController: NSViewController {
     @IBAction func doneButtonAction(sender: AnyObject) {
         if let markdown = textView.string {
             appManager.process(markdown: markdown, styleManager: styleManager, renderer: renderer, scriptManager: scriptManager) { success in
-
+                // no-op
             }
         } else {
             assertionFailure("No text view")
@@ -78,10 +81,17 @@ class ViewController: NSViewController {
     
     private func setupTextView() {
         textView.textColor = NSColor(red:0.058, green:0.173, blue:0.166, alpha:1)
-        if let font = NSFont(name: "Menlo", size: 12) {
+        if let font = NSFont(name: "Menlo", size: 13) {
             textView.font = font
         } else {
             textView.font = NSFont.userFixedPitchFontOfSize(12)
+        }
+        
+        let manager = DefaultsManager()
+        let isFirstRun: Bool? = manager.objectForKey(FirstRunKey)
+        if isFirstRun == nil {
+            textView.string = "# Hey there\nI am [MATT](http://github.com/zats/matt),\n* Press ⌃A (Control + A) to show me. (You can change it at any time in Preferences).\n* Press ⌃↩︎ (Control + Enter) to paste formatted markdown into the previously active app (or to simply copy it)\n* Make sure to launch MATT at login (again, in Preferences), this way it's always there when you need it.\n\nIf you are looking for a good markdown resource, start from the [official documentation](http://daringfireball.net/projects/markdown/)."
+            manager.setObject(true, key: FirstRunKey)
         }
     }
     
