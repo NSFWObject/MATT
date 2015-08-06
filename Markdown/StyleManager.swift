@@ -58,6 +58,11 @@ public class StyleManager {
             cssContents = String(contentsOfURL: URL, encoding: NSUTF8StringEncoding, error: nil) {
                 return cssContents
         }
+        // default
+        if let URL = NSBundle.mainBundle().URLForResource("GitHub2", withExtension: "css", subdirectory: "CSS"),
+            contents = String(contentsOfURL: URL, encoding: NSUTF8StringEncoding, error: nil) {
+                return contents
+        }
         return ""
     }
     
