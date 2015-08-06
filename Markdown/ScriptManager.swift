@@ -29,7 +29,11 @@ private extension Script {
     }
 
     var destinationURL: NSURL? {
-        return NSFileManager.defaultManager().URLForDirectory(.ApplicationScriptsDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false, error: nil)?.URLByAppendingPathComponent(self.fileName)
+        let manager = NSFileManager.defaultManager()
+        if let URL = manager.URLForDirectory(.ApplicationScriptsDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false, error: nil) {
+            return URL.URLByAppendingPathComponent("\(self.fileName).scpt")
+        }
+        return nil
     }
 }
 
@@ -161,9 +165,12 @@ public struct ScriptManager {
 private extension NSURL {
     var modificationDate: NSDate? {
         let manager = NSFileManager.defaultManager()
-        if let path = self.relativePath {
-            if let attributes = manager.attributesOfItemAtPath(path, error: nil) {
+        if let path = self.absoluteURL?.relativePath {
+            var error: NSError?
+            if let attributes = manager.attributesOfItemAtPath(path, error: &error) {
                 return (attributes as NSDictionary).fileModificationDate()
+            } else {
+                assertionFailure("Failed to fetch attributes for \(self): \(error)")
             }
         }
         return nil

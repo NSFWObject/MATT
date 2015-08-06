@@ -21,9 +21,9 @@ class ScriptPreferencesViewController: NSViewController {
     }
     
     @IBAction func installScriptButtonAction(sender: AnyObject) {
-        scriptManager.installScript{ success in
-            // success == false might be jsut user canceled
-//            assert(success, "Failed to copy script")
+        scriptManager.installScripts{ success in
+            // TODO: a great case for `Result`. success == false might be user canceled
+            // assert(success, "Failed to copy script")
             self.updateUI()
         }
     }
@@ -31,7 +31,7 @@ class ScriptPreferencesViewController: NSViewController {
     // MARK: - Private
     
     private func updateUI() {
-        let isScriptInstalled = scriptManager.isScriptInstalled()
+        let isScriptInstalled = scriptManager.shouldInstallScripts()
         installScriptButton.title = isScriptInstalled ? "Installed" : "Install"
     }
 }

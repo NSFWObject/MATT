@@ -96,7 +96,7 @@ class ViewController: NSViewController {
     }
 
     private func checkIfScriptNeedsToBeInstalled() {
-        if !scriptManager.shouldInstallScriptFile() {
+        if !scriptManager.shouldInstallScripts() {
             return
         }
         
@@ -107,7 +107,7 @@ class ViewController: NSViewController {
         alert.addButtonWithTitle("Cancel")
         alert.beginSheetModalForWindow(self.view.window!) { response in
             if response == NSAlertFirstButtonReturn {
-                self.scriptManager.installScript{ _ in }
+                self.scriptManager.installScripts{ _ in }
             }
         }
     }
