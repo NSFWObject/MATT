@@ -9,15 +9,16 @@
 import AppKit
 
 public struct ScriptManager {
-    private static let ScriptFilename: String = "PasteboardHelper.scpt"
+    private static let CmdVScriptFilename: String = "⌘V.scpt"
+    private static let CmdCScriptFilename: String = "⌘C.scpt"
     
     private func originalScriptURL() -> NSURL {
-        return NSBundle.mainBundle().URLForResource(ScriptManager.ScriptFilename.stringByDeletingPathExtension, withExtension: ScriptManager.ScriptFilename.pathExtension)!
+        return NSBundle.mainBundle().URLForResource(ScriptManager.CmdVScriptFilename.stringByDeletingPathExtension, withExtension: ScriptManager.CmdVScriptFilename.pathExtension)!
     }
     
     private func destinationScriptURL() -> NSURL? {
         if let appScriptURL = NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.ApplicationScriptsDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: true, error: nil) {
-            return appScriptURL.URLByAppendingPathComponent(ScriptManager.ScriptFilename)
+            return appScriptURL.URLByAppendingPathComponent(ScriptManager.CmdVScriptFilename)
         }
         return nil
     }
@@ -77,7 +78,7 @@ public struct ScriptManager {
                 if let selectedURL = openPanel.URL {
                     if selectedURL == scriptsFolderURL {
                         let fileManager = NSFileManager.defaultManager()
-                        let destinationURL = selectedURL.URLByAppendingPathComponent(ScriptManager.ScriptFilename)
+                        let destinationURL = selectedURL.URLByAppendingPathComponent(ScriptManager.CmdVScriptFilename)
                         let sourceURL = self.originalScriptURL()
                         var error: NSError?
                         if fileManager.fileExistsAtPath(destinationURL.relativePath!) {
