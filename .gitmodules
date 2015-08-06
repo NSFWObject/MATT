@@ -4,6 +4,3 @@
 [submodule "Carthage/Checkouts/MASShortcut"]
 	path = Carthage/Checkouts/MASShortcut
 	url = https://github.com/shpakovski/MASShortcut.git
-[submodule "Carthage/Checkouts/GRMustache.swift"]
-	path = Carthage/Checkouts/GRMustache.swift
-	url = https://github.com/groue/GRMustache.swift.git
