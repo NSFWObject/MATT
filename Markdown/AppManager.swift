@@ -20,8 +20,9 @@ public class AppManager {
     // MARK: - Public
     
     public func process(#markdown: String, styleManager: StyleManager, renderer: MarkdownRenderer, scriptManager: ScriptManager, completion: Bool -> Void) {
-        let cssContents = cssContentsForCapturedApp(capturedApp, styleManager: styleManager)
-        let (attributedString, HTML) = renderer.render(markdown: markdown, style: cssContents)
+        let styleController = StyleController()
+        let css = cssContents(style: styleController.selectedStyle)
+        let (attributedString, HTML) = renderer.render(markdown: markdown, style: css)
         
         let pasteboardItems = (PasteboardController.pasteboardContents() ?? []).map{ $0.copy() as! NSPasteboardItem }
 
@@ -69,12 +70,20 @@ public class AppManager {
 
     // MARK: - Private
     
-    private func cssContentsForCapturedApp(app: NSRunningApplication?, styleManager: StyleManager) -> String {
-        return styleManager.cssContentsForBundleId(app?.bundleIdentifier)
+    private func cssContents(#style: Style) -> String {
+        switch style {
+        case .None:
+            return ""
+        case .File(_, let URL):
+            if let contents = String(contentsOfURL:URL, encoding: NSUTF8StringEncoding, error: nil) {
+                return contents
+            }
+            return ""
+        }
     }
     
     private func sendCmdV(#scriptManager: ScriptManager, completion: Bool -> Void) {
-//        carbonWay()
+        // carbonWay()
         scriptWay(scriptManager: scriptManager, completion: completion)
     }
 
