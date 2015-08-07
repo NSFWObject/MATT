@@ -24,10 +24,18 @@ class WindowController: NSWindowController, NSWindowDelegate {
         if let manager = appManager,
             app = appManager.capturedApp,
             name = app.localizedName {
-                self.window?.title = "\(name) + MATT = ♥︎"
+                self.window?.title = "\(name) + MATT = \(randomEmoji())"
         } else {
             self.window?.title = (NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as! String)
         }
+    }
+    
+    // MARK: - Private
+    
+    private func randomEmoji() -> String {
+        let emojis = ["💥", "🍌", "♥︎", "🔥", "🎉", "😃", "👍", "🐔", "🐙", "❤️", "💜", "👌", "💛", "💚", "💃", "🚀"]
+        let index = Int(arc4random_uniform(UInt32(emojis.count)))
+        return emojis[index]
     }
         
     // MARK: - NSWindowController
