@@ -46,7 +46,6 @@ public class ShortcutManager {
         } else {
             NSUserDefaults.standardUserDefaults().removeObjectForKey(ShortcutKey)
         }
-        NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     public func load() {
