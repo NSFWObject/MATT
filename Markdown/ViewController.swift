@@ -33,7 +33,7 @@ class ViewController: NSViewController {
     // MARK: - Actions
     
     @IBAction func preferencesMenuAction(sender: AnyObject) {
-        PreferenceManager.showPreferences(shortcutManager: shortcutManager, scriptManager: scriptManager)
+        PreferencesViewManager.showPreferences(shortcutManager: shortcutManager, scriptManager: scriptManager)
     }
 
     private func toggleAppVisibilityAction() {
