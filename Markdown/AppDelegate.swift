@@ -10,10 +10,26 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    
+    let shortcutManager = ShortcutManager()
+    let scriptManager = ScriptManager()
 
-    func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool {
-        return true
+    private var windowController: NSWindowController?
+    
+    // MARK: - Actions
+
+    @IBAction func showMainWindowMenuAction(sender: NSMenuItem) {
+        if NSApplication.sharedApplication().keyWindow == nil {
+            if let storyboard = NSStoryboard(name: "Main", bundle: nil),
+                controller = storyboard.instantiateInitialController() as? NSWindowController {
+                    controller.showWindow(self)
+                    windowController = controller
+            }
+        }
     }
     
+    @IBAction func preferencesMenuAction(sender: AnyObject) {
+        PreferencesViewManager.showPreferences(shortcutManager: shortcutManager, scriptManager: scriptManager)
+    }
 }
 

@@ -31,10 +31,6 @@ class ViewController: NSViewController {
     
     // MARK: - Actions
     
-    @IBAction func preferencesMenuAction(sender: AnyObject) {
-        PreferencesViewManager.showPreferences(shortcutManager: shortcutManager, scriptManager: scriptManager)
-    }
-    
     private func pasteMarkdownAction() {
         assertionFailure("Not implemented")
     }
