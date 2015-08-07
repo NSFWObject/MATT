@@ -10,38 +10,109 @@
             <objects>
                 <viewController storyboardIdentifier="General" id="PtQ-cu-yH5" customClass="GeneralPreferencesViewController" customModule="MATT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="LIN-3v-tzN">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="140"/>
+                        <rect key="frame" x="0.0" y="0.0" width="410" height="166"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PIg-cr-MM2" userLabel="Login Item Container">
-                                <rect key="frame" x="0.0" y="100" width="400" height="40"/>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a1s-F3-CF8">
+                                <rect key="frame" x="173" y="122" width="125" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="v3c-rz-PZ1"/>
+                                </constraints>
                                 <animations/>
-                                <connections>
-                                    <segue destination="4nZ-ca-Mrk" kind="embed" identifier="LoginItem" id="bFu-fV-An5"/>
-                                </connections>
-                            </containerView>
-                            <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="brS-Um-Dpb" userLabel="Shortcut Container">
-                                <rect key="frame" x="0.0" y="60" width="400" height="40"/>
+                                <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="3yd-fr-1uG" id="mqI-cS-GgA">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="b5j-TQ-XW0">
+                                        <items>
+                                            <menuItem title="Item 1" state="on" id="3yd-fr-1uG"/>
+                                            <menuItem title="Item 2" id="5YE-oL-rNL"/>
+                                            <menuItem title="Item 3" id="Sfb-S8-VTY"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mLW-AH-QXx">
+                                <rect key="frame" x="128" y="128" width="39" height="17"/>
                                 <animations/>
-                                <connections>
-                                    <segue destination="kjj-W7-xW1" kind="embed" identifier="Shortcut" id="uzj-tb-dme"/>
-                                </connections>
-                            </containerView>
-                            <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5yg-UZ-VZq" userLabel="Script Container">
-                                <rect key="frame" x="0.0" y="20" width="400" height="40"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Style:" id="2DV-Cq-IaT">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="FEP-i1-4aI">
+                                <rect key="frame" x="176" y="94" width="188" height="18"/>
                                 <animations/>
-                                <connections>
-                                    <segue destination="xlT-wF-TTA" kind="embed" identifier="Script" id="OzH-sL-xjd"/>
-                                </connections>
-                            </containerView>
+                                <buttonCell key="cell" type="check" title="Open automatically at login" bezelStyle="regularSquare" imagePosition="left" inset="2" id="yLK-LK-CPS">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9eP-GE-jUW">
+                                <rect key="frame" x="80" y="63" width="87" height="17"/>
+                                <animations/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Script Status:" id="eZ0-dh-xgm">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a0M-nc-1xe">
+                                <rect key="frame" x="169" y="53" width="132" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="iPR-uQ-bNT"/>
+                                </constraints>
+                                <animations/>
+                                <buttonCell key="cell" type="push" title="Install Script" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ggg-TE-VEF">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gpf-5Y-7zQ">
+                                <rect key="frame" x="47" y="24" width="120" height="17"/>
+                                <animations/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Keyboard shortcut:" id="0kD-oQ-nkn">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="q4A-nU-Agr" customClass="MASShortcutView">
+                                <rect key="frame" x="175" y="20" width="120" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="DnD-17-1sq"/>
+                                    <constraint firstAttribute="width" constant="120" id="Dz8-f8-xJh"/>
+                                </constraints>
+                                <animations/>
+                            </customView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="a0M-nc-1xe" firstAttribute="baseline" secondItem="9eP-GE-jUW" secondAttribute="baseline" id="0hf-WB-csQ"/>
+                            <constraint firstAttribute="bottom" secondItem="q4A-nU-Agr" secondAttribute="bottom" constant="20" id="2SS-xa-bde"/>
+                            <constraint firstItem="q4A-nU-Agr" firstAttribute="leading" secondItem="a1s-F3-CF8" secondAttribute="leading" id="3x5-Xb-58m"/>
+                            <constraint firstItem="a1s-F3-CF8" firstAttribute="baseline" secondItem="mLW-AH-QXx" secondAttribute="baseline" id="5JP-Bf-t1Q"/>
+                            <constraint firstItem="mLW-AH-QXx" firstAttribute="trailing" secondItem="9eP-GE-jUW" secondAttribute="trailing" id="73v-EC-85c"/>
+                            <constraint firstAttribute="centerX" secondItem="mLW-AH-QXx" secondAttribute="trailing" constant="40" id="7hE-kN-Kh1"/>
+                            <constraint firstItem="q4A-nU-Agr" firstAttribute="top" secondItem="a0M-nc-1xe" secondAttribute="bottom" constant="15" id="8Ar-xx-k1n"/>
+                            <constraint firstItem="q4A-nU-Agr" firstAttribute="centerY" secondItem="Gpf-5Y-7zQ" secondAttribute="centerY" id="EVA-Ls-JJm"/>
+                            <constraint firstItem="FEP-i1-4aI" firstAttribute="top" secondItem="a1s-F3-CF8" secondAttribute="bottom" constant="15" id="OUP-ef-hER"/>
+                            <constraint firstItem="mLW-AH-QXx" firstAttribute="trailing" secondItem="Gpf-5Y-7zQ" secondAttribute="trailing" id="P3Y-to-y72"/>
+                            <constraint firstItem="a1s-F3-CF8" firstAttribute="leading" secondItem="FEP-i1-4aI" secondAttribute="leading" constant="-3" id="VHU-7u-aKa"/>
+                            <constraint firstItem="a0M-nc-1xe" firstAttribute="top" secondItem="FEP-i1-4aI" secondAttribute="bottom" constant="15" id="hHg-Rd-8ud"/>
+                            <constraint firstItem="a1s-F3-CF8" firstAttribute="top" secondItem="LIN-3v-tzN" secondAttribute="top" constant="20" id="t40-kp-YQv"/>
+                            <constraint firstItem="a0M-nc-1xe" firstAttribute="leading" secondItem="a1s-F3-CF8" secondAttribute="leading" id="uBt-eb-Tta"/>
+                            <constraint firstItem="a1s-F3-CF8" firstAttribute="leading" secondItem="mLW-AH-QXx" secondAttribute="trailing" constant="10" id="wy6-sZ-3gL"/>
+                        </constraints>
                         <animations/>
                     </view>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="identifier" value="general"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="shortcutView" destination="q4A-nU-Agr" id="qrW-Lg-SeM"/>
+                        <outlet property="installScriptButton" destination="a0M-nc-1xe" id="SqY-rO-Fng"/>
+                        <outlet property="loginItemCheckbox" destination="FEP-i1-4aI" id="5Bb-7M-p6v"/>
+                        <outlet property="shortcutView" destination="q4A-nU-Agr" id="ahz-R4-vJB"/>
+                        <outlet property="stylePopupButton" destination="a1s-F3-CF8" id="OQM-9O-14v"/>
                     </connections>
                 </viewController>
                 <customObject id="vgh-it-hDo" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -175,130 +246,6 @@
                 <customObject id="qN4-WJ-rWV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="800" y="-163"/>
-        </scene>
-        <!--Script Preferences View Controller-->
-        <scene sceneID="P7R-kS-gMK">
-            <objects>
-                <viewController id="xlT-wF-TTA" customClass="ScriptPreferencesViewController" customModule="MATT" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="LtV-wQ-GEI">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="20"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9eP-GE-jUW">
-                                <rect key="frame" x="110" y="3" width="87" height="17"/>
-                                <animations/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Script Status:" id="eZ0-dh-xgm">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a0M-nc-1xe">
-                                <rect key="frame" x="199" y="-7" width="132" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="iPR-uQ-bNT"/>
-                                </constraints>
-                                <animations/>
-                                <buttonCell key="cell" type="push" title="Install Script" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ggg-TE-VEF">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="installScriptButtonAction:" target="xlT-wF-TTA" id="cC6-HF-LEe"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="a0M-nc-1xe" firstAttribute="baseline" secondItem="9eP-GE-jUW" secondAttribute="baseline" id="4Xu-Oc-EyY"/>
-                            <constraint firstItem="a0M-nc-1xe" firstAttribute="leading" secondItem="9eP-GE-jUW" secondAttribute="trailing" constant="10" id="86z-95-7dV"/>
-                            <constraint firstAttribute="centerX" secondItem="9eP-GE-jUW" secondAttribute="trailing" constant="30" id="uGO-rY-qfW"/>
-                            <constraint firstAttribute="centerY" secondItem="a0M-nc-1xe" secondAttribute="centerY" constant="0.5" id="waE-lY-q2V"/>
-                        </constraints>
-                        <animations/>
-                    </view>
-                    <connections>
-                        <outlet property="installScriptButton" destination="a0M-nc-1xe" id="j0o-XX-eHk"/>
-                    </connections>
-                </viewController>
-                <customObject id="puk-y5-JDL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="297" y="-22"/>
-        </scene>
-        <!--Shortcut Preferences View Controller-->
-        <scene sceneID="OCp-1Z-OMu">
-            <objects>
-                <viewController id="kjj-W7-xW1" customClass="ShortcutPreferencesViewController" customModule="MATT" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="Rs1-ls-FB9">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="25"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gpf-5Y-7zQ">
-                                <rect key="frame" x="77" y="5" width="120" height="17"/>
-                                <animations/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Keyboard shortcut:" id="0kD-oQ-nkn">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="q4A-nU-Agr" customClass="MASShortcutView">
-                                <rect key="frame" x="205" y="0.0" width="120" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="DnD-17-1sq"/>
-                                    <constraint firstAttribute="width" constant="120" id="Dz8-f8-xJh"/>
-                                </constraints>
-                                <animations/>
-                            </customView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="q4A-nU-Agr" firstAttribute="leading" secondItem="Gpf-5Y-7zQ" secondAttribute="trailing" constant="10" id="1Gy-Cd-v9l"/>
-                            <constraint firstItem="q4A-nU-Agr" firstAttribute="centerY" secondItem="Gpf-5Y-7zQ" secondAttribute="centerY" constant="1" id="ZZy-cs-ygP"/>
-                            <constraint firstAttribute="centerX" secondItem="Gpf-5Y-7zQ" secondAttribute="trailing" constant="30" id="k5c-TL-Bny"/>
-                            <constraint firstAttribute="centerY" secondItem="q4A-nU-Agr" secondAttribute="centerY" id="kif-05-70c"/>
-                        </constraints>
-                        <animations/>
-                    </view>
-                    <connections>
-                        <outlet property="shortcutView" destination="q4A-nU-Agr" id="b5T-U7-4EL"/>
-                    </connections>
-                </viewController>
-                <customObject id="w9h-OL-POw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="297" y="98.5"/>
-        </scene>
-        <!--Login Item Preferences View Controller-->
-        <scene sceneID="Oja-A3-UQD">
-            <objects>
-                <viewController id="4nZ-ca-Mrk" customClass="LoginItemPreferencesViewController" customModule="MATT" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="GgE-bO-ylM">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="20"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <button verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="FEP-i1-4aI">
-                                <rect key="frame" x="203" y="-3" width="188" height="18"/>
-                                <animations/>
-                                <buttonCell key="cell" type="check" title="Open automatically at login" bezelStyle="regularSquare" imagePosition="left" inset="2" id="yLK-LK-CPS">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="loginItemCheckoutAction:" target="4nZ-ca-Mrk" id="hjm-xT-6pI"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="centerY" secondItem="FEP-i1-4aI" secondAttribute="centerY" constant="-4" id="5vp-eD-DsY"/>
-                            <constraint firstAttribute="centerX" secondItem="FEP-i1-4aI" secondAttribute="leading" constant="20" id="fe7-YD-zlp"/>
-                        </constraints>
-                        <animations/>
-                    </view>
-                    <connections>
-                        <outlet property="loginItemCheckout" destination="FEP-i1-4aI" id="w8W-P5-bps"/>
-                    </connections>
-                </viewController>
-                <customObject id="8hx-NC-Cxy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="297" y="219"/>
         </scene>
     </scenes>
 </document>
