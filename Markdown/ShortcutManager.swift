@@ -63,15 +63,33 @@ public final class ShortcutManager: NSObject {
             return processMarkdownHandler
         }
     }
+}
+
+extension ShortcutManager: NSCoding {
     
-    @objc public func encodeWithCoder(aCoder: NSCoder) {
-        if let shortcut = storage[ShortcutType.ToggleAppVisibility] {
-            aCoder.encodeObject(shortcut, forKey: ShortcutType.ToggleAppVisibility.rawValue)
-        }
-        if let shortcut = storage[ShortcutType.ProcessSelectedMarkdown] {
-            aCoder.encodeObject(shortcut, forKey: ShortcutType.ProcessSelectedMarkdown.rawValue)
+    private static let ShortcutManagerKey = "MATT"
+    
+    public convenience init(coder aDecoder: NSCoder) {
+        self.init()
+        if let encodableStorage = aDecoder.decodeObjectForKey(ShortcutManager.ShortcutDataKey) as? [String: MASShortcut] {
+            var storage: [ShortcutType: MASShortcut] = [:]
+            for (typeString, shortcut) in encodableStorage {
+                if let type = ShortcutType(rawValue: typeString) {
+                    storage[type] = shortcut
+                }
+            }
+            self.storage = storage
         }
     }
+    
+    public func encodeWithCoder(aCoder: NSCoder) {
+        var encodableStorage: [String: MASShortcut] = [:]
+        for (type, shortcut) in storage {
+            encodableStorage[type.rawValue] = shortcut
+        }
+        aCoder.encodeObject(encodableStorage, forKey: ShortcutManager.ShortcutDataKey)
+    }
+
 }
 
 // MARK: - Persistance
