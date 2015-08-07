@@ -71,7 +71,7 @@ public struct ScriptManager {
             for URL in URLs {
                 if let fileName = URL.lastPathComponent {
                     let destinationURL = destinationURL.URLByAppendingPathComponent(fileName)
-                    if let path = destinationURL.relativePath {
+                    if let path = destinationURL.absoluteURL?.relativePath {
                         if !manager.fileExistsAtPath(path) {
                             return true
                         }
