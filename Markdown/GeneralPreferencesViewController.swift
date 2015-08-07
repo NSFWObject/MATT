@@ -8,24 +8,25 @@
 
 import AppKit
 import MASPreferences
-
+import MASShortcut
 
 class GeneralPreferencesViewController: NSViewController, MASPreferencesViewController {
     
     var shortcutManager: ShortcutManager!
     var scriptManager: ScriptManager!
-    
-    var scriptViewController: ScriptPreferencesViewController! {
-        didSet {
-            scriptViewController.scriptManager = scriptManager
-        }
-    }
-    
-    var shortcutViewController: ShortcutPreferencesViewController! {
-        didSet {
-            shortcutViewController.shortcutManager = shortcutManager
-        }
-    }
+    var styleController: StyleController!
+
+    // Section controllers
+    var stylePreferencesController: StylePreferencesController!
+    var loginItemPreferencesController: LoginItemPreferencesController!
+    var scriptPreferencesController: ScriptPreferencesController!
+    var shortcutPreferencesController: ShortcutPreferencesController!
+
+    // UI
+    @IBOutlet weak var stylePopupButton: NSPopUpButton!
+    @IBOutlet weak var loginItemCheckbox: NSButton!
+    @IBOutlet weak var installScriptButton: NSButton!
+    @IBOutlet weak var shortcutView: MASShortcutView!
     
     // MARK: - MASPreferencesViewController
     
@@ -40,20 +41,14 @@ class GeneralPreferencesViewController: NSViewController, MASPreferencesViewCont
     
     // MARK: - NSViewController
     
-    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
-        if let identifier = segue.identifier {
-            switch identifier {
-            case "LoginItem":
-                break
-            case "Script":
-                self.scriptViewController = segue.destinationController as! ScriptPreferencesViewController
-                break
-            case "Shortcut":
-                self.shortcutViewController = segue.destinationController as! ShortcutPreferencesViewController
-            default:
-                break
-            }
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        styleController = StyleController()
+        self.stylePreferencesController = StylePreferencesController(styleController: styleController, popupButton: stylePopupButton)
+        self.loginItemPreferencesController = LoginItemPreferencesController(loginItemCheckbox: loginItemCheckbox)
+        self.scriptPreferencesController = ScriptPreferencesController(installScriptButton: installScriptButton, scriptManager: scriptManager)
+        self.shortcutPreferencesController = ShortcutPreferencesController(shortcutView: shortcutView, shortcutManager: shortcutManager)
     }
 }
 

@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C06F5441B69B86000FF1A37 /* ScriptPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06F5431B69B86000FF1A37 /* ScriptPreferencesViewController.swift */; };
-		5C06F5461B69C06400FF1A37 /* ShortcutPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06F5451B69C06400FF1A37 /* ShortcutPreferencesViewController.swift */; };
-		5C0B4FBC1B689A280098DDF3 /* StyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0B4FBB1B689A280098DDF3 /* StyleManager.swift */; };
+		5C06F5441B69B86000FF1A37 /* ScriptPreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06F5431B69B86000FF1A37 /* ScriptPreferencesController.swift */; };
+		5C06F5461B69C06400FF1A37 /* ShortcutPreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06F5451B69C06400FF1A37 /* ShortcutPreferencesController.swift */; };
 		5C1FA31B1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1FA31A1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift */; };
 		5C1FA31E1B67CC3F001CC4AD /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C1FA31D1B67CC3F001CC4AD /* Preferences.storyboard */; };
 		5C1FA3201B67CC9F001CC4AD /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1FA31F1B67CC9F001CC4AD /* PreferencesManager.swift */; };
 		5C1FA3221B67CDB9001CC4AD /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1FA3211B67CDB9001CC4AD /* WindowController.swift */; };
 		5C1FA3231B67CE57001CC4AD /* MASPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1FA3161B67CBDC001CC4AD /* MASPreferences.framework */; };
 		5C1FA3241B67CE57001CC4AD /* MASPreferences.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1FA3161B67CBDC001CC4AD /* MASPreferences.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5C30D8991B7439270024111A /* StylePreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30D8981B7439270024111A /* StylePreferencesController.swift */; };
+		5C30D89C1B743A200024111A /* StyleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30D89B1B743A200024111A /* StyleController.swift */; };
+		5C30D89F1B7449670024111A /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30D89E1B7449670024111A /* NSURLExtensions.swift */; };
 		5C4D470E1B691E02004138D8 /* ScriptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4D470D1B691E02004138D8 /* ScriptManager.swift */; };
 		5C5F641D1B72F7C90095275F /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = 5C5F641C1B72F7C90095275F /* Scripts */; };
 		5C6172F71B69E240009BF6B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6172F61B69E240009BF6B6 /* AppDelegate.swift */; };
@@ -24,6 +26,8 @@
 		5C6173161B69E404009BF6B6 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6173151B69E404009BF6B6 /* ServiceManagement.framework */; };
 		5C6173171B69E458009BF6B6 /* MATT Helper.app in Copy Helper.app */ = {isa = PBXBuildFile; fileRef = 5C6172F21B69E240009BF6B6 /* MATT Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5C61731C1B69EB1F009BF6B6 /* LoginItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C61731B1B69EB1F009BF6B6 /* LoginItemManager.swift */; };
+		5C61731E1B69F242009BF6B6 /* PasteboardHelper.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 5C4D470F1B692126004138D8 /* PasteboardHelper.scpt */; };
+		5C7289921B7432D700F90111 /* PreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7289911B7432D700F90111 /* PreferencesController.swift */; };
 		5C739DF61B5F6A5D001EF259 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C739DF51B5F6A5D001EF259 /* AppDelegate.swift */; };
 		5C739DF81B5F6A5D001EF259 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C739DF71B5F6A5D001EF259 /* ViewController.swift */; };
 		5C739DFA1B5F6A5D001EF259 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C739DF91B5F6A5D001EF259 /* Images.xcassets */; };
@@ -31,7 +35,6 @@
 		5C739E1B1B5FE850001EF259 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C739E1A1B5FE850001EF259 /* AppManager.swift */; };
 		5C81547D1B6FB8F50067981E /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C81547B1B6FB73F0067981E /* MASShortcut.framework */; };
 		5C81547E1B6FB8F50067981E /* MASShortcut.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C81547B1B6FB73F0067981E /* MASShortcut.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5C8446CF1B686701002FE2C3 /* StylePreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8446CE1B686701002FE2C3 /* StylePreferencesViewController.swift */; };
 		5CB58F081B667FCA00A01CC7 /* CocoaMark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CB58F041B667FBE00A01CC7 /* CocoaMark.framework */; };
 		5CB58F091B667FCA00A01CC7 /* CocoaMark.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CB58F041B667FBE00A01CC7 /* CocoaMark.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CB58F0A1B667FCA00A01CC7 /* hoedown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CB58F051B667FBE00A01CC7 /* hoedown.framework */; };
@@ -41,7 +44,7 @@
 		5CBE30A51B6B1FDA0004FC34 /* CSS in Resources */ = {isa = PBXBuildFile; fileRef = 5CBE30A41B6B1FDA0004FC34 /* CSS */; };
 		5CBFB4101B7065C9001B1F58 /* PasteboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */; };
 		5CD2E9A11B71A5A5006E0873 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2E9A01B71A5A5006E0873 /* DefaultsManager.swift */; };
-		5CFB2A591B6A7AD40006D951 /* LoginItemPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesViewController.swift */; };
+		5CFB2A591B6A7AD40006D951 /* LoginItemPreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,15 +86,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5C06F5431B69B86000FF1A37 /* ScriptPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptPreferencesViewController.swift; sourceTree = "<group>"; };
-		5C06F5451B69C06400FF1A37 /* ShortcutPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutPreferencesViewController.swift; sourceTree = "<group>"; };
+		5C06F5431B69B86000FF1A37 /* ScriptPreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptPreferencesController.swift; sourceTree = "<group>"; };
+		5C06F5451B69C06400FF1A37 /* ShortcutPreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutPreferencesController.swift; sourceTree = "<group>"; };
 		5C0B4FB41B6899520098DDF3 /* Mustache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mustache.framework; path = Carthage/Build/Mac/Mustache.framework; sourceTree = "<group>"; };
-		5C0B4FBB1B689A280098DDF3 /* StyleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleManager.swift; sourceTree = "<group>"; };
 		5C1FA3161B67CBDC001CC4AD /* MASPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MASPreferences.framework; path = Carthage/Build/Mac/MASPreferences.framework; sourceTree = "<group>"; };
 		5C1FA31A1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
 		5C1FA31D1B67CC3F001CC4AD /* Preferences.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
 		5C1FA31F1B67CC9F001CC4AD /* PreferencesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
 		5C1FA3211B67CDB9001CC4AD /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		5C30D8981B7439270024111A /* StylePreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylePreferencesController.swift; sourceTree = "<group>"; };
+		5C30D89B1B743A200024111A /* StyleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleController.swift; sourceTree = "<group>"; };
+		5C30D89E1B7449670024111A /* NSURLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtensions.swift; sourceTree = "<group>"; };
 		5C4D470D1B691E02004138D8 /* ScriptManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptManager.swift; sourceTree = "<group>"; };
 		5C5F641C1B72F7C90095275F /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Scripts; path = Resources/Scripts; sourceTree = "<group>"; };
 		5C6172F21B69E240009BF6B6 /* MATT Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MATT Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +107,7 @@
 		5C6173151B69E404009BF6B6 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		5C61731B1B69EB1F009BF6B6 /* LoginItemManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItemManager.swift; sourceTree = "<group>"; };
 		5C61731D1B69EF28009BF6B6 /* MATT Helper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "MATT Helper.entitlements"; sourceTree = "<group>"; };
+		5C7289911B7432D700F90111 /* PreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesController.swift; sourceTree = "<group>"; };
 		5C739DF01B5F6A5D001EF259 /* MATT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MATT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C739DF41B5F6A5D001EF259 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C739DF51B5F6A5D001EF259 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +117,6 @@
 		5C739E151B5F6B5A001EF259 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		5C739E1A1B5FE850001EF259 /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		5C81547B1B6FB73F0067981E /* MASShortcut.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MASShortcut.framework; path = Carthage/Build/Mac/MASShortcut.framework; sourceTree = "<group>"; };
-		5C8446CE1B686701002FE2C3 /* StylePreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylePreferencesViewController.swift; sourceTree = "<group>"; };
 		5CB58F041B667FBE00A01CC7 /* CocoaMark.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaMark.framework; path = Vendor/CocoaMark.framework; sourceTree = "<group>"; };
 		5CB58F051B667FBE00A01CC7 /* hoedown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = hoedown.framework; path = Vendor/hoedown.framework; sourceTree = "<group>"; };
 		5CB58F151B67151C00A01CC7 /* MarkdownRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownRenderer.swift; sourceTree = "<group>"; };
@@ -120,7 +125,7 @@
 		5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardController.swift; sourceTree = "<group>"; };
 		5CC268101B6EC07000D05D18 /* MATT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MATT.entitlements; sourceTree = SOURCE_ROOT; };
 		5CD2E9A01B71A5A5006E0873 /* DefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
-		5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItemPreferencesViewController.swift; sourceTree = "<group>"; };
+		5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItemPreferencesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,10 +154,11 @@
 		5C06F5471B69C19200FF1A37 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				5C30D8981B7439270024111A /* StylePreferencesController.swift */,
 				5C1FA31A1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift */,
-				5C06F5431B69B86000FF1A37 /* ScriptPreferencesViewController.swift */,
-				5C06F5451B69C06400FF1A37 /* ShortcutPreferencesViewController.swift */,
-				5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesViewController.swift */,
+				5C06F5431B69B86000FF1A37 /* ScriptPreferencesController.swift */,
+				5C06F5451B69C06400FF1A37 /* ShortcutPreferencesController.swift */,
+				5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesController.swift */,
 			);
 			name = General;
 			sourceTree = "<group>";
@@ -162,10 +168,26 @@
 			children = (
 				5C1FA31F1B67CC9F001CC4AD /* PreferencesManager.swift */,
 				5C06F5471B69C19200FF1A37 /* General */,
-				5C8446CE1B686701002FE2C3 /* StylePreferencesViewController.swift */,
 				5C1FA31D1B67CC3F001CC4AD /* Preferences.storyboard */,
 			);
 			name = Preferences;
+			sourceTree = "<group>";
+		};
+		5C30D89A1B743A150024111A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5C7289911B7432D700F90111 /* PreferencesController.swift */,
+				5C30D89B1B743A200024111A /* StyleController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		5C30D89D1B7449590024111A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5C30D89E1B7449670024111A /* NSURLExtensions.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		5C56CDC81B60BFCD003CFEF5 /* Vendor */ = {
@@ -223,10 +245,12 @@
 		5C739DF21B5F6A5D001EF259 /* MATT */ = {
 			isa = PBXGroup;
 			children = (
+				5C30D89D1B7449590024111A /* Extensions */,
 				5C739DF51B5F6A5D001EF259 /* AppDelegate.swift */,
 				5C1FA3211B67CDB9001CC4AD /* WindowController.swift */,
 				5C739DF71B5F6A5D001EF259 /* ViewController.swift */,
 				5C739DFB1B5F6A5D001EF259 /* Main.storyboard */,
+				5C30D89A1B743A150024111A /* Controllers */,
 				5CBE30A31B6B06530004FC34 /* Managers */,
 				5C1FA31C1B67CC28001CC4AD /* Preferences */,
 				5CB58F0C1B66831F00A01CC7 /* Resources */,
@@ -263,7 +287,6 @@
 				5CB58F1F1B67179600A01CC7 /* ShortcutManager.swift */,
 				5C61731B1B69EB1F009BF6B6 /* LoginItemManager.swift */,
 				5C4D470D1B691E02004138D8 /* ScriptManager.swift */,
-				5C0B4FBB1B689A280098DDF3 /* StyleManager.swift */,
 				5CB58F151B67151C00A01CC7 /* MarkdownRenderer.swift */,
 				5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */,
 				5CD2E9A01B71A5A5006E0873 /* DefaultsManager.swift */,
@@ -397,23 +420,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C30D89F1B7449670024111A /* NSURLExtensions.swift in Sources */,
 				5CB58F161B67151C00A01CC7 /* MarkdownRenderer.swift in Sources */,
 				5CD2E9A11B71A5A5006E0873 /* DefaultsManager.swift in Sources */,
+				5C30D8991B7439270024111A /* StylePreferencesController.swift in Sources */,
 				5CB58F201B67179600A01CC7 /* ShortcutManager.swift in Sources */,
 				5C739DF81B5F6A5D001EF259 /* ViewController.swift in Sources */,
 				5C1FA3201B67CC9F001CC4AD /* PreferencesManager.swift in Sources */,
 				5C739DF61B5F6A5D001EF259 /* AppDelegate.swift in Sources */,
 				5C1FA3221B67CDB9001CC4AD /* WindowController.swift in Sources */,
-				5C8446CF1B686701002FE2C3 /* StylePreferencesViewController.swift in Sources */,
-				5C0B4FBC1B689A280098DDF3 /* StyleManager.swift in Sources */,
 				5C739E1B1B5FE850001EF259 /* AppManager.swift in Sources */,
-				5C06F5461B69C06400FF1A37 /* ShortcutPreferencesViewController.swift in Sources */,
+				5C06F5461B69C06400FF1A37 /* ShortcutPreferencesController.swift in Sources */,
 				5C61731C1B69EB1F009BF6B6 /* LoginItemManager.swift in Sources */,
+				5C7289921B7432D700F90111 /* PreferencesController.swift in Sources */,
 				5C4D470E1B691E02004138D8 /* ScriptManager.swift in Sources */,
-				5C06F5441B69B86000FF1A37 /* ScriptPreferencesViewController.swift in Sources */,
+				5C30D89C1B743A200024111A /* StyleController.swift in Sources */,
+				5C06F5441B69B86000FF1A37 /* ScriptPreferencesController.swift in Sources */,
 				5C1FA31B1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift in Sources */,
 				5CBFB4101B7065C9001B1F58 /* PasteboardController.swift in Sources */,
-				5CFB2A591B6A7AD40006D951 /* LoginItemPreferencesViewController.swift in Sources */,
+				5CFB2A591B6A7AD40006D951 /* LoginItemPreferencesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

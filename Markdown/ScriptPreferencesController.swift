@@ -9,16 +9,22 @@
 import AppKit
 
 
-class ScriptPreferencesViewController: NSViewController {
+class ScriptPreferencesController: NSObject {
 
-    var scriptManager: ScriptManager!
+    let scriptManager: ScriptManager
     
-    @IBOutlet weak var installScriptButton: NSButton!
+    let installScriptButton: NSButton
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    init(installScriptButton: NSButton, scriptManager: ScriptManager) {
+        self.installScriptButton = installScriptButton
+        self.scriptManager = scriptManager
+        super.init()
+        installScriptButton.target = self
+        installScriptButton.action = Selector("installScriptButtonAction:")
         updateUI()
     }
+    
+    // MARK: - Actions
     
     @IBAction func installScriptButtonAction(sender: AnyObject) {
         scriptManager.installScripts{ success in

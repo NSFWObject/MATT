@@ -10,13 +10,12 @@ import Foundation
 import MASPreferences
 
 
-struct PreferenceManager {
+struct PreferencesViewManager {
     private static var windowController: NSWindowController?
     
     static func showPreferences(#shortcutManager: ShortcutManager, scriptManager: ScriptManager) {
         if let storyboard = NSStoryboard(name: "Preferences", bundle: nil),
-            general = storyboard.instantiateControllerWithIdentifier("General") as? GeneralPreferencesViewController,
-            styles = storyboard.instantiateControllerWithIdentifier("Styles") as? StylePreferencesViewController {
+            general = storyboard.instantiateControllerWithIdentifier("General") as? GeneralPreferencesViewController {
                 general.shortcutManager = shortcutManager
                 general.scriptManager = scriptManager
                 let preferencesWindow = MASPreferencesWindowController(viewControllers: [general])

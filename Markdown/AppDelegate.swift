@@ -11,16 +11,12 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    // TODO: remove me!
-    func applicationDidFinishLaunching(notification: NSNotification) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.registerDefaults(["MATTDefaultStyleName": "GitHub2"])
-        defaults.synchronize()
-    }
-    
     func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool {
         return true
     }
     
+    func applicationWillTerminate(notification: NSNotification) {
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
 }
 

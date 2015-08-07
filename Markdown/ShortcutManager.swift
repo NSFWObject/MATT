@@ -63,14 +63,6 @@ public final class ShortcutManager: NSObject {
             return processMarkdownHandler
         }
     }
-}
-
-extension ShortcutManager: NSCoding {
-    @objc convenience public init(coder aDecoder: NSCoder) {
-        self.init()
-        storage[ShortcutType.ToggleAppVisibility] = aDecoder.decodeObjectForKey(ShortcutType.ToggleAppVisibility.rawValue) as? MASShortcut
-        storage[ShortcutType.ProcessSelectedMarkdown] = aDecoder.decodeObjectForKey(ShortcutType.ProcessSelectedMarkdown.rawValue) as? MASShortcut
-    }
     
     @objc public func encodeWithCoder(aCoder: NSCoder) {
         if let shortcut = storage[ShortcutType.ToggleAppVisibility] {

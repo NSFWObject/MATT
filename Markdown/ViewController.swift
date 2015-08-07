@@ -15,7 +15,6 @@ import hoedown
 class ViewController: NSViewController {
     
     let shortcutManager = ShortcutManager()
-    let styleManager = StyleManager()
     let renderer = MarkdownRenderer()
     let scriptManager = ScriptManager()
     var appManager: AppManager!
@@ -33,7 +32,7 @@ class ViewController: NSViewController {
     // MARK: - Actions
     
     @IBAction func preferencesMenuAction(sender: AnyObject) {
-        PreferenceManager.showPreferences(shortcutManager: shortcutManager, scriptManager: scriptManager)
+        PreferencesViewManager.showPreferences(shortcutManager: shortcutManager, scriptManager: scriptManager)
     }
     
     private func pasteMarkdownAction() {
@@ -42,7 +41,7 @@ class ViewController: NSViewController {
 
     @IBAction func doneButtonAction(sender: AnyObject) {
         if let markdown = textView.string {
-            appManager.process(markdown: markdown, styleManager: styleManager, renderer: renderer, scriptManager: scriptManager) { success in
+            appManager.process(markdown: markdown, renderer: renderer, scriptManager: scriptManager) { success in
                 // no-op
             }
         } else {
@@ -86,14 +85,6 @@ class ViewController: NSViewController {
             textView.font = NSFont.userFixedPitchFontOfSize(12)
         }
     }
-    
-    private func loadStyles() {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        styleManager.load(userDefaults) {
-            print("styleManager.appStyles: \(self.styleManager.appStyles)")
-        }
-        
-    }
 
     private func checkIfScriptNeedsToBeInstalled() {
         if !scriptManager.shouldInstallScripts() {
@@ -121,7 +112,6 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadStyles()
         setupView()
         setupTextView()
         setupShortcuts()
