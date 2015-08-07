@@ -26,7 +26,6 @@
 		5C6173161B69E404009BF6B6 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6173151B69E404009BF6B6 /* ServiceManagement.framework */; };
 		5C6173171B69E458009BF6B6 /* MATT Helper.app in Copy Helper.app */ = {isa = PBXBuildFile; fileRef = 5C6172F21B69E240009BF6B6 /* MATT Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5C61731C1B69EB1F009BF6B6 /* LoginItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C61731B1B69EB1F009BF6B6 /* LoginItemManager.swift */; };
-		5C61731E1B69F242009BF6B6 /* PasteboardHelper.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 5C4D470F1B692126004138D8 /* PasteboardHelper.scpt */; };
 		5C7289921B7432D700F90111 /* PreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7289911B7432D700F90111 /* PreferencesController.swift */; };
 		5C739DF61B5F6A5D001EF259 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C739DF51B5F6A5D001EF259 /* AppDelegate.swift */; };
 		5C739DF81B5F6A5D001EF259 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C739DF71B5F6A5D001EF259 /* ViewController.swift */; };
@@ -43,7 +42,6 @@
 		5CB58F201B67179600A01CC7 /* ShortcutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB58F1F1B67179600A01CC7 /* ShortcutManager.swift */; };
 		5CBE30A51B6B1FDA0004FC34 /* CSS in Resources */ = {isa = PBXBuildFile; fileRef = 5CBE30A41B6B1FDA0004FC34 /* CSS */; };
 		5CBFB4101B7065C9001B1F58 /* PasteboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */; };
-		5CD2E9A11B71A5A5006E0873 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2E9A01B71A5A5006E0873 /* DefaultsManager.swift */; };
 		5CFB2A591B6A7AD40006D951 /* LoginItemPreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesController.swift */; };
 /* End PBXBuildFile section */
 
@@ -124,7 +122,6 @@
 		5CBE30A41B6B1FDA0004FC34 /* CSS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CSS; path = Resources/CSS; sourceTree = "<group>"; };
 		5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardController.swift; sourceTree = "<group>"; };
 		5CC268101B6EC07000D05D18 /* MATT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MATT.entitlements; sourceTree = SOURCE_ROOT; };
-		5CD2E9A01B71A5A5006E0873 /* DefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
 		5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItemPreferencesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -289,7 +286,6 @@
 				5C4D470D1B691E02004138D8 /* ScriptManager.swift */,
 				5CB58F151B67151C00A01CC7 /* MarkdownRenderer.swift */,
 				5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */,
-				5CD2E9A01B71A5A5006E0873 /* DefaultsManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -422,7 +418,6 @@
 			files = (
 				5C30D89F1B7449670024111A /* NSURLExtensions.swift in Sources */,
 				5CB58F161B67151C00A01CC7 /* MarkdownRenderer.swift in Sources */,
-				5CD2E9A11B71A5A5006E0873 /* DefaultsManager.swift in Sources */,
 				5C30D8991B7439270024111A /* StylePreferencesController.swift in Sources */,
 				5CB58F201B67179600A01CC7 /* ShortcutManager.swift in Sources */,
 				5C739DF81B5F6A5D001EF259 /* ViewController.swift in Sources */,
