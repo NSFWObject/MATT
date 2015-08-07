@@ -15,17 +15,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let shortcutManager = ShortcutManager()
     let scriptManager = ScriptManager()
 
-    private var windowController: NSWindowController?
+    private var windowController: NSWindowController!
     
     // MARK: - Actions
 
     @IBAction func showMainWindowMenuAction(sender: NSMenuItem) {
-        if NSApplication.sharedApplication().keyWindow == nil {
-            if let storyboard = NSStoryboard(name: "Main", bundle: nil),
-                controller = storyboard.instantiateInitialController() as? WindowController {
-                    controller.showWindow(self)
-                    configureController(controller)
-            }
+        if let window = NSApplication.sharedApplication().keyWindow {
+            window.makeKeyAndOrderFront(self)
+        } else {
+            createNewWindow()
+        }
+    }
+    
+    private func createNewWindow() {
+        if let storyboard = NSStoryboard(name: "Main", bundle: nil),
+            controller = storyboard.instantiateInitialController() as? WindowController {
+                controller.showWindow(self)
+                configureController(controller)
         }
     }
     
@@ -34,11 +40,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     private func toggleAppVisibility() {
+        
         if let activeApp = appManager.activeApp() {
             if activeApp.bundleIdentifier == NSBundle.mainBundle().bundleIdentifier {
-                appManager.hideMe()
+                if !self.windowController.window!.visible {
+                    createNewWindow()
+                } else {
+                    appManager.hideMe()
+                }
             } else {
                 appManager.activateMeCapturingActiveApp()
+                if !self.windowController.window!.visible {
+                    createNewWindow()
+                }
+            }
+        } else {
+            appManager.activateMeCapturingActiveApp()
+            if !self.windowController.window!.visible {
+                createNewWindow()
             }
         }
     }
@@ -67,7 +86,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
     }
-
+    
     // MARK: NSApplicationDelegate
     
     func applicationDidFinishLaunching(notification: NSNotification) {
