@@ -37,7 +37,7 @@ class ScriptPreferencesController: NSObject {
     // MARK: - Private
     
     private func updateUI() {
-        let isScriptInstalled = scriptManager.shouldInstallScripts()
-        installScriptButton.title = isScriptInstalled ? "Installed" : "Install"
+        let shouldInstallScript = scriptManager.shouldInstallScripts()
+        installScriptButton.title = shouldInstallScript ? "Install" : "Installed"
     }
 }
