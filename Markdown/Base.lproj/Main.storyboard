@@ -66,7 +66,6 @@
                                             <string key="keyEquivalent" base64-UTF8="YES">
 DQ
 </string>
-                                            <modifierMask key="keyEquivalentModifierMask" control="YES"/>
                                             <connections>
                                                 <action selector="doneButtonAction:" target="Ady-hI-5gd" id="C0l-v4-qiI"/>
                                             </connections>
