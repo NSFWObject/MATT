@@ -10,7 +10,7 @@ import AppKit
 
 
 class WindowController: NSWindowController, NSWindowDelegate {
-    let appManager = AppManager()
+    var appManager: AppManager!
     
     // MARK: - Lifecycle
     
@@ -21,8 +21,10 @@ class WindowController: NSWindowController, NSWindowDelegate {
     // MARK: - Actions
     
     func applicationDidBecomeActiveObserver(sender: AnyObject) {
-        if let app = appManager.capturedApp, name = app.localizedName {
-            self.window?.title = "\(name) + MATT = ♥︎"
+        if let manager = appManager,
+            app = appManager.capturedApp,
+            name = app.localizedName {
+                self.window?.title = "\(name) + MATT = ♥︎"
         } else {
             self.window?.title = (NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as! String)
         }
@@ -38,11 +40,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
             window.styleMask |= NSFullSizeContentViewWindowMask
             window.delegate = self
         }
-        
-        if let controller = contentViewController as? ViewController {
-            controller.appManager = appManager
-        }
-        
+                
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationDidBecomeActiveObserver:"), name: NSApplicationDidBecomeActiveNotification, object: nil)
     }
     

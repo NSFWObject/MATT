@@ -11,6 +11,7 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
+    let appManager = AppManager()
     let shortcutManager = ShortcutManager()
     let scriptManager = ScriptManager()
 
@@ -21,15 +22,57 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func showMainWindowMenuAction(sender: NSMenuItem) {
         if NSApplication.sharedApplication().keyWindow == nil {
             if let storyboard = NSStoryboard(name: "Main", bundle: nil),
-                controller = storyboard.instantiateInitialController() as? NSWindowController {
+                controller = storyboard.instantiateInitialController() as? WindowController {
                     controller.showWindow(self)
-                    windowController = controller
+                    configureController(controller)
             }
         }
     }
     
     @IBAction func preferencesMenuAction(sender: AnyObject) {
         PreferencesViewManager.showPreferences(shortcutManager: shortcutManager, scriptManager: scriptManager)
+    }
+    
+    private func toggleAppVisibility() {
+        if let activeApp = appManager.activeApp() {
+            if activeApp.bundleIdentifier == NSBundle.mainBundle().bundleIdentifier {
+                appManager.hideMe()
+            } else {
+                appManager.activateMeCapturingActiveApp()
+            }
+        }
+    }
+
+    // MARK: - Private
+    
+    private func configureController(controller: WindowController) {
+        windowController = controller
+        controller.appManager = appManager
+        if let controller = controller.contentViewController as? ViewController {
+            controller.shortcutManager = shortcutManager
+            controller.appManager = appManager
+        }
+    }
+    
+    private func setupGlobalShortcuts() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        shortcutManager.load(defaults: defaults)
+        shortcutManager.appVisibilityHandler = toggleAppVisibility
+    }
+
+    private func setupInitialController() {
+        for window in NSApplication.sharedApplication().windows as! [NSWindow] {
+            if let controller = window.windowController() as? WindowController {
+                configureController(controller)
+            }
+        }
+    }
+
+    // MARK: NSApplicationDelegate
+    
+    func applicationDidFinishLaunching(notification: NSNotification) {
+        setupInitialController()
+        setupGlobalShortcuts()
     }
 }
 

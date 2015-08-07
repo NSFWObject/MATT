@@ -14,12 +14,15 @@ import hoedown
 
 class ViewController: NSViewController {
     
-    let shortcutManager = ShortcutManager()
+    var appManager: AppManager!
+    var shortcutManager: ShortcutManager! {
+        didSet {
+            setupShortcuts()
+        }
+    }
+
     let renderer = MarkdownRenderer()
     let scriptManager = ScriptManager()
-    var appManager: AppManager!
-    
-    let monitor: MASShortcutMonitor = MASShortcutMonitor.sharedMonitor()
     
     @IBOutlet var textView: NSTextView!
     
@@ -47,24 +50,11 @@ class ViewController: NSViewController {
     
     // MARK: - Private
 
-    private func toggleAppVisibility() {
-        if let activeApp = self.appManager.activeApp() {
-            if activeApp.bundleIdentifier == NSBundle.mainBundle().bundleIdentifier {
-                self.appManager.hideMe()
-            } else {
-                self.appManager.activateMeCapturingActiveApp()
-            }
-        }
-    }
-    
     private func processSelectedMarkdown() {
         
     }
     
     private func setupShortcuts() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        shortcutManager.load(defaults: defaults)
-        shortcutManager.appVisibilityHandler = toggleAppVisibility
         shortcutManager.processMarkdownHandler = processSelectedMarkdown
     }
     
@@ -110,7 +100,6 @@ class ViewController: NSViewController {
         
         setupView()
         setupTextView()
-        setupShortcuts()
     }
     
     override func viewDidAppear() {
