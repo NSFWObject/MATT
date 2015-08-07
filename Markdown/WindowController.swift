@@ -50,6 +50,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
         }
                 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationDidBecomeActiveObserver:"), name: NSApplicationDidBecomeActiveNotification, object: nil)
+        self.window?.title = (NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as! String)
     }
     
     override func showWindow(sender: AnyObject?) {
