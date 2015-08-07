@@ -19,7 +19,7 @@ public class AppManager {
         
     // MARK: - Public
     
-    public func process(#markdown: String, styleManager: StyleManager, renderer: MarkdownRenderer, scriptManager: ScriptManager, completion: Bool -> Void) {
+    public func process(#markdown: String, renderer: MarkdownRenderer, scriptManager: ScriptManager, completion: Bool -> Void) {
         let styleController = StyleController()
         let css = cssContents(style: styleController.selectedStyle)
         let (attributedString, HTML) = renderer.render(markdown: markdown, style: css)
