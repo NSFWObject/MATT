@@ -98,7 +98,7 @@ public class AppManager {
     }
     
     private func scriptWay(#scriptManager: ScriptManager, completion: Bool -> Void) {
-        scriptManager.executeScript(completion)
+        Script.Paste.execute(completion)
     }
     
     private func switchToPreviouslyCapturedApp(#completion: (Bool -> Void)?) {

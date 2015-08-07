@@ -8,60 +8,94 @@
 
 import AppKit
 
-public struct ScriptManager {
-    private static let ScriptFilename: String = "PasteboardHelper.scpt"
-    
-    private func originalScriptURL() -> NSURL {
-        return NSBundle.mainBundle().URLForResource(ScriptManager.ScriptFilename.stringByDeletingPathExtension, withExtension: ScriptManager.ScriptFilename.pathExtension)!
+
+public enum Script {
+    case Copy
+    case Paste
+}
+
+private extension Script {
+    var fileName: String {
+        switch self {
+        case .Copy:
+            return "⌘C"
+        case .Paste:
+            return "⌘V"
+        }
     }
     
-    private func destinationScriptURL() -> NSURL? {
-        if let appScriptURL = NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.ApplicationScriptsDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: true, error: nil) {
-            return appScriptURL.URLByAppendingPathComponent(ScriptManager.ScriptFilename)
+    var bundledURL: NSURL {
+        return NSBundle.mainBundle().URLForResource(self.fileName, withExtension: "scpt", subdirectory: "Scripts")!
+    }
+
+    var destinationURL: NSURL? {
+        let manager = NSFileManager.defaultManager()
+        if let URL = manager.URLForDirectory(.ApplicationScriptsDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false, error: nil) {
+            return URL.URLByAppendingPathComponent("\(self.fileName).scpt")
         }
         return nil
     }
-    
-    public func shouldInstallScriptFile() -> Bool {
-        if let URL = destinationScriptURL() {
-            let manager = NSFileManager.defaultManager()
-            if !manager.fileExistsAtPath(URL.relativePath!) {
-                return true
-            }
-            if let destinationModificationDate = (manager.attributesOfItemAtPath(URL.relativePath!, error: nil) as? NSDictionary)?.fileModificationDate(),
-                sourceModificationDate = (manager.attributesOfItemAtPath(originalScriptURL().relativePath!, error: nil) as? NSDictionary)?.fileModificationDate() {
-                    return sourceModificationDate.compare(destinationModificationDate) == .OrderedDescending
-            }
+}
 
-        }
-        return false
-    }
-    
-    public func executeScript(completion: Bool -> Void) {
-        if let scriptURL = self.destinationScriptURL(), task = NSUserAppleScriptTask(URL: scriptURL, error: nil) {
-            task.executeWithCompletionHandler{ error in
-                completion(error == nil)
-                assert(error == nil, "Failed to execute script: \(error)")
+public extension Script {
+    func execute(handler: Bool -> Void) {
+        if let URL = self.destinationURL {
+            var error: NSError?
+            if let task = NSUserAppleScriptTask(URL: URL, error: &error) {
+                task.executeWithCompletionHandler{ error in
+                    assert(error == nil, "Failed to execute script \(error)")
+                    handler(error == nil)
+                }
+            } else {
+                assertionFailure("Failed to create task: \(error)")
+                handler(false)
             }
         } else {
-            completion(false)
-            assertionFailure("No script or no task")
+            assertionFailure("Script \(self) is not found in the destination folder")
+            handler(false)
         }
     }
+}
+
+public struct ScriptManager {
     
-    public func isScriptInstalled() -> Bool {
-        if let scriptURL = destinationScriptURL() {
-            var isDirectory: ObjCBool = false
-            return NSFileManager.defaultManager().fileExistsAtPath(scriptURL.relativePath!, isDirectory: &isDirectory) && !isDirectory
+    private static let DestinationURL: NSURL? = {
+        return NSFileManager.defaultManager().URLForDirectory(.ApplicationScriptsDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true, error: nil)
+    }()
+    
+    public func shouldInstallScripts() -> Bool {
+        let bundle = NSBundle.mainBundle()
+        if let URLs = bundle.URLsForResourcesWithExtension("scpt", subdirectory: "Scripts") as? [NSURL],
+            destinationURL = ScriptManager.DestinationURL {
+            let manager = NSFileManager.defaultManager()
+            for URL in URLs {
+                if let fileName = URL.lastPathComponent {
+                    let destinationURL = destinationURL.URLByAppendingPathComponent(fileName)
+                    if let path = destinationURL.absoluteURL?.relativePath {
+                        if !manager.fileExistsAtPath(path) {
+                            return true
+                        }
+                        if destinationURL.modificationDate < URL.modificationDate {
+                            return true
+                        }
+                    } else {
+                        assertionFailure("No relative path for \(URL)")
+                    }
+                } else {
+                    assertionFailure("No filename for \(URL)")
+                }
+            }
+        } else {
+            assertionFailure("No scripts found in the bundle!")
         }
         return false
     }
-    
+
     public enum PromptResult {
         case Cancel, Install, ShowScript
     }
     
-    public func installScript(completion: Bool -> Void) {
+    public func installScripts(completion: Bool -> Void) {
         if let scriptsFolderURL = NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.ApplicationScriptsDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: true, error: nil) {
             let openPanel = NSOpenPanel()
             openPanel.directoryURL = scriptsFolderURL
@@ -76,23 +110,23 @@ public struct ScriptManager {
                 }
                 if let selectedURL = openPanel.URL {
                     if selectedURL == scriptsFolderURL {
-                        let fileManager = NSFileManager.defaultManager()
-                        let destinationURL = selectedURL.URLByAppendingPathComponent(ScriptManager.ScriptFilename)
-                        let sourceURL = self.originalScriptURL()
-                        var error: NSError?
-                        if fileManager.fileExistsAtPath(destinationURL.relativePath!) {
-                            if !fileManager.removeItemAtURL(destinationURL, error: &error) {
-                                assertionFailure("Failed to remove file: \(error)")
-                                completion(false)
-                                return
+                        let manager = NSFileManager.defaultManager()
+                        let scripts: [Script] = [.Copy, .Paste]
+                        for script in scripts {
+                            if let URL = script.destinationURL, path = URL.relativePath {
+                                // remove existent
+                                if manager.fileExistsAtPath(path) {
+                                    var error: NSError?
+                                    let result = manager.removeItemAtPath(path, error: &error)
+                                    assert(result, "Failed to remove file: \(error)")
+                                }
+                                // copy bundled
+                                var error: NSError?
+                                let result = manager.copyItemAtURL(script.bundledURL, toURL: URL, error: &error)
+                                assert(result, "Failed to copy file: \(error)")
                             }
                         }
-                        if fileManager.copyItemAtURL(sourceURL, toURL: destinationURL, error: &error) {
-                            completion(true)
-                            return
-                        } else {
-                            assertionFailure("Failed to copy file \(error)")
-                        }
+                        completion(true)
                     }
                 }
                 completion(false)
@@ -126,4 +160,43 @@ public struct ScriptManager {
             }
         }
     }
+}
+
+private extension NSURL {
+    var modificationDate: NSDate? {
+        let manager = NSFileManager.defaultManager()
+        if let path = self.absoluteURL?.relativePath {
+            var error: NSError?
+            if let attributes = manager.attributesOfItemAtPath(path, error: &error) {
+                return (attributes as NSDictionary).fileModificationDate()
+            } else {
+                assertionFailure("Failed to fetch attributes for \(self): \(error)")
+            }
+        }
+        return nil
+    }
+}
+
+extension NSDate: Comparable {
+}
+
+public func <=(lhs: NSDate, rhs: NSDate) -> Bool {
+    let comparison = lhs.compare(rhs)
+    return comparison != .OrderedDescending
+}
+public func >=(lhs: NSDate, rhs: NSDate) -> Bool {
+    let comparison = lhs.compare(rhs)
+    return comparison != .OrderedAscending
+}
+public func >(lhs: NSDate, rhs: NSDate) -> Bool {
+    let comparison = lhs.compare(rhs)
+    return comparison == .OrderedDescending
+}
+public func <(lhs: NSDate, rhs: NSDate) -> Bool {
+    let comparison = lhs.compare(rhs)
+    return comparison == .OrderedAscending
+}
+public func ==(lhs: NSDate, rhs: NSDate) -> Bool {
+    let comparison = lhs.compare(rhs)
+    return comparison == .OrderedSame
 }

@@ -15,8 +15,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
     
-    func applicationWillTerminate(notification: NSNotification) {
-        NSUserDefaults.standardUserDefaults().synchronize()
-    }
 }
 

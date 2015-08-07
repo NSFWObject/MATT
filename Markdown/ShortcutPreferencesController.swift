@@ -25,15 +25,17 @@ class ShortcutPreferencesController: NSObject {
     private func setupView() {
         shortcutView.style = MASShortcutViewStyleTexturedRect
 
-        shortcutManager.load()
-        shortcutView.shortcutValue = shortcutManager.shortcut
+        let defaults = NSUserDefaults.standardUserDefaults()
+        shortcutManager.load(defaults: defaults)
+        shortcutView.shortcutValue = shortcutManager.shortcutForType(.ToggleAppVisibility)
         shortcutView.shortcutValidator.allowAnyShortcutWithOptionModifier = true
         
         shortcutView.shortcutValueChange = shortcutValueDidChange
     }
     
     private func shortcutValueDidChange(shortcutView: MASShortcutView!) {
-        shortcutManager.registerHotkey(shortcutView.shortcutValue)
-        shortcutManager.save()
+        shortcutManager.registerShortcut(shortcutView.shortcutValue, type: .ToggleAppVisibility)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        shortcutManager.save(defaults: defaults)
     }
 }

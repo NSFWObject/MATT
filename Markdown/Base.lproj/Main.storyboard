@@ -674,6 +674,7 @@ DQ
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="400" height="250"/>
                     </window>
                     <connections>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
@@ -709,15 +710,15 @@ DQ
                                                     <string key="content"># Hey there
 I am [MATT](http://github.com/zats/matt),
 
-* Press ⌃</string>
+* Press `⌃</string>
                                                     <attributes>
                                                         <font key="NSFont" size="12" name="Menlo-Regular"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                     </attributes>
                                                 </fragment>
                                                 <fragment>
-                                                    <string key="content">A (Control + A) to show me. (You can change it at any time in Preferences).
-* Press </string>
+                                                    <string key="content">A` (Control + A) to show me. (You can change it at any time in Preferences).
+* Press `</string>
                                                     <attributes>
                                                         <font key="NSFont" size="12" name="LucidaGrande"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
@@ -730,7 +731,7 @@ I am [MATT](http://github.com/zats/matt),
                                                     </attributes>
                                                 </fragment>
                                                 <fragment>
-                                                    <string key="content">↩︎ (Control + Enter) to paste formatted markdown into the previously active app (or to simply copy it)
+                                                    <string key="content">↩︎` (Control + Enter) to paste formatted markdown into the previously active app (or to simply copy it)
 </string>
                                                     <attributes>
                                                         <font key="NSFont" size="12" name="LucidaGrande"/>
@@ -753,10 +754,60 @@ I am [MATT](http://github.com/zats/matt),
                                                 </fragment>
                                                 <fragment>
                                                     <string key="content">
-If you are looking for a good markdown resource, start from the [official documentation](http://daringfireball.net/projects/markdown/).</string>
+If you are looking for a good markdown resource, start from the [official documentation](http://daringfireball.net/projects/markdown/).
+</string>
                                                     <attributes>
                                                         <font key="NSFont" size="12" name="Menlo-Regular"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment>
+                                                    <mutableString key="content">
+On top of standard markdown syntax, MATT understands tables, fenced code, footnotes and more. For more details, please take a look at [GitHub's Flavoured Markdown](https://help.github.com/articles/github-flavored-markdown/)
+
+[^1]: After all, this way app can be the most helpful</mutableString>
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="LucidaGrande"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural">
+                                                            <tabStops>
+                                                                <textTab alignment="left" location="28">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="56">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="84">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="112">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="140">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="168">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="196">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="224">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="252">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="280">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="308">
+                                                                    <options/>
+                                                                </textTab>
+                                                                <textTab alignment="left" location="336">
+                                                                    <options/>
+                                                                </textTab>
+                                                            </tabStops>
+                                                        </paragraphStyle>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
@@ -774,7 +825,7 @@ If you are looking for a good markdown resource, start from the [official docume
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </scroller>
-                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="TID-xL-pyv">
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="TID-xL-pyv">
                                     <rect key="frame" x="224" y="1" width="15" height="133"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
@@ -782,8 +833,8 @@ If you are looking for a good markdown resource, start from the [official docume
                             </scrollView>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Thw-Sv-dVa" secondAttribute="bottom" constant="20" id="DMV-Xi-jN2"/>
                             <constraint firstItem="Thw-Sv-dVa" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="OuT-My-FXm"/>
-                            <constraint firstAttribute="bottom" secondItem="Thw-Sv-dVa" secondAttribute="bottom" constant="20" id="Wzs-Gv-mi2"/>
                             <constraint firstItem="Thw-Sv-dVa" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="40" id="djl-cd-nVW"/>
                             <constraint firstAttribute="trailing" secondItem="Thw-Sv-dVa" secondAttribute="trailing" constant="20" id="qk6-V7-v4E"/>
                         </constraints>

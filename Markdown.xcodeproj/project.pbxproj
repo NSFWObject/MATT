@@ -19,13 +19,13 @@
 		5C30D89C1B743A200024111A /* StyleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30D89B1B743A200024111A /* StyleController.swift */; };
 		5C30D89F1B7449670024111A /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30D89E1B7449670024111A /* NSURLExtensions.swift */; };
 		5C4D470E1B691E02004138D8 /* ScriptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4D470D1B691E02004138D8 /* ScriptManager.swift */; };
+		5C5F641D1B72F7C90095275F /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = 5C5F641C1B72F7C90095275F /* Scripts */; };
 		5C6172F71B69E240009BF6B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6172F61B69E240009BF6B6 /* AppDelegate.swift */; };
 		5C6172FB1B69E240009BF6B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C6172FA1B69E240009BF6B6 /* Images.xcassets */; };
 		5C6172FE1B69E240009BF6B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C6172FC1B69E240009BF6B6 /* Main.storyboard */; };
 		5C6173161B69E404009BF6B6 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6173151B69E404009BF6B6 /* ServiceManagement.framework */; };
 		5C6173171B69E458009BF6B6 /* MATT Helper.app in Copy Helper.app */ = {isa = PBXBuildFile; fileRef = 5C6172F21B69E240009BF6B6 /* MATT Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5C61731C1B69EB1F009BF6B6 /* LoginItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C61731B1B69EB1F009BF6B6 /* LoginItemManager.swift */; };
-		5C61731E1B69F242009BF6B6 /* PasteboardHelper.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 5C4D470F1B692126004138D8 /* PasteboardHelper.scpt */; };
 		5C7289921B7432D700F90111 /* PreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7289911B7432D700F90111 /* PreferencesController.swift */; };
 		5C739DF61B5F6A5D001EF259 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C739DF51B5F6A5D001EF259 /* AppDelegate.swift */; };
 		5C739DF81B5F6A5D001EF259 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C739DF71B5F6A5D001EF259 /* ViewController.swift */; };
@@ -42,7 +42,6 @@
 		5CB58F201B67179600A01CC7 /* ShortcutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB58F1F1B67179600A01CC7 /* ShortcutManager.swift */; };
 		5CBE30A51B6B1FDA0004FC34 /* CSS in Resources */ = {isa = PBXBuildFile; fileRef = 5CBE30A41B6B1FDA0004FC34 /* CSS */; };
 		5CBFB4101B7065C9001B1F58 /* PasteboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */; };
-		5CD2E9A11B71A5A5006E0873 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2E9A01B71A5A5006E0873 /* DefaultsManager.swift */; };
 		5CFB2A591B6A7AD40006D951 /* LoginItemPreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesController.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,7 +96,7 @@
 		5C30D89B1B743A200024111A /* StyleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleController.swift; sourceTree = "<group>"; };
 		5C30D89E1B7449670024111A /* NSURLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtensions.swift; sourceTree = "<group>"; };
 		5C4D470D1B691E02004138D8 /* ScriptManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptManager.swift; sourceTree = "<group>"; };
-		5C4D470F1B692126004138D8 /* PasteboardHelper.scpt */ = {isa = PBXFileReference; lastKnownFileType = file; name = PasteboardHelper.scpt; path = Resources/PasteboardHelper.scpt; sourceTree = "<group>"; };
+		5C5F641C1B72F7C90095275F /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Scripts; path = Resources/Scripts; sourceTree = "<group>"; };
 		5C6172F21B69E240009BF6B6 /* MATT Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MATT Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C6172F51B69E240009BF6B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C6172F61B69E240009BF6B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,7 +122,6 @@
 		5CBE30A41B6B1FDA0004FC34 /* CSS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CSS; path = Resources/CSS; sourceTree = "<group>"; };
 		5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardController.swift; sourceTree = "<group>"; };
 		5CC268101B6EC07000D05D18 /* MATT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MATT.entitlements; sourceTree = SOURCE_ROOT; };
-		5CD2E9A01B71A5A5006E0873 /* DefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
 		5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItemPreferencesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -272,9 +270,9 @@
 		5CB58F0C1B66831F00A01CC7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5C5F641C1B72F7C90095275F /* Scripts */,
 				5CBE30A41B6B1FDA0004FC34 /* CSS */,
 				5C739DF91B5F6A5D001EF259 /* Images.xcassets */,
-				5C4D470F1B692126004138D8 /* PasteboardHelper.scpt */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -288,7 +286,6 @@
 				5C4D470D1B691E02004138D8 /* ScriptManager.swift */,
 				5CB58F151B67151C00A01CC7 /* MarkdownRenderer.swift */,
 				5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */,
-				5CD2E9A01B71A5A5006E0873 /* DefaultsManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -397,8 +394,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CBE30A51B6B1FDA0004FC34 /* CSS in Resources */,
-				5C61731E1B69F242009BF6B6 /* PasteboardHelper.scpt in Resources */,
 				5C739DFA1B5F6A5D001EF259 /* Images.xcassets in Resources */,
+				5C5F641D1B72F7C90095275F /* Scripts in Resources */,
 				5C739DFD1B5F6A5D001EF259 /* Main.storyboard in Resources */,
 				5C1FA31E1B67CC3F001CC4AD /* Preferences.storyboard in Resources */,
 			);
@@ -421,7 +418,6 @@
 			files = (
 				5C30D89F1B7449670024111A /* NSURLExtensions.swift in Sources */,
 				5CB58F161B67151C00A01CC7 /* MarkdownRenderer.swift in Sources */,
-				5CD2E9A11B71A5A5006E0873 /* DefaultsManager.swift in Sources */,
 				5C30D8991B7439270024111A /* StylePreferencesController.swift in Sources */,
 				5CB58F201B67179600A01CC7 /* ShortcutManager.swift in Sources */,
 				5C739DF81B5F6A5D001EF259 /* ViewController.swift in Sources */,
