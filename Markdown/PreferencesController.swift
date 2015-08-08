@@ -9,17 +9,27 @@
 import Foundation
 
 
+
 public struct PreferencesController {
     private let defaults = NSUserDefaults.standardUserDefaults()
-    
     private static let StyleNameKey = "MATTStyleName"
-    
+    private static let LastAppVersionKey = "MATTLastAppVersion"
+        
     public var styleName: String? {
         get {
             return defaults.objectForKey(PreferencesController.StyleNameKey)
         }
         set {
             defaults.setObject(newValue, forKey: PreferencesController.StyleNameKey)
+        }
+    }
+    
+    public var lastAppVersion: String? {
+        get {
+            return defaults.objectForKey(PreferencesController.LastAppVersionKey)
+        }
+        set {
+            defaults.setObject(newValue, forKey: PreferencesController.LastAppVersionKey)
         }
     }
     
