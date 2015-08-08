@@ -39,6 +39,21 @@ class ViewController: NSViewController {
     }
 
     @IBAction func doneButtonAction(sender: AnyObject) {
+        if scriptManager.shouldInstallScripts() {
+            checkIfScriptNeedsToBeInstalled{ result in
+                if result {
+                    self.pasteMarkdownIntoAnotherApp()
+                }
+            }
+        } else {
+            pasteMarkdownIntoAnotherApp()
+        }
+        
+    }
+    
+    // MARK: - Private
+
+    private func pasteMarkdownIntoAnotherApp() {
         if let markdown = textView.string {
             appManager.process(markdown: markdown, renderer: renderer, scriptManager: scriptManager) { success in
                 // no-op
@@ -48,8 +63,6 @@ class ViewController: NSViewController {
         }
     }
     
-    // MARK: - Private
-
     private func processSelectedMarkdown() {
         
     }
@@ -71,12 +84,23 @@ class ViewController: NSViewController {
             textView.font = NSFont.userFixedPitchFontOfSize(12)
         }
     }
+    
+    private func runFirstTimeExperienceIfNeeded() {
+        FirstTimeController.executeIfNeeded(self.view.window!) {
+            self.checkIfScriptNeedsToBeInstalled{_ in}
+        }
+    }
 
-    private func checkIfScriptNeedsToBeInstalled() {
+    private func checkIfScriptNeedsToBeInstalled(completion: Bool -> Void) {
         if !scriptManager.shouldInstallScripts() {
+            completion(true)
             return
         }
-        
+
+        installScript(completion)
+    }
+    
+    private func installScript(completion: Bool -> Void) {
         let alert = NSAlert()
         alert.messageText = "Do you want to install pasteboard helper script?"
         alert.informativeText = "Due to App Store limitations, without this script app can only copy formatted markdown in the Pasteboard."
@@ -84,7 +108,9 @@ class ViewController: NSViewController {
         alert.addButtonWithTitle("Cancel")
         alert.beginSheetModalForWindow(self.view.window!) { response in
             if response == NSAlertFirstButtonReturn {
-                self.scriptManager.installScripts{ _ in }
+                self.scriptManager.installScripts(completion)
+            } else {
+                completion(false)
             }
         }
     }
@@ -104,6 +130,6 @@ class ViewController: NSViewController {
     
     override func viewDidAppear() {
         super.viewDidAppear()
-        checkIfScriptNeedsToBeInstalled()
+        runFirstTimeExperienceIfNeeded()
     }
 }
