@@ -19,6 +19,9 @@ public class AppManager {
         
     // MARK: - Public
     
+    public static let shortName = "MATT"
+    public static let longName = "Markdown All The Things"
+    
     public func process(#markdown: String, renderer: MarkdownRenderer, scriptManager: ScriptManager, completion: Bool -> Void) {
         let styleController = StyleController()
         let css = cssContents(style: styleController.selectedStyle)
