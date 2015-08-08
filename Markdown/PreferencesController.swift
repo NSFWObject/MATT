@@ -10,7 +10,7 @@ import Foundation
 
 
 
-public struct PreferencesController {
+public class PreferencesController {
     private let defaults = NSUserDefaults.standardUserDefaults()
     private static let StyleNameKey = "MATTStyleName"
     private static let LastAppVersionKey = "MATTLastAppVersion"
