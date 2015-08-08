@@ -6,7 +6,8 @@
 //  Copyright (c) 2015 Sash Zats. All rights reserved.
 //
 
-import Cocoa
+import AppKit
+
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {

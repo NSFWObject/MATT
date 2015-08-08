@@ -86,7 +86,7 @@ class ViewController: NSViewController {
     }
     
     private func runFirstTimeExperienceIfNeeded() {
-        FirstTimeController.executeIfNeeded(self.view.window!) {
+        FirstTimeController.executeIfNeeded(self) {
             self.checkIfScriptNeedsToBeInstalled{_ in}
         }
     }
