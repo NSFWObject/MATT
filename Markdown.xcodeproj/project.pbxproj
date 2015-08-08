@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5C06F5441B69B86000FF1A37 /* ScriptPreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06F5431B69B86000FF1A37 /* ScriptPreferencesController.swift */; };
 		5C06F5461B69C06400FF1A37 /* ShortcutPreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06F5451B69C06400FF1A37 /* ShortcutPreferencesController.swift */; };
+		5C0E056D1B7595D90093A798 /* FirstTimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0E056C1B7595D90093A798 /* FirstTimeController.swift */; };
 		5C1FA31B1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1FA31A1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift */; };
 		5C1FA31E1B67CC3F001CC4AD /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C1FA31D1B67CC3F001CC4AD /* Preferences.storyboard */; };
 		5C1FA3201B67CC9F001CC4AD /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1FA31F1B67CC9F001CC4AD /* PreferencesManager.swift */; };
@@ -87,6 +88,7 @@
 		5C06F5431B69B86000FF1A37 /* ScriptPreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptPreferencesController.swift; sourceTree = "<group>"; };
 		5C06F5451B69C06400FF1A37 /* ShortcutPreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutPreferencesController.swift; sourceTree = "<group>"; };
 		5C0B4FB41B6899520098DDF3 /* Mustache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mustache.framework; path = Carthage/Build/Mac/Mustache.framework; sourceTree = "<group>"; };
+		5C0E056C1B7595D90093A798 /* FirstTimeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeController.swift; sourceTree = "<group>"; };
 		5C1FA3161B67CBDC001CC4AD /* MASPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MASPreferences.framework; path = Carthage/Build/Mac/MASPreferences.framework; sourceTree = "<group>"; };
 		5C1FA31A1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
 		5C1FA31D1B67CC3F001CC4AD /* Preferences.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			children = (
 				5C7289911B7432D700F90111 /* PreferencesController.swift */,
 				5C30D89B1B743A200024111A /* StyleController.swift */,
+				5C0E056C1B7595D90093A798 /* FirstTimeController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				5C1FA31B1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift in Sources */,
 				5CBFB4101B7065C9001B1F58 /* PasteboardController.swift in Sources */,
 				5CFB2A591B6A7AD40006D951 /* LoginItemPreferencesController.swift in Sources */,
+				5C0E056D1B7595D90093A798 /* FirstTimeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
