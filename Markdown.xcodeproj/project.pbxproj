@@ -46,11 +46,11 @@
 		5CB58F201B67179600A01CC7 /* ShortcutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB58F1F1B67179600A01CC7 /* ShortcutManager.swift */; };
 		5CBE30A51B6B1FDA0004FC34 /* CSS in Resources */ = {isa = PBXBuildFile; fileRef = 5CBE30A41B6B1FDA0004FC34 /* CSS */; };
 		5CBFB4101B7065C9001B1F58 /* PasteboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */; };
-		5CEF6AE21B76B9F30002E9D0 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF6AE11B76B9F30002E9D0 /* ErrorType.swift */; };
 		5CEF6AE71B76BAEE0002E9D0 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CEF6AE51B76BAD90002E9D0 /* Box.framework */; };
 		5CEF6AE81B76BAEE0002E9D0 /* Box.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CEF6AE51B76BAD90002E9D0 /* Box.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CEF6AE91B76BAEF0002E9D0 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CEF6AE31B76BAD00002E9D0 /* Result.framework */; };
 		5CEF6AEA1B76BAEF0002E9D0 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CEF6AE31B76BAD00002E9D0 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CEF6AEE1B76BD3F0002E9D0 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF6AED1B76BD3F0002E9D0 /* ErrorType.swift */; };
 		5CFB2A591B6A7AD40006D951 /* LoginItemPreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesController.swift */; };
 /* End PBXBuildFile section */
 
@@ -136,9 +136,9 @@
 		5CBE30A41B6B1FDA0004FC34 /* CSS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CSS; path = Resources/CSS; sourceTree = "<group>"; };
 		5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardController.swift; sourceTree = "<group>"; };
 		5CC268101B6EC07000D05D18 /* MATT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MATT.entitlements; sourceTree = SOURCE_ROOT; };
-		5CEF6AE11B76B9F30002E9D0 /* ErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		5CEF6AE31B76BAD00002E9D0 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
 		5CEF6AE51B76BAD90002E9D0 /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/Mac/Box.framework; sourceTree = "<group>"; };
+		5CEF6AED1B76BD3F0002E9D0 /* ErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItemPreferencesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -333,18 +333,10 @@
 		5CEF6ADF1B76B9E50002E9D0 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				5CEF6AE01B76B9EB0002E9D0 /* Protocols */,
 				5C30D89D1B7449590024111A /* Extensions */,
+				5CEF6AED1B76BD3F0002E9D0 /* ErrorType.swift */,
 			);
 			name = Utilities;
-			sourceTree = "<group>";
-		};
-		5CEF6AE01B76B9EB0002E9D0 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				5CEF6AE11B76B9F30002E9D0 /* ErrorType.swift */,
-			);
-			name = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -478,7 +470,7 @@
 				5C30D8991B7439270024111A /* StylePreferencesController.swift in Sources */,
 				5CB58F201B67179600A01CC7 /* ShortcutManager.swift in Sources */,
 				5C739DF81B5F6A5D001EF259 /* ViewController.swift in Sources */,
-				5CEF6AE21B76B9F30002E9D0 /* ErrorType.swift in Sources */,
+				5CEF6AEE1B76BD3F0002E9D0 /* ErrorType.swift in Sources */,
 				5C1FA3201B67CC9F001CC4AD /* PreferencesManager.swift in Sources */,
 				5C739DF61B5F6A5D001EF259 /* AppDelegate.swift in Sources */,
 				5C1FA3221B67CDB9001CC4AD /* WindowController.swift in Sources */,
