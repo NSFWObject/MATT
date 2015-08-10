@@ -38,6 +38,13 @@ public class PreferencesController {
     }
 }
 
+extension PreferencesController: ResettablePreferences {
+    func reset(storage: NSUserDefaults) {
+        defaults.removeObjectForKey(PreferencesController.StyleNameKey)
+        defaults.removeObjectForKey(PreferencesController.LastAppVersionKey)
+    }
+}
+
 private extension NSUserDefaults {
     func objectForKey<T>(key: String) -> T? {
         if let object = objectForKey(key) as? T {

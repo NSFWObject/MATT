@@ -76,20 +76,14 @@ public struct ScriptInstallationManager {
                 }
                 if let selectedURL = openPanel.URL {
                     if selectedURL == scriptsFolderURL {
+                        self.removeScriptsFolder()
                         let manager = NSFileManager.defaultManager()
                         let scripts: [Script] = [.Copy, .Paste]
                         for script in scripts {
-                            if let URL = script.destinationURL, path = URL.relativePath {
-                                // remove existent
-                                if manager.fileExistsAtPath(path) {
-                                    var error: NSError?
-                                    let result = manager.removeItemAtPath(path, error: &error)
-                                    assert(result, "Failed to remove file: \(error)")
-                                }
-                                // copy bundled
+                            if let URL = script.destinationURL {
                                 var error: NSError?
                                 let result = manager.copyItemAtURL(script.bundledURL, toURL: URL, error: &error)
-                                assert(result, "Failed to copy file: \(error)")
+                                assert(result, "Failed to copy file from \(script.bundledURL) to \(URL): \(error)")
                             }
                         }
                         completion(true)
@@ -126,7 +120,33 @@ public struct ScriptInstallationManager {
             }
         }
     }
+    
+    // MARK: - Private
+    
+    private func removeScriptsFolder() {
+        if let URL = ScriptInstallationManager.DestinationURL {
+            let manager = NSFileManager.defaultManager()
+            var error: NSError?
+            if let files = manager.contentsOfDirectoryAtURL(URL, includingPropertiesForKeys: nil, options: .SkipsHiddenFiles, error: &error) as? [NSURL] {
+                for file in files {
+                    let result = manager.removeItemAtURL(file, error: &error)
+                    assert(result, "Failed to remove file at \(file): \(error)")
+                }
+            } else {
+                assertionFailure("Failed to get contents of Scripts folder: \(error)")
+            }
+        }
+    }
 }
+
+
+// MARK: - ResettablePreferences
+extension ScriptInstallationManager: ResettablePreferences {
+    func reset(storage: NSUserDefaults) {
+        removeScriptsFolder()
+    }
+}
+
 
 private extension NSURL {
     var modificationDate: NSDate? {

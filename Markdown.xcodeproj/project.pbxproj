@@ -51,6 +51,7 @@
 		5CEF6AEA1B76BAEF0002E9D0 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CEF6AE31B76BAD00002E9D0 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CEF6AEE1B76BD3F0002E9D0 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF6AED1B76BD3F0002E9D0 /* ErrorType.swift */; };
 		5CEF6AF01B76C1E60002E9D0 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF6AEF1B76C1E60002E9D0 /* AppController.swift */; };
+		5CEF6AF21B78F35F0002E9D0 /* ResetablePreferenaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF6AF11B78F35F0002E9D0 /* ResetablePreferenaces.swift */; };
 		5CEF6AF41B78F3CA0002E9D0 /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF6AF31B78F3CA0002E9D0 /* Script.swift */; };
 		5CFB2A591B6A7AD40006D951 /* LoginItemPreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesController.swift */; };
 /* End PBXBuildFile section */
@@ -140,6 +141,7 @@
 		5CEF6AE51B76BAD90002E9D0 /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/Mac/Box.framework; sourceTree = "<group>"; };
 		5CEF6AED1B76BD3F0002E9D0 /* ErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		5CEF6AEF1B76C1E60002E9D0 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		5CEF6AF11B78F35F0002E9D0 /* ResetablePreferenaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetablePreferenaces.swift; sourceTree = "<group>"; };
 		5CEF6AF31B78F3CA0002E9D0 /* Script.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Script.swift; sourceTree = "<group>"; };
 		5CFB2A581B6A7AD40006D951 /* LoginItemPreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItemPreferencesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -330,6 +332,7 @@
 			children = (
 				5C30D89E1B7449670024111A /* NSURLExtensions.swift */,
 				5CEF6AED1B76BD3F0002E9D0 /* ErrorType.swift */,
+				5CEF6AF11B78F35F0002E9D0 /* ResetablePreferenaces.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CEF6AF21B78F35F0002E9D0 /* ResetablePreferenaces.swift in Sources */,
 				5C30D89F1B7449670024111A /* NSURLExtensions.swift in Sources */,
 				5CB58F161B67151C00A01CC7 /* MarkdownRenderer.swift in Sources */,
 				5CEF6AF41B78F3CA0002E9D0 /* Script.swift in Sources */,

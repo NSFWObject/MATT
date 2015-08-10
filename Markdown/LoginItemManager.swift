@@ -33,6 +33,15 @@ public class LoginItemManager {
     }
 }
 
+extension LoginItemManager: ResettablePreferences {
+
+    // MARK: - ResettablePreferences
+    
+    func reset(storage: NSUserDefaults) {
+        self.loginItemsEnabled = false
+    }
+}
+
 extension Boolean: BooleanLiteralConvertible, BooleanType {
     public init(booleanLiteral value: BooleanLiteralType) {
         self.init(value ? 1 : 0)

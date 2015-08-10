@@ -11,7 +11,7 @@ import AppKit
 
 public class FirstTimeController {
     
-    private let preferncesController = PreferencesController()
+    public var preferncesController: PreferencesController!
     
     public func executeIfNeeded(block: Void -> Void) {
         if shouldShowFirstTimeExperience() {

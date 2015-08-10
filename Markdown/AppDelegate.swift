@@ -14,14 +14,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     let appController = AppController()
     let focusManager = AppFocusController()
-    
     let shortcutManager = ShortcutManager()
     let scriptManager = ScriptInstallationManager()
     let loginItemManager = LoginItemManager()
     let firstTimerExperience = FirstTimeController()
+    let preferencesController = PreferencesController()
+    var resettablePreferences: [ResettablePreferences]!
 
     private var windowController: NSWindowController?
-    private var preferencesController: NSWindowController?
     
     // MARK: - Actions
 
@@ -102,6 +102,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     private func firstTimeExperience() {
+        firstTimerExperience.preferncesController = preferencesController
         firstTimerExperience.executeIfNeeded{
             PreferencesPresenter.showPreferences(
                 shortcutManager: self.shortcutManager,
@@ -110,9 +111,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    private func setupResettables() {
+        resettablePreferences = [shortcutManager, scriptManager, loginItemManager, preferencesController]
+        if let arguments = NSProcessInfo.processInfo().arguments as? [String] {
+            if find(arguments, "RESETT") != nil {
+                resetResettables()
+            }
+        }
+    }
+    
+    private func resetResettables() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        for resettable in resettablePreferences {
+            resettable.reset(defaults)
+        }
+
+    }
+    
     // MARK: NSApplicationDelegate
     
     func applicationDidFinishLaunching(notification: NSNotification) {
+        setupResettables()
         setupWindowCloseNotification()
         setupInitialController()
         setupGlobalShortcuts()

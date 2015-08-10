@@ -118,3 +118,11 @@ extension ShortcutManager {
         }
     }
 }
+
+// MARK: - ResettablePreferences
+
+extension ShortcutManager: ResettablePreferences {
+    func reset(defaults: NSUserDefaults) {
+        defaults.removeObjectForKey(ShortcutManager.ShortcutDataKey)
+    }
+}
