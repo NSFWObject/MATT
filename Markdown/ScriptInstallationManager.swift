@@ -1,5 +1,5 @@
 //
-//  ScriptManager.swift
+//  ScriptInstallationManager.swift
 //  Markdown
 //
 //  Created by Sash Zats on 7/29/15.
@@ -9,55 +9,7 @@
 import AppKit
 
 
-public enum Script {
-    case Copy
-    case Paste
-}
-
-private extension Script {
-    var fileName: String {
-        switch self {
-        case .Copy:
-            return "⌘C"
-        case .Paste:
-            return "⌘V"
-        }
-    }
-    
-    var bundledURL: NSURL {
-        return NSBundle.mainBundle().URLForResource(self.fileName, withExtension: "scpt", subdirectory: "Scripts")!
-    }
-
-    var destinationURL: NSURL? {
-        let manager = NSFileManager.defaultManager()
-        if let URL = manager.URLForDirectory(.ApplicationScriptsDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false, error: nil) {
-            return URL.URLByAppendingPathComponent("\(self.fileName).scpt")
-        }
-        return nil
-    }
-}
-
-public extension Script {
-    func execute(handler: Bool -> Void) {
-        if let URL = self.destinationURL {
-            var error: NSError?
-            if let task = NSUserAppleScriptTask(URL: URL, error: &error) {
-                task.executeWithCompletionHandler{ error in
-                    assert(error == nil, "Failed to execute script \(error)")
-                    handler(error == nil)
-                }
-            } else {
-                assertionFailure("Failed to create task: \(error)")
-                handler(false)
-            }
-        } else {
-            assertionFailure("Script \(self) is not found in the destination folder")
-            handler(false)
-        }
-    }
-}
-
-public struct ScriptManager {
+public struct ScriptInstallationManager {
     
     private static let DestinationURL: NSURL? = {
         return NSFileManager.defaultManager().URLForDirectory(.ApplicationScriptsDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true, error: nil)
@@ -66,7 +18,7 @@ public struct ScriptManager {
     public func shouldInstallScripts() -> Bool {
         let bundle = NSBundle.mainBundle()
         if let URLs = bundle.URLsForResourcesWithExtension("scpt", subdirectory: "Scripts") as? [NSURL],
-            destinationURL = ScriptManager.DestinationURL {
+            destinationURL = ScriptInstallationManager.DestinationURL {
             let manager = NSFileManager.defaultManager()
             for URL in URLs {
                 if let fileName = URL.lastPathComponent {

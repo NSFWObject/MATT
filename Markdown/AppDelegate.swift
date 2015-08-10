@@ -16,7 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let focusManager = AppFocusController()
     
     let shortcutManager = ShortcutManager()
-    let scriptManager = ScriptManager()
+    let scriptManager = ScriptInstallationManager()
     let loginItemManager = LoginItemManager()
     let firstTimerExperience = FirstTimeController()
 

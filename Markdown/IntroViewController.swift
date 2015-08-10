@@ -13,7 +13,7 @@ class IntroViewController: NSViewController {
     @IBOutlet weak var installAppleScriptsCheckbox: NSButton!
     @IBOutlet weak var launchOnLoginCheckbox: NSButton!
     
-    var scriptManager: ScriptManager!
+    var scriptManager: ScriptInstallationManager!
     
     @IBAction func _doneButtonAction(sender: AnyObject) {
         presentingViewController?.dismissViewController(self)

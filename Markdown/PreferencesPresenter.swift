@@ -13,7 +13,7 @@ import MASPreferences
 class PreferencesPresenter {
     private static var windowController: NSWindowController?
     
-    static func showPreferences(#shortcutManager: ShortcutManager, scriptManager: ScriptManager, loginItemManager: LoginItemManager) {
+    static func showPreferences(#shortcutManager: ShortcutManager, scriptManager: ScriptInstallationManager, loginItemManager: LoginItemManager) {
         
         if let controller = windowController {
             controller.showWindow(self)

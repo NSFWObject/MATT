@@ -22,7 +22,7 @@ class ViewController: NSViewController {
     }
 
     let renderer = MarkdownRenderer()
-    let scriptManager = ScriptManager()
+    let scriptManager = ScriptInstallationManager()
     
     @IBOutlet var textView: NSTextView!
     

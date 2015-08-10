@@ -13,7 +13,7 @@ import MASShortcut
 class GeneralPreferencesViewController: NSViewController, MASPreferencesViewController {
     
     var shortcutManager: ShortcutManager!
-    var scriptManager: ScriptManager!
+    var scriptManager: ScriptInstallationManager!
     var styleController: StyleController!
     var loginItemManager: LoginItemManager!
 

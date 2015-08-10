@@ -22,7 +22,7 @@
 		5C30D8991B7439270024111A /* StylePreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30D8981B7439270024111A /* StylePreferencesController.swift */; };
 		5C30D89C1B743A200024111A /* StyleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30D89B1B743A200024111A /* StyleController.swift */; };
 		5C30D89F1B7449670024111A /* NSURLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30D89E1B7449670024111A /* NSURLExtensions.swift */; };
-		5C4D470E1B691E02004138D8 /* ScriptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4D470D1B691E02004138D8 /* ScriptManager.swift */; };
+		5C4D470E1B691E02004138D8 /* ScriptInstallationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4D470D1B691E02004138D8 /* ScriptInstallationManager.swift */; };
 		5C5F641D1B72F7C90095275F /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = 5C5F641C1B72F7C90095275F /* Scripts */; };
 		5C6172F71B69E240009BF6B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6172F61B69E240009BF6B6 /* AppDelegate.swift */; };
 		5C6172FB1B69E240009BF6B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C6172FA1B69E240009BF6B6 /* Images.xcassets */; };
@@ -110,7 +110,7 @@
 		5C30D8981B7439270024111A /* StylePreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylePreferencesController.swift; sourceTree = "<group>"; };
 		5C30D89B1B743A200024111A /* StyleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleController.swift; sourceTree = "<group>"; };
 		5C30D89E1B7449670024111A /* NSURLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtensions.swift; sourceTree = "<group>"; };
-		5C4D470D1B691E02004138D8 /* ScriptManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptManager.swift; sourceTree = "<group>"; };
+		5C4D470D1B691E02004138D8 /* ScriptInstallationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptInstallationManager.swift; sourceTree = "<group>"; };
 		5C5F641C1B72F7C90095275F /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Scripts; path = Resources/Scripts; sourceTree = "<group>"; };
 		5C6172F21B69E240009BF6B6 /* MATT Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MATT Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C6172F51B69E240009BF6B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -212,14 +212,6 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		5C30D89D1B7449590024111A /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				5C30D89E1B7449670024111A /* NSURLExtensions.swift */,
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
 		5C56CDC81B60BFCD003CFEF5 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,7 +306,7 @@
 			children = (
 				5CB58F1F1B67179600A01CC7 /* ShortcutManager.swift */,
 				5C61731B1B69EB1F009BF6B6 /* LoginItemManager.swift */,
-				5C4D470D1B691E02004138D8 /* ScriptManager.swift */,
+				5C4D470D1B691E02004138D8 /* ScriptInstallationManager.swift */,
 				5CB58F151B67151C00A01CC7 /* MarkdownRenderer.swift */,
 				5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */,
 				5CEF6AF31B78F3CA0002E9D0 /* Script.swift */,
@@ -336,7 +328,7 @@
 		5CEF6ADF1B76B9E50002E9D0 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				5C30D89D1B7449590024111A /* Extensions */,
+				5C30D89E1B7449670024111A /* NSURLExtensions.swift */,
 				5CEF6AED1B76BD3F0002E9D0 /* ErrorType.swift */,
 			);
 			name = Utilities;
@@ -482,7 +474,7 @@
 				5CEF6AF01B76C1E60002E9D0 /* AppController.swift in Sources */,
 				5C61731C1B69EB1F009BF6B6 /* LoginItemManager.swift in Sources */,
 				5C7289921B7432D700F90111 /* PreferencesController.swift in Sources */,
-				5C4D470E1B691E02004138D8 /* ScriptManager.swift in Sources */,
+				5C4D470E1B691E02004138D8 /* ScriptInstallationManager.swift in Sources */,
 				5C30D89C1B743A200024111A /* StyleController.swift in Sources */,
 				5C06F5441B69B86000FF1A37 /* ScriptPreferencesController.swift in Sources */,
 				5C112F561B75C49C00E8CA6D /* IntroViewController.swift in Sources */,

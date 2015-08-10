@@ -11,11 +11,11 @@ import AppKit
 
 class ScriptPreferencesController: NSObject {
 
-    let scriptManager: ScriptManager
+    let scriptManager: ScriptInstallationManager
     
     let installScriptButton: NSButton
     
-    init(installScriptButton: NSButton, scriptManager: ScriptManager) {
+    init(installScriptButton: NSButton, scriptManager: ScriptInstallationManager) {
         self.installScriptButton = installScriptButton
         self.scriptManager = scriptManager
         super.init()
