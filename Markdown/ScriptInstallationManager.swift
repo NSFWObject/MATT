@@ -62,7 +62,7 @@ public struct ScriptInstallationManager {
     }
     
     public func installScripts(completion: Bool -> Void) {
-        if let scriptsFolderURL = NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.ApplicationScriptsDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: true, error: nil) {
+        if let scriptsFolderURL = ScriptInstallationManager.DestinationURL {
             let openPanel = NSOpenPanel()
             openPanel.directoryURL = scriptsFolderURL
             openPanel.canChooseDirectories = true
@@ -78,10 +78,12 @@ public struct ScriptInstallationManager {
                     if selectedURL == scriptsFolderURL {
                         self.removeScriptsFolder()
                         let manager = NSFileManager.defaultManager()
+                        var error: NSError?
+                        let result = manager.createDirectoryAtURL(scriptsFolderURL, withIntermediateDirectories: true, attributes: nil, error: &error)
+                        assert(result, "Failed to create Scripts folder at \(ScriptInstallationManager.DestinationURL): \(error)")
                         let scripts: [Script] = [.Copy, .Paste]
                         for script in scripts {
                             if let URL = script.destinationURL {
-                                var error: NSError?
                                 let result = manager.copyItemAtURL(script.bundledURL, toURL: URL, error: &error)
                                 assert(result, "Failed to copy file from \(script.bundledURL) to \(URL): \(error)")
                             }
@@ -127,14 +129,16 @@ public struct ScriptInstallationManager {
         if let URL = ScriptInstallationManager.DestinationURL {
             let manager = NSFileManager.defaultManager()
             var error: NSError?
-            if let files = manager.contentsOfDirectoryAtURL(URL, includingPropertiesForKeys: nil, options: .SkipsHiddenFiles, error: &error) as? [NSURL] {
-                for file in files {
-                    let result = manager.removeItemAtURL(file, error: &error)
-                    assert(result, "Failed to remove file at \(file): \(error)")
-                }
-            } else {
-                assertionFailure("Failed to get contents of Scripts folder: \(error)")
-            }
+            let result = manager.removeItemAtURL(URL, error: &error)
+//            assert(result, "Failed to remove scripts folder: \(error)")
+//            if let files = manager.contentsOfDirectoryAtURL(URL, includingPropertiesForKeys: nil, options: .SkipsHiddenFiles, error: &error) as? [NSURL] {
+//                for file in files {
+//                    let result = manager.removeItemAtURL(file, error: &error)
+//                    assert(result, "Failed to remove file at \(file): \(error)")
+//                }
+//            } else {
+//                assertionFailure("Failed to get contents of Scripts folder: \(error)")
+//            }
         }
     }
 }

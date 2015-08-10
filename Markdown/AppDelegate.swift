@@ -19,7 +19,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let loginItemManager = LoginItemManager()
     let firstTimerExperience = FirstTimeController()
     let preferencesController = PreferencesController()
-    var resettablePreferences: [ResettablePreferences]!
 
     private var windowController: NSWindowController?
     
@@ -112,20 +111,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     private func setupResettables() {
-        resettablePreferences = [shortcutManager, scriptManager, loginItemManager, preferencesController]
-        if let arguments = NSProcessInfo.processInfo().arguments as? [String] {
-            if find(arguments, "RESETT") != nil {
-                resetResettables()
-            }
+        let resettables: [ResettablePreferences] = [shortcutManager, scriptManager, loginItemManager, preferencesController]
+        if NSEvent.modifierFlags() & .AlternateKeyMask == .AlternateKeyMask {
+            resetResettables(resettables)
         }
     }
     
-    private func resetResettables() {
+    private func resetResettables(resettables: [ResettablePreferences]) {
         let defaults = NSUserDefaults.standardUserDefaults()
-        for resettable in resettablePreferences {
+        for resettable in resettables {
             resettable.reset(defaults)
         }
-
     }
     
     // MARK: NSApplicationDelegate
