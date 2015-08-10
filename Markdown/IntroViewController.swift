@@ -13,13 +13,15 @@ class IntroViewController: NSViewController {
     @IBOutlet weak var installAppleScriptsCheckbox: NSButton!
     @IBOutlet weak var launchOnLoginCheckbox: NSButton!
     
-    var scriptController: ScriptManager!
+    var scriptManager: ScriptManager!
     
     @IBAction func _doneButtonAction(sender: AnyObject) {
         presentingViewController?.dismissViewController(self)
         if installAppleScriptsCheckbox.state == NSOnState {
-            scriptController.installScripts{ _ in }
+            scriptManager.installScripts{ _ in }
         }
+        
+        
     }
     
     // MARK: - Private

@@ -7,27 +7,36 @@ import AppKit
 import Result
 
 
-enum AppFocusError: ErrorType {
+public enum AppFocusError: ErrorType {
     case NoAppCaptured
 }
 
 
-class AppFocusController {
+public class AppFocusController {
     private(set) var capturedApp: NSRunningApplication?
 
-    func hideMe() {
+    public func hideMe() {
         NSApplication.sharedApplication().hide(self)
     }
+    
+    public func showMe() {
+        captureActiveApp()
+        NSApplication.sharedApplication().activateIgnoringOtherApps(true)
+    }
 
-    func captureActiveApp() {
+    public func captureActiveApp() {
         if let app = activeApp() {
-            capturedApp = app
+            if app.bundleIdentifier == AppIdentity.bundleId {
+                capturedApp = nil
+            } else {
+                capturedApp = app
+            }
         } else {
             capturedApp = nil
         }
     }
 
-    func switchToCapturedApp(completion: Result<Void, AppFocusError> -> Void) {
+    public func switchToCapturedApp(completion: Result<Void, AppFocusError> -> Void) {
         if let app = capturedApp {
             app.activateWithOptions(NSApplicationActivationOptions.ActivateIgnoringOtherApps)
             waitForCapturedAppToBecomeActive {
@@ -38,19 +47,15 @@ class AppFocusController {
         }
     }
 
-    // MARK: - Private
-
-    private func activeApp() -> NSRunningApplication? {
-        if let app = NSWorkspace.sharedWorkspace().frontmostApplication {
-            if app.bundleIdentifier == AppIdentity.bundleId {
-                return nil
-            }
-            return app
-        }
-        return nil
+    public func activeApp() -> NSRunningApplication? {
+        return NSWorkspace.sharedWorkspace().frontmostApplication
     }
 
+    // MARK: - Private
+
+
     private static let pollQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+   
     private func waitForCapturedAppToBecomeActive(handler: Void -> Void) {
         dispatch_async(AppFocusController.pollQueue) {
             var app: NSRunningApplication?

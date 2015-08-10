@@ -10,7 +10,7 @@ import AppKit
 
 
 class WindowController: NSWindowController, NSWindowDelegate {
-    var appManager: AppManager!
+    var focusManager: AppFocusController!
     
     // MARK: - Lifecycle
     
@@ -21,12 +21,10 @@ class WindowController: NSWindowController, NSWindowDelegate {
     // MARK: - Actions
     
     func applicationDidBecomeActiveObserver(sender: AnyObject) {
-        if let manager = appManager,
-            app = appManager.capturedApp,
-            name = app.localizedName {
-                self.window?.title = "\(name) + MATT = \(randomEmoji())"
+        if let app = focusManager.capturedApp, name = app.localizedName {
+            self.window?.title = "\(name) + \(AppIdentity.shortName) = \(randomEmoji())"
         } else {
-            self.window?.title = (NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as! String)
+            self.window?.title = AppIdentity.displayName
         }
     }
     
@@ -50,7 +48,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
         }
                 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationDidBecomeActiveObserver:"), name: NSApplicationDidBecomeActiveNotification, object: nil)
-        self.window?.title = (NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as! String)
+        self.window?.title = AppIdentity.displayName
     }
     
     override func showWindow(sender: AnyObject?) {

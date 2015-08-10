@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum Style {
+public enum Style {
     case None
     case File(String, NSURL)
 }
 
-struct StyleController {
+public class StyleController {
     private var preferencesController: PreferencesController
 
     var selectedStyle: Style {
@@ -50,12 +50,21 @@ struct StyleController {
         self.bundledStyles = bundledStyles
         self.preferencesController = preferences
     }
+    
+    public func content(#style: Style) -> String? {
+        switch style {
+        case .None:
+            return nil
+        case .File(_, let URL):
+            return String(contentsOfURL: URL, encoding: NSUTF8StringEncoding, error: nil)
+        }
+    }
 }
 
 extension Style: Equatable {
 }
 
-func ==(lhs: Style, rhs: Style) -> Bool {
+public func ==(lhs: Style, rhs: Style) -> Bool {
     switch (lhs, rhs) {
     case (.None, .None):
         return true

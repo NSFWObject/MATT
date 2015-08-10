@@ -12,11 +12,16 @@ import AppKit
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    let appManager = AppManager()
+    let appController = AppController()
+    let focusManager = AppFocusController()
+    
     let shortcutManager = ShortcutManager()
     let scriptManager = ScriptManager()
+    let loginItemManager = LoginItemManager()
+    let firstTimerExperience = FirstTimeController()
 
-    private var windowController: NSWindowController!
+    private var windowController: NSWindowController?
+    private var preferencesController: NSWindowController?
     
     // MARK: - Actions
 
@@ -37,40 +42,39 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func preferencesMenuAction(sender: AnyObject) {
-        PreferencesViewManager.showPreferences(shortcutManager: shortcutManager, scriptManager: scriptManager)
+        PreferencesPresenter.showPreferences(shortcutManager: shortcutManager, scriptManager: scriptManager, loginItemManager: loginItemManager)
     }
     
     private func toggleAppVisibility() {
-        
-        if let activeApp = appManager.activeApp() {
-            if activeApp.bundleIdentifier == NSBundle.mainBundle().bundleIdentifier {
-                if !self.windowController.window!.visible {
+        if let activeApp = focusManager.activeApp() {
+            if activeApp.bundleIdentifier == AppIdentity.bundleId {
+                if windowController == nil {
                     createNewWindow()
                 } else {
-                    appManager.hideMe()
+                    focusManager.hideMe()
                 }
             } else {
-                appManager.activateMeCapturingActiveApp()
-                if !self.windowController.window!.visible {
+                if windowController == nil {
                     createNewWindow()
                 }
+                focusManager.showMe()
             }
         } else {
-            appManager.activateMeCapturingActiveApp()
-            if !self.windowController.window!.visible {
+            if windowController == nil {
                 createNewWindow()
             }
+            focusManager.showMe()
         }
     }
-
+    
     // MARK: - Private
     
     private func configureController(controller: WindowController) {
         windowController = controller
-        controller.appManager = appManager
+        controller.focusManager = focusManager
         if let controller = controller.contentViewController as? ViewController {
+            controller.appController = appController
             controller.shortcutManager = shortcutManager
-            controller.appManager = appManager
         }
     }
     
@@ -88,11 +92,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    private func setupWindowCloseNotification() {
+        let center = NSNotificationCenter.defaultCenter()
+        center.addObserverForName(NSWindowWillCloseNotification, object: nil, queue: NSOperationQueue.mainQueue()) { notification in
+            if self.windowController?.window == notification.object as? NSWindow {
+                self.windowController = nil
+            }
+        }
+    }
+    
+    private func firstTimeExperience() {
+        firstTimerExperience.executeIfNeeded{
+            PreferencesPresenter.showPreferences(
+                shortcutManager: self.shortcutManager,
+                scriptManager: self.scriptManager,
+                loginItemManager: self.loginItemManager)
+        }
+    }
+    
     // MARK: NSApplicationDelegate
     
     func applicationDidFinishLaunching(notification: NSNotification) {
+        setupWindowCloseNotification()
         setupInitialController()
         setupGlobalShortcuts()
+        firstTimeExperience()
+    }
+    
+    func applicationDidBecomeActive(notification: NSNotification) {
+        if windowController == nil {
+            createNewWindow()
+        }
     }
 }
 

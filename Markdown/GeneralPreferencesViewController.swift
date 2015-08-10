@@ -15,6 +15,7 @@ class GeneralPreferencesViewController: NSViewController, MASPreferencesViewCont
     var shortcutManager: ShortcutManager!
     var scriptManager: ScriptManager!
     var styleController: StyleController!
+    var loginItemManager: LoginItemManager!
 
     // Section controllers
     var stylePreferencesController: StylePreferencesController!
@@ -46,7 +47,7 @@ class GeneralPreferencesViewController: NSViewController, MASPreferencesViewCont
         
         styleController = StyleController()
         self.stylePreferencesController = StylePreferencesController(styleController: styleController, popupButton: stylePopupButton)
-        self.loginItemPreferencesController = LoginItemPreferencesController(loginItemCheckbox: loginItemCheckbox)
+        self.loginItemPreferencesController = LoginItemPreferencesController(loginItemManager: loginItemManager, loginItemCheckbox: loginItemCheckbox)
         self.scriptPreferencesController = ScriptPreferencesController(installScriptButton: installScriptButton, scriptManager: scriptManager)
         self.shortcutPreferencesController = ShortcutPreferencesController(shortcutView: shortcutView, shortcutManager: shortcutManager)
     }

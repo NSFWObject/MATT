@@ -10,25 +10,26 @@ import Foundation
 import ServiceManagement
 
 
-public struct LoginItemManager {
-    private let HelperBundleId = "com.zats.MATT-Helper"
+public class LoginItemManager {
+    private static let HelperBundleId = "com.zats.MATT-Helper"
     
-    public func isLoginItemEnabled() -> Bool {
-        if let jobs = SMCopyAllJobDictionaries(kSMDomainUserLaunchd).takeRetainedValue() as? [[String: AnyObject]] {
-            for job in jobs {
-                if let bundleId = job["Label"] as? String,
-                    onDemand = job["OnDemand"] as? NSNumber {
-                        if bundleId == HelperBundleId && onDemand.boolValue {
-                            return true
-                        }
+    public var loginItemsEnabled: Bool {
+        set {
+            SMLoginItemSetEnabled(LoginItemManager.HelperBundleId as CFStringRef, Boolean(booleanLiteral: newValue))
+        }
+        get {
+            if let jobs = SMCopyAllJobDictionaries(kSMDomainUserLaunchd).takeRetainedValue() as? [[String: AnyObject]] {
+                for job in jobs {
+                    if let bundleId = job["Label"] as? String,
+                        onDemand = job["OnDemand"] as? NSNumber {
+                            if bundleId == LoginItemManager.HelperBundleId && onDemand.boolValue {
+                                return true
+                            }
+                    }
                 }
             }
+            return false
         }
-        return false
-    }
-    
-    public func setLoginItemsEnabled(enabled: Bool) -> Bool {
-        return SMLoginItemSetEnabled(HelperBundleId as CFStringRef, Boolean(booleanLiteral: enabled)).boolValue
     }
 }
 
