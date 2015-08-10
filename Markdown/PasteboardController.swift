@@ -9,23 +9,36 @@
 import AppKit
 
 
-struct PasteboardController {
+public class PasteboardController {
     
-    static func pasteboardContents() -> [NSPasteboardItem]? {
-        let pasteboard = NSPasteboard.generalPasteboard()
-        return pasteboard.pasteboardItems as? [NSPasteboardItem]
+    public typealias PasteboardState = [NSPasteboardItem]?
+    
+    public func pasteboardState() -> PasteboardState {
+        if let items = pasteboardContents() {
+            return items.map{$0.copy() as! NSPasteboardItem}
+        }
+        return nil
     }
     
-    static func setPasteboardContents(items: [NSPasteboardItem]) {
+    public func restorePasteboardState(state: PasteboardState) {
         let pasteboard = NSPasteboard.generalPasteboard()
         pasteboard.clearContents()
-        pasteboard.writeObjects(items)
+        if let items = state {
+            pasteboard.writeObjects(items)
+        }
     }
     
-    static func writeToPasteboard(writeBlock: NSPasteboard -> Void) {
+    public func writeToPasteboard(writeBlock: NSPasteboard -> Void) {
         let pasteboard = NSPasteboard.generalPasteboard()
         pasteboard.clearContents()
         writeBlock(pasteboard)
+    }
+    
+    // MARK: - Private
+    
+    private func pasteboardContents() -> [NSPasteboardItem]? {
+        let pasteboard = NSPasteboard.generalPasteboard()
+        return pasteboard.pasteboardItems as? [NSPasteboardItem]
     }
 }
 

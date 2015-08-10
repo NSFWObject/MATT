@@ -10,21 +10,23 @@ import AppKit
 
 class LoginItemPreferencesController: NSObject {
     
-    private let loginItemManager = LoginItemManager()
+    private let loginItemManager: LoginItemManager
     private let loginItemCheckbox: NSButton
     
-    init(loginItemCheckbox: NSButton) {
+    init(loginItemManager: LoginItemManager, loginItemCheckbox: NSButton) {
         self.loginItemCheckbox = loginItemCheckbox
+        self.loginItemManager = loginItemManager
         super.init()
         loginItemCheckbox.target = self
         loginItemCheckbox.action = Selector("loginItemCheckoutAction:")
-        loginItemCheckbox.state = loginItemManager.isLoginItemEnabled() ? NSOnState : NSOffState
+        
+        loginItemCheckbox.state = loginItemManager.loginItemsEnabled ? NSOnState : NSOffState
     }
     
     // MARK: - Actions
     
     @IBAction func loginItemCheckoutAction(sender: AnyObject) {
         let enable = self.loginItemCheckbox.state == NSOnState
-        loginItemManager.setLoginItemsEnabled(enable)
+        loginItemManager.loginItemsEnabled = enable
     }
 }

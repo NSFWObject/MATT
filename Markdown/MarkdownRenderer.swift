@@ -11,19 +11,26 @@ import hoedown
 import CocoaMark
 
 
+public struct MarkdownRenderResult {
+    public let HTMLString: String
+    public let attributedString: NSAttributedString
+    
+//    public init(HTMLString: String, attributedString: NSAttributedString)
+}
+
 
 
 public struct MarkdownRenderer {
-    public typealias HTML = String
     
     public init() {
     }
         
-    public func render(#markdown: String, style: String) -> (NSAttributedString, HTML) {
+    public func render(#markdown: String, style: String?) -> MarkdownRenderResult {
         let html = render(markdown: markdown)
+        let style = style ?? ""
         let styledHTML = "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><style>\(style)</style></head><body>\(html)</body>"
         let attributedString = render(HTML: styledHTML)
-        return (attributedString, styledHTML)
+        return MarkdownRenderResult(HTMLString: styledHTML, attributedString: attributedString)
     }
 
     // MARK: - Private

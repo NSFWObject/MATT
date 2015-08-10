@@ -378,7 +378,7 @@ DQ
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" customClass="WindowController" customModule="MATT" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" showsToolbarButton="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -392,6 +392,74 @@ DQ
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
+        </scene>
+        <!--Intro View Controller-->
+        <scene sceneID="MAE-0O-WMv">
+            <objects>
+                <viewController storyboardIdentifier="Intro" id="Bkc-Ae-Ylv" customClass="IntroViewController" customModule="MATT" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="3OC-BE-Ewa">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="228"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D4R-Ku-xMH">
+                                <rect key="frame" x="53" y="177" width="157" height="18"/>
+                                <animations/>
+                                <buttonCell key="cell" type="check" title="Launch MATT on login" bezelStyle="regularSquare" imagePosition="left" state="on" focusRingType="none" inset="2" id="vwL-h5-46g">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r78-DY-FN4">
+                                <rect key="frame" x="241" y="13" width="145" height="32"/>
+                                <animations/>
+                                <buttonCell key="cell" type="push" title="Finish Installation" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1hf-lu-Rmt">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="_doneButtonAction:" target="Bkc-Ae-Ylv" id="MqU-cR-6cG"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nli-iW-kOb">
+                                <rect key="frame" x="72" y="143" width="256" height="28"/>
+                                <animations/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Matt is more fun when you don't have to launch it manually." id="RjT-rB-uHj">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" red="0.50266176462173462" green="0.50275492668151855" blue="0.50266903638839722" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jqK-Bs-LiD">
+                                <rect key="frame" x="72" y="69" width="276" height="28"/>
+                                <animations/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="We will have to ask you to confirm the script folder. It's kinda sad how helpless apps has become…" id="T9H-Nu-hXl">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" red="0.50266176462173462" green="0.50275492668151855" blue="0.50266903638839722" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SSW-PU-U7Q">
+                                <rect key="frame" x="53" y="103" width="135" height="18"/>
+                                <animations/>
+                                <buttonCell key="cell" type="check" title="Copy AppleScripts" bezelStyle="regularSquare" imagePosition="left" state="on" focusRingType="none" inset="2" id="M20-Fo-Jvi">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                        </subviews>
+                        <animations/>
+                    </view>
+                    <connections>
+                        <outlet property="installAppleScriptsCheckbox" destination="SSW-PU-U7Q" id="IHh-Yh-e0g"/>
+                        <outlet property="launchOnLoginCheckbox" destination="D4R-Ku-xMH" id="5p5-er-3s4"/>
+                    </connections>
+                </viewController>
+                <customObject id="0DF-dp-AvS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="561" y="670"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">

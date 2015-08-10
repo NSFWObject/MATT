@@ -95,6 +95,20 @@ public struct ScriptManager {
         case Cancel, Install, ShowScript
     }
     
+    public func promptScriptInstallation(completion: Bool -> Void) {
+        let alert = NSAlert()
+        alert.messageText = "Do you want to install pasteboard helper script?"
+        alert.informativeText = "Due to App Store limitations, without this script app can only copy formatted markdown in the Pasteboard."
+        alert.addButtonWithTitle("Install")
+        alert.addButtonWithTitle("Cancel")
+        let result = alert.runModal()
+        if result == NSAlertFirstButtonReturn {
+            installScripts(completion)
+        } else {
+            completion(false)
+        }
+    }
+    
     public func installScripts(completion: Bool -> Void) {
         if let scriptsFolderURL = NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.ApplicationScriptsDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: true, error: nil) {
             let openPanel = NSOpenPanel()

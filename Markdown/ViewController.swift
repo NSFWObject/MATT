@@ -14,7 +14,7 @@ import hoedown
 
 class ViewController: NSViewController {
     
-    var appManager: AppManager!
+    var appController: AppController!
     var shortcutManager: ShortcutManager! {
         didSet {
             setupShortcuts()
@@ -39,17 +39,30 @@ class ViewController: NSViewController {
     }
 
     @IBAction func doneButtonAction(sender: AnyObject) {
+        if scriptManager.shouldInstallScripts() {
+            checkIfScriptNeedsToBeInstalled{ result in
+                if result {
+                    self.pasteMarkdownIntoAnotherApp()
+                }
+            }
+        } else {
+            pasteMarkdownIntoAnotherApp()
+        }
+        
+    }
+    
+    // MARK: - Private
+
+    private func pasteMarkdownIntoAnotherApp() {
         if let markdown = textView.string {
-            appManager.process(markdown: markdown, renderer: renderer, scriptManager: scriptManager) { success in
-                // no-op
+            appController.process(markdown: markdown) { result in
+                
             }
         } else {
             assertionFailure("No text view")
         }
     }
     
-    // MARK: - Private
-
     private func processSelectedMarkdown() {
         
     }
@@ -71,22 +84,13 @@ class ViewController: NSViewController {
             textView.font = NSFont.userFixedPitchFontOfSize(12)
         }
     }
-
-    private func checkIfScriptNeedsToBeInstalled() {
+    
+    private func checkIfScriptNeedsToBeInstalled(completion: Bool -> Void) {
         if !scriptManager.shouldInstallScripts() {
+            completion(true)
             return
         }
-        
-        let alert = NSAlert()
-        alert.messageText = "Do you want to install pasteboard helper script?"
-        alert.informativeText = "Due to App Store limitations, without this script app can only copy formatted markdown in the Pasteboard."
-        alert.addButtonWithTitle("Install")
-        alert.addButtonWithTitle("Cancel")
-        alert.beginSheetModalForWindow(self.view.window!) { response in
-            if response == NSAlertFirstButtonReturn {
-                self.scriptManager.installScripts{ _ in }
-            }
-        }
+        scriptManager.promptScriptInstallation(completion)
     }
     
     private func selectTextFieldContents() {
@@ -100,10 +104,5 @@ class ViewController: NSViewController {
         
         setupView()
         setupTextView()
-    }
-    
-    override func viewDidAppear() {
-        super.viewDidAppear()
-        checkIfScriptNeedsToBeInstalled()
-    }
+    }    
 }

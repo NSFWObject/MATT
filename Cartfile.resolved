@@ -1,3 +1,4 @@
-github "groue/GRMustache.swift" "v0.9.3"
+github "robrix/Box" "1.2.2"
 github "zats/MASPreferences" "e1bedd56618e7ef513d2c3de5940ce43f0e6fdad"
 github "shpakovski/MASShortcut" "3f63f8fefccf36f567308854f5b1e3908a15c9c3"
+github "antitypical/Result" "0.4.4"
