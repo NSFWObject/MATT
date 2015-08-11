@@ -12,6 +12,7 @@ import AppKit
 public class FirstTimeController {
     
     public var preferncesController: PreferencesController!
+    public var scriptManager: ScriptInstallationManager!
     
     public func executeIfNeeded(block: Void -> Void) {
         if shouldShowFirstTimeExperience() {
@@ -27,16 +28,16 @@ public class FirstTimeController {
     // MARK: - Private
 
     public func shouldShowFirstTimeExperience() -> Bool {
-        if let currentVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? String {
-            if let lastVersion = preferncesController.lastAppVersion {
-                if lastVersion == currentVersion {
-                    return false
-                }
-            }
+        if scriptManager.shouldInstallScripts() {
             return true
-        } else {
-            assertionFailure("Can't extract CFBundleShortVersionString from Info.plist \(NSBundle.mainBundle().infoDictionary)")
-            return false
         }
+        
+        if let lastVersion = preferncesController.lastAppVersion {
+            if lastVersion == AppIdentity.marketingVersion {
+                return false
+            }
+        }
+        
+        return true
     }
 }
