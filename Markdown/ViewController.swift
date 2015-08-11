@@ -15,6 +15,7 @@ import hoedown
 class ViewController: NSViewController {
     
     var appController: AppController!
+    var presentPreferences: (Void -> Void)!
     var shortcutManager: ShortcutManager! {
         didSet {
             setupShortcuts()
@@ -40,11 +41,7 @@ class ViewController: NSViewController {
 
     @IBAction func doneButtonAction(sender: AnyObject) {
         if scriptManager.shouldInstallScripts() {
-            checkIfScriptNeedsToBeInstalled{ result in
-                if result {
-                    self.pasteMarkdownIntoAnotherApp()
-                }
-            }
+            presentPreferences()
         } else {
             pasteMarkdownIntoAnotherApp()
         }

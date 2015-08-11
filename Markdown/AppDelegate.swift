@@ -86,6 +86,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         controller.focusManager = focusManager
         if let controller = controller.contentViewController as? ViewController {
             controller.appController = appController
+            controller.presentPreferences = showPreferences
             controller.shortcutManager = shortcutManager
         }
     }
