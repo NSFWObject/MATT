@@ -44,15 +44,21 @@ public extension Script {
             if let task = NSUserAppleScriptTask(URL: URL, error: &error) {
                 task.executeWithCompletionHandler{ error in
                     assert(error == nil, "Failed to execute script \(error)")
-                    handler(error == nil)
+                    dispatch_async(dispatch_get_main_queue()) {
+                        handler(error == nil)
+                    }
                 }
             } else {
                 assertionFailure("Failed to create task: \(error)")
-                handler(false)
+                dispatch_async(dispatch_get_main_queue()) {
+                    handler(false)
+                }
             }
         } else {
             assertionFailure("Script \(self) is not found in the destination folder")
-            handler(false)
+            dispatch_async(dispatch_get_main_queue()) {
+                handler(false)
+            }
         }
     }
 }
