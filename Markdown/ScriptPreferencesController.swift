@@ -38,6 +38,12 @@ class ScriptPreferencesController: NSObject {
     
     private func updateUI() {
         let shouldInstallScript = scriptManager.shouldInstallScripts()
-        installScriptButton.title = shouldInstallScript ? "Install" : "Installed"
+        if shouldInstallScript {
+            installScriptButton.title = "Install"
+            installScriptButton.image = NSImage(named: NSImageNameStatusPartiallyAvailable)
+        } else {
+            installScriptButton.title = "Installed"
+            installScriptButton.image = NSImage(named: NSImageNameStatusAvailable)
+        }
     }
 }
