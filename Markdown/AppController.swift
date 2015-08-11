@@ -45,11 +45,12 @@ public class AppController {
             completion(.success(.CopiedToPasteboard))
             return
         }
-        
+
         focusController.switchToCapturedApp{ result in
             switch result {
             case .Success:
                 Script.Paste.execute{ success in
+                    assert(success, "Failed to paste!")
                     self.pasteboardController.restorePasteboardState(pasteboardState)
                     if success {
                         completion(success ? .success(.PastedToCapturedApp) : .failure(.ScriptError))
@@ -59,10 +60,6 @@ public class AppController {
                 completion(.failure(.AppFocusError(error.value)))
             }
         }
-
-        // ...later
-        
-        pasteboardController.restorePasteboardState(pasteboardState)
-    }
+   }
     
 }
