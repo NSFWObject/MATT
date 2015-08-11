@@ -34,6 +34,12 @@ class GeneralPreferencesViewController: NSViewController, MASPreferencesViewCont
     @IBOutlet weak var warningContainerView: NSView!
     @IBOutlet weak var warningTextField: NSTextField!
     
+    // MARK: - Action
+    
+    private func scriptUpdateHandler() {
+        updateUI()
+    }
+    
     // MARK: - Private
     
     private func setupFirstTimeWarning() {
@@ -41,9 +47,13 @@ class GeneralPreferencesViewController: NSViewController, MASPreferencesViewCont
         if let layer = warningContainerView.layer {
             layer.backgroundColor = NSColor(red:0.2, green:0.2, blue:0.2, alpha:1).CGColor
         }
+        updateUI()
+    }
+    
+    private func updateUI() {
         if !firstTimeController.shouldShowFirstTimeExperience() {
             warningTextField.removeFromSuperview()
-        }        
+        }
     }
     
     // MARK: - MASPreferencesViewController
@@ -66,7 +76,7 @@ class GeneralPreferencesViewController: NSViewController, MASPreferencesViewCont
         
         stylePreferencesController = StylePreferencesController(styleController: styleController, popupButton: stylePopupButton)
         loginItemPreferencesController = LoginItemPreferencesController(loginItemManager: loginItemManager, loginItemCheckbox: loginItemCheckbox)
-        scriptPreferencesController = ScriptPreferencesController(installScriptButton: installScriptButton, scriptManager: scriptManager)
+        scriptPreferencesController = ScriptPreferencesController(installScriptButton: installScriptButton, scriptManager: scriptManager, updateHandler: scriptUpdateHandler)
         shortcutPreferencesController = ShortcutPreferencesController(shortcutView: shortcutView, shortcutManager: shortcutManager)
     }
 }

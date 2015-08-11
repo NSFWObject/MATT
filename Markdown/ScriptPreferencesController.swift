@@ -12,12 +12,13 @@ import AppKit
 class ScriptPreferencesController: NSObject {
 
     let scriptManager: ScriptInstallationManager
-    
+    let updateHandler: Void -> Void
     let installScriptButton: NSButton
     
-    init(installScriptButton: NSButton, scriptManager: ScriptInstallationManager) {
+    init(installScriptButton: NSButton, scriptManager: ScriptInstallationManager, updateHandler: Void -> Void) {
         self.installScriptButton = installScriptButton
         self.scriptManager = scriptManager
+        self.updateHandler = updateHandler
         super.init()
         installScriptButton.target = self
         installScriptButton.action = Selector("installScriptButtonAction:")
@@ -31,6 +32,7 @@ class ScriptPreferencesController: NSObject {
             // TODO: a great case for `Result`. success == false might be user canceled
             // assert(success, "Failed to copy script")
             self.updateUI()
+            self.updateHandler()
         }
     }
     
