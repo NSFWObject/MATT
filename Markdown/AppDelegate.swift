@@ -13,13 +13,16 @@ import AppKit
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     let appController = AppController()
+    let firstTimeController = FirstTimeController()
     let focusManager = AppFocusController()
-    let shortcutManager = ShortcutManager()
-    let scriptManager = ScriptInstallationManager()
     let loginItemManager = LoginItemManager()
-    let firstTimerExperience = FirstTimeController()
+    let pasteboardController = PasteboardController()
     let preferencesController = PreferencesController()
-
+    let scriptManager = ScriptInstallationManager()
+    let shortcutManager = ShortcutManager()
+    let styleController = StyleController()
+    let preferencesPresenter = PreferencesPresenter()
+    
     private var windowController: NSWindowController?
     
     // MARK: - Actions
@@ -42,7 +45,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func preferencesMenuAction(sender: AnyObject) {
-        PreferencesPresenter.showPreferences(shortcutManager: shortcutManager, scriptManager: scriptManager, loginItemManager: loginItemManager)
+        showPreferences()
+    }
+    
+    private func showPreferences() {
+        preferencesPresenter.showPreferences(
+            shortcutManager: shortcutManager,
+            scriptManager: scriptManager,
+            styleController: styleController,
+            loginItemManager: loginItemManager,
+            firstTimeController: firstTimeController)
     }
     
     private func toggleAppVisibility() {
@@ -101,13 +113,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    private func firstTimeExperience() {
-        firstTimerExperience.preferncesController = preferencesController
-        firstTimerExperience.executeIfNeeded{
-            PreferencesPresenter.showPreferences(
-                shortcutManager: self.shortcutManager,
-                scriptManager: self.scriptManager,
-                loginItemManager: self.loginItemManager)
+    private func runFirstTimeExperienceIfNeeded() {
+        firstTimeController.preferncesController = preferencesController
+        firstTimeController.executeIfNeeded{ [unowned self] in
+            self.showPreferences()
         }
     }
     
@@ -125,14 +134,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    private func setupDependancies() {
+        appController.pasteboardController = pasteboardController
+        appController.styleManager = styleController
+        appController.focusController = focusManager
+        
+        firstTimeController.scriptManager = scriptManager
+    }
+    
     // MARK: NSApplicationDelegate
     
     func applicationDidFinishLaunching(notification: NSNotification) {
+        setupDependancies()
         setupResettables()
         setupWindowCloseNotification()
         setupInitialController()
         setupGlobalShortcuts()
-        firstTimeExperience()
+        runFirstTimeExperienceIfNeeded()
     }
     
     func applicationDidBecomeActive(notification: NSNotification) {

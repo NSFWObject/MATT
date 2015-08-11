@@ -16,7 +16,10 @@ class GeneralPreferencesViewController: NSViewController, MASPreferencesViewCont
     var scriptManager: ScriptInstallationManager!
     var styleController: StyleController!
     var loginItemManager: LoginItemManager!
-
+    var firstTimeController: FirstTimeController!
+    
+    @IBOutlet weak var explanationHeightConstraint: NSLayoutConstraint!
+    
     // Section controllers
     var stylePreferencesController: StylePreferencesController!
     var loginItemPreferencesController: LoginItemPreferencesController!
@@ -28,6 +31,20 @@ class GeneralPreferencesViewController: NSViewController, MASPreferencesViewCont
     @IBOutlet weak var loginItemCheckbox: NSButton!
     @IBOutlet weak var installScriptButton: NSButton!
     @IBOutlet weak var shortcutView: MASShortcutView!
+    @IBOutlet weak var warningContainerView: NSView!
+    @IBOutlet weak var warningTextField: NSTextField!
+    
+    // MARK: - Private
+    
+    private func setupFirstTimeWarning() {
+        warningContainerView.wantsLayer = true
+        if let layer = warningContainerView.layer {
+            layer.backgroundColor = NSColor(red:0.2, green:0.2, blue:0.2, alpha:1).CGColor
+        }
+        if !firstTimeController.shouldShowFirstTimeExperience() {
+            warningTextField.removeFromSuperview()
+        }        
+    }
     
     // MARK: - MASPreferencesViewController
     
@@ -45,11 +62,12 @@ class GeneralPreferencesViewController: NSViewController, MASPreferencesViewCont
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        styleController = StyleController()
-        self.stylePreferencesController = StylePreferencesController(styleController: styleController, popupButton: stylePopupButton)
-        self.loginItemPreferencesController = LoginItemPreferencesController(loginItemManager: loginItemManager, loginItemCheckbox: loginItemCheckbox)
-        self.scriptPreferencesController = ScriptPreferencesController(installScriptButton: installScriptButton, scriptManager: scriptManager)
-        self.shortcutPreferencesController = ShortcutPreferencesController(shortcutView: shortcutView, shortcutManager: shortcutManager)
+        setupFirstTimeWarning()
+        
+        stylePreferencesController = StylePreferencesController(styleController: styleController, popupButton: stylePopupButton)
+        loginItemPreferencesController = LoginItemPreferencesController(loginItemManager: loginItemManager, loginItemCheckbox: loginItemCheckbox)
+        scriptPreferencesController = ScriptPreferencesController(installScriptButton: installScriptButton, scriptManager: scriptManager)
+        shortcutPreferencesController = ShortcutPreferencesController(shortcutView: shortcutView, shortcutManager: shortcutManager)
     }
 }
 
