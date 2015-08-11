@@ -43,14 +43,14 @@ class ViewController: NSViewController {
         if scriptManager.shouldInstallScripts() {
             presentPreferences()
         } else {
-            pasteMarkdownIntoAnotherApp()
+            pasteMarkdownIntoCapturedApp()
         }
         
     }
     
     // MARK: - Private
 
-    private func pasteMarkdownIntoAnotherApp() {
+    private func pasteMarkdownIntoCapturedApp() {
         if let markdown = textView.string {
             appController.process(markdown: markdown) { result in
                 
