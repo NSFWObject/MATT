@@ -36,12 +36,12 @@ public class AppController {
         let renderResult = renderEngine.render(markdown: markdown, style: styleContents)
         pasteboardController.writeToPasteboard{ pasteboard in
             pasteboard.writeObjects([renderResult.attributedString])
-            // for apps that understand in `div`s and `span`s (Evernote, Safari etc)
+            // for apps that understand in `div`s and `span`s (Evernote, Safari etc… Not Pages:/)
             pasteboard.setString(renderResult.HTMLString, forType: NSPasteboardTypeHTML)
         }
         
+        // Do not try to switch back, just keep the copyied text
         if focusController.capturedApp == nil {
-            // do not try to switch back, just keep the copyied text
             completion(.success(.CopiedToPasteboard))
             return
         }

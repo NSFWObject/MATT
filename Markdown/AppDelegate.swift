@@ -33,6 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     private func createNewWindow() {
+        assert(windowController == nil, "Existent window detected!")
         if let storyboard = NSStoryboard(name: "Main", bundle: nil),
             controller = storyboard.instantiateInitialController() as? WindowController {
                 controller.showWindow(self)
@@ -138,6 +139,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if windowController == nil {
             createNewWindow()
         }
+    }
+    
+    func applicationShouldHandleReopen(sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        if !flag {
+            createNewWindow()
+        }
+        return true
     }
 }
 
