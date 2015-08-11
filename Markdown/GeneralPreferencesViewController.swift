@@ -52,7 +52,9 @@ class GeneralPreferencesViewController: NSViewController, MASPreferencesViewCont
     
     private func updateUI() {
         if !firstTimeController.shouldShowFirstTimeExperience() {
-            warningTextField.removeFromSuperview()
+            if let textField = warningTextField {
+                textField.removeFromSuperview()
+            }
         }
     }
     
