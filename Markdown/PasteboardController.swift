@@ -14,10 +14,8 @@ public class PasteboardController {
     public typealias PasteboardState = [NSPasteboardItem]?
     
     public func pasteboardState() -> PasteboardState {
-        if let items = pasteboardContents() {
-            return items.map{$0.copy() as! NSPasteboardItem}
-        }
-        return nil
+        let pasteboard = NSPasteboard.generalPasteboard()
+        return pasteboard.pasteboardItems?.map{ $0.copy() as! NSPasteboardItem }
     }
     
     public func restorePasteboardState(state: PasteboardState) {
@@ -33,21 +31,14 @@ public class PasteboardController {
         pasteboard.clearContents()
         writeBlock(pasteboard)
     }
-    
-    // MARK: - Private
-    
-    private func pasteboardContents() -> [NSPasteboardItem]? {
-        let pasteboard = NSPasteboard.generalPasteboard()
-        return pasteboard.pasteboardItems as? [NSPasteboardItem]
-    }
 }
 
 extension NSPasteboardItem: NSCopying {
     public func copyWithZone(zone: NSZone) -> AnyObject {
         let item = NSPasteboardItem()
-        if let types = self.types {
+        if let types = types {
             for type in types as! [String] {
-                if let data = self.dataForType(type) {
+                if let data = dataForType(type) {
                     item.setData(data, forType: type)
                 }
             }
