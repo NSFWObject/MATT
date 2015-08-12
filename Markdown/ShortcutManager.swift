@@ -18,18 +18,10 @@ public enum ShortcutType: String {
 
 
 public final class ShortcutManager: NSObject {
-    public typealias ShortcutHandler = (Void -> Void)?
-
+    public typealias Handler = MASShortcut -> Void
     private let monitor = MASShortcutMonitor.sharedMonitor()
-    public var appVisibilityHandler: ShortcutHandler
-    public var processMarkdownHandler: ShortcutHandler
-    
-    private struct ShortcutWithHandler {
-        private let shortcut: MASShortcut?
-        private let handler: ShortcutHandler
-    }
-    
     private var storage: [ShortcutType: MASShortcut] = [:]
+    private var handlers: [ShortcutType: Handler] = [:]
     
     public override required init() {
     }
@@ -42,11 +34,15 @@ public final class ShortcutManager: NSObject {
             storage[type] = shortcut
             monitor.registerShortcut(shortcut) {
                 if let fn = self.shortcutHandlerForType(type) {
-                    fn()
+                    fn(shortcut)
                 }
                 
             }
         }
+    }
+    
+    public func registerHandler(handler: Handler, forType type: ShortcutType) {
+        handlers[type] = handler
     }
     
     public func shortcutForType(type: ShortcutType) -> MASShortcut? {
@@ -55,12 +51,18 @@ public final class ShortcutManager: NSObject {
     
     // MARK: - Private
     
-    private func shortcutHandlerForType(type: ShortcutType) -> ShortcutHandler {
-        switch type {
-        case .ToggleAppVisibility:
-            return appVisibilityHandler
-        case .ProcessSelectedMarkdown:
-            return processMarkdownHandler
+    private func shortcutHandlerForType(type: ShortcutType) -> Handler? {
+        return handlers[type]
+    }
+    
+    private func registerDefaultShortcutsIfNeeded() {
+        if shortcutForType(.ToggleAppVisibility) == nil {
+            let shortcut = MASShortcut(keyCode: UInt(kVK_ANSI_D), modifierFlags: NSEventModifierFlags.AlternateKeyMask.rawValue)
+            self.registerShortcut(shortcut, type: .ToggleAppVisibility)
+        }
+        if shortcutForType(.ProcessSelectedMarkdown) == nil {
+            let shortcut = MASShortcut(keyCode: UInt(kVK_ANSI_M), modifierFlags: NSEventModifierFlags.AlternateKeyMask.rawValue)
+            self.registerShortcut(shortcut, type: .ProcessSelectedMarkdown)
         }
     }
 }
@@ -116,6 +118,7 @@ extension ShortcutManager {
                 }
             }
         }
+        registerDefaultShortcutsIfNeeded()
     }
 }
 

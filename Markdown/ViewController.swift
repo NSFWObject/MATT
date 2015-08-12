@@ -60,12 +60,12 @@ class ViewController: NSViewController {
         }
     }
     
-    private func processSelectedMarkdown() {
-        
+    private func processSelectedMarkdown(shortcut: MASShortcut) {
+
     }
     
     private func setupShortcuts() {
-        shortcutManager.processMarkdownHandler = processSelectedMarkdown
+        shortcutManager.registerHandler(processSelectedMarkdown, forType: .ProcessSelectedMarkdown)
     }
     
     private func setupView() {

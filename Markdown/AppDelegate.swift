@@ -7,6 +7,7 @@
 //
 
 import AppKit
+import MASShortcut
 
 
 @NSApplicationMain
@@ -57,7 +58,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             firstTimeController: firstTimeController)
     }
     
-    private func toggleAppVisibility() {
+    private func toggleAppVisibility(shortcut: MASShortcut) {
         if let activeApp = focusManager.activeApp() {
             if activeApp.bundleIdentifier == AppIdentity.bundleId {
                 if windowController == nil {
@@ -94,7 +95,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private func setupGlobalShortcuts() {
         let defaults = NSUserDefaults.standardUserDefaults()
         shortcutManager.load(defaults: defaults)
-        shortcutManager.appVisibilityHandler = toggleAppVisibility
+        shortcutManager.registerHandler(toggleAppVisibility, forType: .ToggleAppVisibility)
     }
 
     private func setupInitialController() {
