@@ -61,7 +61,9 @@ class ViewController: NSViewController {
     }
     
     private func processSelectedMarkdown(shortcut: MASShortcut) {
+        appController.processInPlace{ result in
 
+        }
     }
     
     private func setupShortcuts() {
