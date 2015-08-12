@@ -23,7 +23,7 @@ public enum ProcessingResult {
 public class AppController {
     
     public var focusController: AppFocusController!
-    public var renderEngine: MarkdownRenderer = MarkdownRenderer()
+    public let renderEngine: MarkdownRenderer = MarkdownRenderer()
     public var styleManager: StyleController!
     public var pasteboardController: PasteboardController!
     
