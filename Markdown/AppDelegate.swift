@@ -167,5 +167,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         return true
     }
+    
+    // TODO: for now we terminate application when the last window is closed, but actually infrastructure is in place to recreate window if app stays alive
+    func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication) -> Bool {
+        return true
+    }
 }
 
