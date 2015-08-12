@@ -31,6 +31,14 @@ public class PasteboardController {
         pasteboard.clearContents()
         writeBlock(pasteboard)
     }
+    
+    public func stringContent() -> String? {
+        let pasteboard = NSPasteboard.generalPasteboard()
+        if let data = pasteboard.dataForType(NSPasteboardTypeString) {
+            return NSString(data: data, encoding: NSUTF8StringEncoding) as? String
+        }
+        return nil
+    }
 }
 
 extension NSPasteboardItem: NSCopying {
