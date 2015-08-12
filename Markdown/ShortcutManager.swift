@@ -61,7 +61,7 @@ public final class ShortcutManager: NSObject {
             self.registerShortcut(shortcut, type: .ToggleAppVisibility)
         }
         if shortcutForType(.ProcessSelectedMarkdown) == nil {
-            let shortcut = MASShortcut(keyCode: UInt(kVK_ANSI_M), modifierFlags: NSEventModifierFlags.AlternateKeyMask.rawValue)
+            let shortcut = MASShortcut(keyCode: UInt(kVK_ANSI_M), modifierFlags: NSEventModifierFlags.CommandKeyMask.rawValue)
             self.registerShortcut(shortcut, type: .ProcessSelectedMarkdown)
         }
     }
