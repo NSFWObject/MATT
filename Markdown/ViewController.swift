@@ -111,7 +111,7 @@ class ViewController: NSViewController {
     
     private func setupTextView() {
         textView.font = NSFont(name: "Times New Roman", size: 14)
-        textView.layoutManager!.hyphenationFactor = 0.5
+        textView.layoutManager!.hyphenationFactor = 0.8
     }
     
     private func setupHighlighter() {
