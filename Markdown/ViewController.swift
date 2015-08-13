@@ -28,6 +28,13 @@ class ViewController: NSViewController {
     let scriptManager = ScriptInstallationManager()
     
     @IBOutlet var textView: NSTextView!
+    @IBOutlet weak var titleLabel: NSTextField!
+    
+    // MARK: - Lifecycle
+    
+    deinit {
+        highlighter.deactivate()
+    }
     
     // MARK: - Public 
     
@@ -78,22 +85,20 @@ class ViewController: NSViewController {
     }
     
     private func setupTextView() {
-        textView.textColor = NSColor(red:0.058, green:0.173, blue:0.166, alpha:1)
-        if let font = NSFont(name: "Menlo", size: 13) {
-            textView.font = font
-        } else {
-            textView.font = NSFont.userFixedPitchFontOfSize(12)
-        }
+        textView.font = NSFont(name: "Times New Roman", size: 14)
+        textView.layoutManager!.hyphenationFactor = 0.5
     }
     
     private func setupHighlighter() {
         highlighter = HGMarkdownHighlighter(textView: textView, waitInterval: 0)
         let styleURL = NSBundle.mainBundle().URLForResource("Default", withExtension: "theme", subdirectory: "Theme")!
         let style = String(contentsOfURL: styleURL, encoding: NSUTF8StringEncoding, error: nil)!
+        highlighter.readClearTextStylesFromTextView()
         highlighter.applyStylesFromStylesheet(style, withErrorHandler: nil)
         highlighter.extensions = Int32(hoedown_extensions.ALL.value)
-        highlighter.parseAndHighlightNow()
+        highlighter.makeLinksClickable = false
         highlighter.activate()
+        highlighter.parseAndHighlightNow()
         view.layer!.backgroundColor = textView.backgroundColor.CGColor
     }
     
