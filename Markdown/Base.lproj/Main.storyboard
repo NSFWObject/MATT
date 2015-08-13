@@ -554,7 +554,7 @@ On top of standard markdown syntax, MATT understands tables, fenced code, footno
                                 <animations/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Markdown all the things" id="KS0-RB-7R4">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" red="0.59357386827468872" green="0.61751478910446167" blue="0.64183956384658813" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="textColor" red="0.36739951372146606" green="0.38089144229888916" blue="0.39513891935348511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>

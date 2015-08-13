@@ -100,8 +100,13 @@ class ViewController: NSViewController {
     }
     
     private func setupView() {
-        self.view.wantsLayer = true
-        self.view.layer?.backgroundColor = NSColor.whiteColor().CGColor
+        view.wantsLayer = true
+        view.layer?.backgroundColor = NSColor.whiteColor().CGColor
+    }
+    
+    private func setupTitleLable() {
+        titleLabel.wantsLayer = true
+        titleLabel.layer!.opacity = 0.5
     }
     
     private func setupTextView() {
@@ -139,6 +144,7 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTitleLable()
         setupView()
         setupTextView()
         setupHighlighter()
