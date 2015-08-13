@@ -10,8 +10,7 @@ import AppKit
 
 
 class WindowController: NSWindowController, NSWindowDelegate {
-    var focusManager: AppFocusController!
-    
+
     // MARK: - Lifecycle
     
     deinit {
@@ -21,21 +20,17 @@ class WindowController: NSWindowController, NSWindowDelegate {
     // MARK: - Actions
     
     func applicationDidBecomeActiveObserver(sender: AnyObject) {
-        if let app = focusManager.capturedApp, name = app.localizedName {
-            self.window?.title = "\(name) + \(AppIdentity.shortName) = \(randomEmoji())"
-        } else {
-            self.window?.title = AppIdentity.displayName
-        }
+        updateWindowTitle()
     }
     
     // MARK: - Private
     
-    private func randomEmoji() -> String {
-        let emojis = ["💥", "🍌", "♥︎", "🔥", "🎉", "😃", "👍", "🐔", "🐙", "❤️", "💜", "👌", "💛", "💚", "💃", "🚀"]
-        let index = Int(arc4random_uniform(UInt32(emojis.count)))
-        return emojis[index]
+    private func updateWindowTitle() {
+        if let controller = self.contentViewController as? ViewController {
+            controller.updateWindowTitle()
+        }
     }
-        
+    
     // MARK: - NSWindowController
     
     override func windowDidLoad() {
@@ -48,7 +43,8 @@ class WindowController: NSWindowController, NSWindowDelegate {
         }
                 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationDidBecomeActiveObserver:"), name: NSApplicationDidBecomeActiveNotification, object: nil)
-        self.window?.title = AppIdentity.displayName
+        
+        self.window?.title = ""
     }
     
     override func showWindow(sender: AnyObject?) {

@@ -16,6 +16,7 @@ class ViewController: NSViewController {
     
     private var highlighter: HGMarkdownHighlighter!
     
+    var focusController: AppFocusController!
     var appController: AppController!
     var presentPreferences: (Void -> Void)!
     var shortcutManager: ShortcutManager! {
@@ -42,6 +43,10 @@ class ViewController: NSViewController {
         selectTextFieldContents()
     }
     
+    func updateWindowTitle() {
+        self.titleLabel.stringValue = windowTitle()
+    }
+    
     // MARK: - Actions
     
     private func pasteMarkdownAction() {
@@ -59,6 +64,21 @@ class ViewController: NSViewController {
     
     // MARK: - Private
 
+    private func windowTitle() -> String {
+        let randomEmoji: Void -> String = {
+            let emojis = ["💥", "🍌", "♥︎", "🔥", "🎉", "😃", "👍", "🐔", "🐙", "❤️", "💜", "👌", "💛", "💚", "💃", "🚀"]
+            let index = Int(arc4random_uniform(UInt32(emojis.count)))
+            return emojis[index]
+        }
+        
+        if let app = focusController.capturedApp, name = app.localizedName {
+            return "\(name) + \(AppIdentity.shortName) = \(randomEmoji())"
+        } else {
+            return AppIdentity.displayName
+        }
+    }
+
+    
     private func pasteMarkdownIntoCapturedApp() {
         if let markdown = textView.string {
             appController.process(markdown: markdown) { result in
