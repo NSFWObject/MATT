@@ -45,6 +45,11 @@
 		5CB58F201B67179600A01CC7 /* ShortcutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB58F1F1B67179600A01CC7 /* ShortcutManager.swift */; };
 		5CBE30A51B6B1FDA0004FC34 /* CSS in Resources */ = {isa = PBXBuildFile; fileRef = 5CBE30A41B6B1FDA0004FC34 /* CSS */; };
 		5CBFB4101B7065C9001B1F58 /* PasteboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */; };
+		5CC438EB1B7C30F0004D3D1F /* HGMarkdownHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC438DF1B7C30F0004D3D1F /* HGMarkdownHighlighter.m */; };
+		5CC438EC1B7C30F0004D3D1F /* HGMarkdownHighlightingStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC438E11B7C30F0004D3D1F /* HGMarkdownHighlightingStyle.m */; };
+		5CC438F11B7C30F0004D3D1F /* pmh_parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 5CC438E71B7C30F0004D3D1F /* pmh_parser.c */; };
+		5CC438F21B7C30F0004D3D1F /* pmh_styleparser.c in Sources */ = {isa = PBXBuildFile; fileRef = 5CC438E91B7C30F0004D3D1F /* pmh_styleparser.c */; };
+		5CC438F61B7C33E4004D3D1F /* Theme in Resources */ = {isa = PBXBuildFile; fileRef = 5CC438F51B7C33E4004D3D1F /* Theme */; };
 		5CEF6AE71B76BAEE0002E9D0 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CEF6AE51B76BAD90002E9D0 /* Box.framework */; };
 		5CEF6AE81B76BAEE0002E9D0 /* Box.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CEF6AE51B76BAD90002E9D0 /* Box.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CEF6AE91B76BAEF0002E9D0 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CEF6AE31B76BAD00002E9D0 /* Result.framework */; };
@@ -63,6 +68,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5C6172F11B69E240009BF6B6;
 			remoteInfo = "MATT Helper";
+		};
+		5CC438F31B7C3102004D3D1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CC438DA1B7C30D9004D3D1F /* peg-markdown-highlight.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F8A836B195348C500B6BF69;
+			remoteInfo = "peg-markdown-highlight";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -137,6 +149,17 @@
 		5CBE30A41B6B1FDA0004FC34 /* CSS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CSS; path = Resources/CSS; sourceTree = "<group>"; };
 		5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardController.swift; sourceTree = "<group>"; };
 		5CC268101B6EC07000D05D18 /* MATT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MATT.entitlements; sourceTree = SOURCE_ROOT; };
+		5CC438DA1B7C30D9004D3D1F /* peg-markdown-highlight.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "peg-markdown-highlight.xcodeproj"; path = "Vendor/peg-markdown-highlight/peg-markdown-highlight.xcodeproj"; sourceTree = "<group>"; };
+		5CC438DE1B7C30F0004D3D1F /* HGMarkdownHighlighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGMarkdownHighlighter.h; path = "Vendor/peg-markdown-highlight/HGMarkdownHighlighter.h"; sourceTree = "<group>"; };
+		5CC438DF1B7C30F0004D3D1F /* HGMarkdownHighlighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGMarkdownHighlighter.m; path = "Vendor/peg-markdown-highlight/HGMarkdownHighlighter.m"; sourceTree = "<group>"; };
+		5CC438E01B7C30F0004D3D1F /* HGMarkdownHighlightingStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGMarkdownHighlightingStyle.h; path = "Vendor/peg-markdown-highlight/HGMarkdownHighlightingStyle.h"; sourceTree = "<group>"; };
+		5CC438E11B7C30F0004D3D1F /* HGMarkdownHighlightingStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGMarkdownHighlightingStyle.m; path = "Vendor/peg-markdown-highlight/HGMarkdownHighlightingStyle.m"; sourceTree = "<group>"; };
+		5CC438E21B7C30F0004D3D1F /* pmh_definitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pmh_definitions.h; path = "Vendor/peg-markdown-highlight/pmh_definitions.h"; sourceTree = "<group>"; };
+		5CC438E71B7C30F0004D3D1F /* pmh_parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pmh_parser.c; path = "Vendor/peg-markdown-highlight/pmh_parser.c"; sourceTree = "<group>"; };
+		5CC438E81B7C30F0004D3D1F /* pmh_parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pmh_parser.h; path = "Vendor/peg-markdown-highlight/pmh_parser.h"; sourceTree = "<group>"; };
+		5CC438E91B7C30F0004D3D1F /* pmh_styleparser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pmh_styleparser.c; path = "Vendor/peg-markdown-highlight/pmh_styleparser.c"; sourceTree = "<group>"; };
+		5CC438EA1B7C30F0004D3D1F /* pmh_styleparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pmh_styleparser.h; path = "Vendor/peg-markdown-highlight/pmh_styleparser.h"; sourceTree = "<group>"; };
+		5CC438F51B7C33E4004D3D1F /* Theme */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Theme; path = Resources/Theme; sourceTree = "<group>"; };
 		5CEF6AE31B76BAD00002E9D0 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
 		5CEF6AE51B76BAD90002E9D0 /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/Mac/Box.framework; sourceTree = "<group>"; };
 		5CEF6AED1B76BD3F0002E9D0 /* ErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
@@ -217,6 +240,7 @@
 		5C56CDC81B60BFCD003CFEF5 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				5CC438D91B7C30D1004D3D1F /* Peg */,
 				5CEF6AE51B76BAD90002E9D0 /* Box.framework */,
 				5CEF6AE31B76BAD00002E9D0 /* Result.framework */,
 				5C81547B1B6FB73F0067981E /* MASShortcut.framework */,
@@ -296,6 +320,7 @@
 		5CB58F0C1B66831F00A01CC7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5CC438F51B7C33E4004D3D1F /* Theme */,
 				5C5F641C1B72F7C90095275F /* Scripts */,
 				5CBE30A41B6B1FDA0004FC34 /* CSS */,
 				5C739DF91B5F6A5D001EF259 /* Images.xcassets */,
@@ -314,6 +339,30 @@
 				5CEF6AF31B78F3CA0002E9D0 /* Script.swift */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		5CC438D91B7C30D1004D3D1F /* Peg */ = {
+			isa = PBXGroup;
+			children = (
+				5CC438DE1B7C30F0004D3D1F /* HGMarkdownHighlighter.h */,
+				5CC438DF1B7C30F0004D3D1F /* HGMarkdownHighlighter.m */,
+				5CC438E01B7C30F0004D3D1F /* HGMarkdownHighlightingStyle.h */,
+				5CC438E11B7C30F0004D3D1F /* HGMarkdownHighlightingStyle.m */,
+				5CC438E21B7C30F0004D3D1F /* pmh_definitions.h */,
+				5CC438E71B7C30F0004D3D1F /* pmh_parser.c */,
+				5CC438E81B7C30F0004D3D1F /* pmh_parser.h */,
+				5CC438E91B7C30F0004D3D1F /* pmh_styleparser.c */,
+				5CC438EA1B7C30F0004D3D1F /* pmh_styleparser.h */,
+				5CC438DA1B7C30D9004D3D1F /* peg-markdown-highlight.xcodeproj */,
+			);
+			name = Peg;
+			sourceTree = "<group>";
+		};
+		5CC438DB1B7C30D9004D3D1F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		5CEF6ADE1B76B97A0002E9D0 /* Main */ = {
@@ -370,6 +419,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5CC438F41B7C3102004D3D1F /* PBXTargetDependency */,
 				5C6173131B69E2FB009BF6B6 /* PBXTargetDependency */,
 			);
 			name = MATT;
@@ -418,6 +468,12 @@
 			mainGroup = 5C739DE71B5F6A5D001EF259;
 			productRefGroup = 5C739DF11B5F6A5D001EF259 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5CC438DB1B7C30D9004D3D1F /* Products */;
+					ProjectRef = 5CC438DA1B7C30D9004D3D1F /* peg-markdown-highlight.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5C739DEF1B5F6A5D001EF259 /* MATT */,
@@ -440,6 +496,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CC438F61B7C33E4004D3D1F /* Theme in Resources */,
 				5CBE30A51B6B1FDA0004FC34 /* CSS in Resources */,
 				5C739DFA1B5F6A5D001EF259 /* Images.xcassets in Resources */,
 				5C5F641D1B72F7C90095275F /* Scripts in Resources */,
@@ -466,6 +523,7 @@
 				5CEF6AF21B78F35F0002E9D0 /* ResetablePreferenaces.swift in Sources */,
 				5C30D89F1B7449670024111A /* NSURLExtensions.swift in Sources */,
 				5CB58F161B67151C00A01CC7 /* MarkdownRenderer.swift in Sources */,
+				5CC438F21B7C30F0004D3D1F /* pmh_styleparser.c in Sources */,
 				5CEF6AF41B78F3CA0002E9D0 /* Script.swift in Sources */,
 				5C30D8991B7439270024111A /* StylePreferencesController.swift in Sources */,
 				5CB58F201B67179600A01CC7 /* ShortcutManager.swift in Sources */,
@@ -478,6 +536,7 @@
 				5CEF6AF01B76C1E60002E9D0 /* AppController.swift in Sources */,
 				5C61731C1B69EB1F009BF6B6 /* LoginItemManager.swift in Sources */,
 				5C7289921B7432D700F90111 /* PreferencesController.swift in Sources */,
+				5CC438F11B7C30F0004D3D1F /* pmh_parser.c in Sources */,
 				5C4D470E1B691E02004138D8 /* ScriptInstallationManager.swift in Sources */,
 				5C30D89C1B743A200024111A /* StyleController.swift in Sources */,
 				5C06F5441B69B86000FF1A37 /* ScriptPreferencesController.swift in Sources */,
@@ -487,7 +546,9 @@
 				5CFB2A591B6A7AD40006D951 /* LoginItemPreferencesController.swift in Sources */,
 				5C0E056D1B7595D90093A798 /* FirstTimeController.swift in Sources */,
 				38EFEABA8C16FDF30A1F3B56 /* AppFocusController.swift in Sources */,
+				5CC438EC1B7C30F0004D3D1F /* HGMarkdownHighlightingStyle.m in Sources */,
 				38EFEA3541F2AFAE1FE767FC /* AppIdentity.swift in Sources */,
+				5CC438EB1B7C30F0004D3D1F /* HGMarkdownHighlighter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +559,11 @@
 			isa = PBXTargetDependency;
 			target = 5C6172F11B69E240009BF6B6 /* MATT Helper */;
 			targetProxy = 5C6173121B69E2FB009BF6B6 /* PBXContainerItemProxy */;
+		};
+		5CC438F41B7C3102004D3D1F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "peg-markdown-highlight";
+			targetProxy = 5CC438F31B7C3102004D3D1F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
