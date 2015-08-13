@@ -14,6 +14,8 @@ import hoedown
 
 class ViewController: NSViewController {
     
+    private var highlighter: HGMarkdownHighlighter!
+    
     var appController: AppController!
     var presentPreferences: (Void -> Void)!
     var shortcutManager: ShortcutManager! {
@@ -84,6 +86,16 @@ class ViewController: NSViewController {
         }
     }
     
+    private func setupHighlighter() {
+        highlighter = HGMarkdownHighlighter(textView: textView, waitInterval: 0)
+        let styleURL = NSBundle.mainBundle().URLForResource("Default", withExtension: "theme", subdirectory: "Theme")!
+        let style = String(contentsOfURL: styleURL, encoding: NSUTF8StringEncoding, error: nil)!
+        highlighter.applyStylesFromStylesheet(style, withErrorHandler: nil)
+        highlighter.extensions = Int32(hoedown_extensions.ALL.value)
+        highlighter.parseAndHighlightNow()
+        highlighter.activate()
+    }
+    
     private func checkIfScriptNeedsToBeInstalled(completion: Bool -> Void) {
         if !scriptManager.shouldInstallScripts() {
             completion(true)
@@ -103,5 +115,6 @@ class ViewController: NSViewController {
         
         setupView()
         setupTextView()
-    }    
+        setupHighlighter()
+    }
 }
