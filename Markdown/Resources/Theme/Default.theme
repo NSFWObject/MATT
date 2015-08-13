@@ -1,5 +1,5 @@
 editor
-foreground: 424242
+foreground: 7a8f9e
 background: fafafa
 caret: 00b9ff
 
@@ -43,28 +43,28 @@ LIST_ENUMERATOR
 foreground: bbbbbb
 
 LINK
-foreground: 555555
+foreground: 44b9e7
 
 AUTO_LINK_URL
-foreground: 555555
+foreground: 44b9e7
 
 AUTO_LINK_EMAIL
-foreground: 555555
+foreground: 44b9e7
 
 REFERENCE
-foreground: 555555
+foreground: 05545d
 
 IMAGE
-foreground: 555555
+foreground: 44b9e7
 
 CODE
-foreground: 555555
+foreground: 62c94b
 
 VERBATIM
-foreground: 555555
+foreground: 05545d
 
 HTML_ENTITY
-foreground: 555555
+foreground: 62c94b
 
 COMMENT
 foreground: bbbbbb
