@@ -15,7 +15,6 @@ import hoedown
 class ViewController: NSViewController {
     
     private var highlighter: HGMarkdownHighlighter!
-    
     var focusController: AppFocusController!
     var appController: AppController!
     var presentPreferences: (Void -> Void)!
@@ -38,10 +37,6 @@ class ViewController: NSViewController {
     }
     
     // MARK: - Public 
-    
-    func windowWillAppear() {
-        selectTextFieldContents()
-    }
     
     func updateWindowTitle() {
         self.titleLabel.stringValue = windowTitle()
@@ -143,10 +138,10 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupTitleLable()
         setupView()
         setupTextView()
         setupHighlighter()
+        selectTextFieldContents()
     }
 }

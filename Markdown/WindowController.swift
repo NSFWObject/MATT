@@ -46,22 +46,4 @@ class WindowController: NSWindowController, NSWindowDelegate {
         
         self.window?.title = ""
     }
-    
-    override func showWindow(sender: AnyObject?) {
-        super.showWindow(sender)
-        
-        if let controller = contentViewController as? ViewController {
-            controller.windowWillAppear()
-        }
-    }
-    
-    // MARK: - NSWindowDelegate
-    
-    func windowDidChangeOcclusionState(notification: NSNotification) {
-        if let window = self.window, controller = self.contentViewController as? ViewController {
-            if window.occlusionState & NSWindowOcclusionState.Visible == NSWindowOcclusionState.Visible {
-                controller.windowWillAppear()
-            }
-        }
-    }
 }
