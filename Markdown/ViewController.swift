@@ -94,6 +94,7 @@ class ViewController: NSViewController {
         highlighter.extensions = Int32(hoedown_extensions.ALL.value)
         highlighter.parseAndHighlightNow()
         highlighter.activate()
+        view.layer!.backgroundColor = textView.backgroundColor.CGColor
     }
     
     private func checkIfScriptNeedsToBeInstalled(completion: Bool -> Void) {
