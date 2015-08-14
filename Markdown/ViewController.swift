@@ -99,7 +99,7 @@ class ViewController: NSViewController {
         view.layer?.backgroundColor = NSColor.whiteColor().CGColor
     }
     
-    private func setupTitleLable() {
+    private func setupTitleLabel() {
         titleLabel.wantsLayer = true
         titleLabel.layer!.opacity = 0.5
     }
@@ -138,7 +138,7 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTitleLable()
+        setupTitleLabel()
         setupView()
         setupTextView()
         setupHighlighter()
