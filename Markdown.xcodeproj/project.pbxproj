@@ -12,6 +12,8 @@
 		5C06F5441B69B86000FF1A37 /* ScriptPreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06F5431B69B86000FF1A37 /* ScriptPreferencesController.swift */; };
 		5C06F5461B69C06400FF1A37 /* ShortcutPreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06F5451B69C06400FF1A37 /* ShortcutPreferencesController.swift */; };
 		5C0E056D1B7595D90093A798 /* FirstTimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0E056C1B7595D90093A798 /* FirstTimeController.swift */; };
+		5C0F72B51B7DB458000FD107 /* peg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0F72B31B7DB449000FD107 /* peg.framework */; };
+		5C0F72B61B7DB458000FD107 /* peg.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C0F72B31B7DB449000FD107 /* peg.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C112F561B75C49C00E8CA6D /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C112F551B75C49C00E8CA6D /* IntroViewController.swift */; };
 		5C1FA31B1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1FA31A1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift */; };
 		5C1FA31E1B67CC3F001CC4AD /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C1FA31D1B67CC3F001CC4AD /* Preferences.storyboard */; };
@@ -45,6 +47,7 @@
 		5CB58F201B67179600A01CC7 /* ShortcutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB58F1F1B67179600A01CC7 /* ShortcutManager.swift */; };
 		5CBE30A51B6B1FDA0004FC34 /* CSS in Resources */ = {isa = PBXBuildFile; fileRef = 5CBE30A41B6B1FDA0004FC34 /* CSS */; };
 		5CBFB4101B7065C9001B1F58 /* PasteboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */; };
+		5CC438F61B7C33E4004D3D1F /* Theme in Resources */ = {isa = PBXBuildFile; fileRef = 5CC438F51B7C33E4004D3D1F /* Theme */; };
 		5CEF6AE71B76BAEE0002E9D0 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CEF6AE51B76BAD90002E9D0 /* Box.framework */; };
 		5CEF6AE81B76BAEE0002E9D0 /* Box.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CEF6AE51B76BAD90002E9D0 /* Box.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CEF6AE91B76BAEF0002E9D0 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CEF6AE31B76BAD00002E9D0 /* Result.framework */; };
@@ -74,6 +77,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				5C1FA3241B67CE57001CC4AD /* MASPreferences.framework in Embed Frameworks */,
+				5C0F72B61B7DB458000FD107 /* peg.framework in Embed Frameworks */,
 				5CB58F0B1B667FCA00A01CC7 /* hoedown.framework in Embed Frameworks */,
 				5C81547E1B6FB8F50067981E /* MASShortcut.framework in Embed Frameworks */,
 				5CEF6AEA1B76BAEF0002E9D0 /* Result.framework in Embed Frameworks */,
@@ -102,6 +106,7 @@
 		5C06F5431B69B86000FF1A37 /* ScriptPreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptPreferencesController.swift; sourceTree = "<group>"; };
 		5C06F5451B69C06400FF1A37 /* ShortcutPreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutPreferencesController.swift; sourceTree = "<group>"; };
 		5C0E056C1B7595D90093A798 /* FirstTimeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeController.swift; sourceTree = "<group>"; };
+		5C0F72B31B7DB449000FD107 /* peg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = peg.framework; path = Carthage/Build/Mac/peg.framework; sourceTree = "<group>"; };
 		5C112F551B75C49C00E8CA6D /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		5C1FA3161B67CBDC001CC4AD /* MASPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MASPreferences.framework; path = Carthage/Build/Mac/MASPreferences.framework; sourceTree = "<group>"; };
 		5C1FA31A1B67CBFD001CC4AD /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +142,7 @@
 		5CBE30A41B6B1FDA0004FC34 /* CSS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CSS; path = Resources/CSS; sourceTree = "<group>"; };
 		5CBFB40F1B7065C9001B1F58 /* PasteboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardController.swift; sourceTree = "<group>"; };
 		5CC268101B6EC07000D05D18 /* MATT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MATT.entitlements; sourceTree = SOURCE_ROOT; };
+		5CC438F51B7C33E4004D3D1F /* Theme */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Theme; path = Resources/Theme; sourceTree = "<group>"; };
 		5CEF6AE31B76BAD00002E9D0 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
 		5CEF6AE51B76BAD90002E9D0 /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/Mac/Box.framework; sourceTree = "<group>"; };
 		5CEF6AED1B76BD3F0002E9D0 /* ErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
@@ -163,6 +169,7 @@
 				5C6173161B69E404009BF6B6 /* ServiceManagement.framework in Frameworks */,
 				5C1FA3231B67CE57001CC4AD /* MASPreferences.framework in Frameworks */,
 				5CB58F0A1B667FCA00A01CC7 /* hoedown.framework in Frameworks */,
+				5C0F72B51B7DB458000FD107 /* peg.framework in Frameworks */,
 				5CEF6AE71B76BAEE0002E9D0 /* Box.framework in Frameworks */,
 				5CB58F081B667FCA00A01CC7 /* CocoaMark.framework in Frameworks */,
 			);
@@ -217,6 +224,7 @@
 		5C56CDC81B60BFCD003CFEF5 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				5C0F72B31B7DB449000FD107 /* peg.framework */,
 				5CEF6AE51B76BAD90002E9D0 /* Box.framework */,
 				5CEF6AE31B76BAD00002E9D0 /* Result.framework */,
 				5C81547B1B6FB73F0067981E /* MASShortcut.framework */,
@@ -296,6 +304,7 @@
 		5CB58F0C1B66831F00A01CC7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5CC438F51B7C33E4004D3D1F /* Theme */,
 				5C5F641C1B72F7C90095275F /* Scripts */,
 				5CBE30A41B6B1FDA0004FC34 /* CSS */,
 				5C739DF91B5F6A5D001EF259 /* Images.xcassets */,
@@ -440,6 +449,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CC438F61B7C33E4004D3D1F /* Theme in Resources */,
 				5CBE30A51B6B1FDA0004FC34 /* CSS in Resources */,
 				5C739DFA1B5F6A5D001EF259 /* Images.xcassets in Resources */,
 				5C5F641D1B72F7C90095275F /* Scripts in Resources */,
