@@ -10,10 +10,12 @@ import AppKit
 import MASShortcut
 import CocoaMark
 import hoedown
-
+import peg
 
 class ViewController: NSViewController {
     
+    private var highlighter: HGMarkdownHighlighter!
+    var focusController: AppFocusController!
     var appController: AppController!
     var presentPreferences: (Void -> Void)!
     var shortcutManager: ShortcutManager! {
@@ -26,11 +28,18 @@ class ViewController: NSViewController {
     let scriptManager = ScriptInstallationManager()
     
     @IBOutlet var textView: NSTextView!
+    @IBOutlet weak var titleLabel: NSTextField!
+    
+    // MARK: - Lifecycle
+    
+    deinit {
+        highlighter.deactivate()
+    }
     
     // MARK: - Public 
     
-    func windowWillAppear() {
-        selectTextFieldContents()
+    func updateWindowTitle() {
+        self.titleLabel.stringValue = windowTitle()
     }
     
     // MARK: - Actions
@@ -50,6 +59,21 @@ class ViewController: NSViewController {
     
     // MARK: - Private
 
+    private func windowTitle() -> String {
+        let randomEmoji: Void -> String = {
+            let emojis = ["💥", "🍌", "♥︎", "🔥", "🎉", "😃", "👍", "🐔", "🐙", "❤️", "💜", "👌", "💛", "💚", "💃", "🚀"]
+            let index = Int(arc4random_uniform(UInt32(emojis.count)))
+            return emojis[index]
+        }
+        
+        if let app = focusController.capturedApp, name = app.localizedName {
+            return "\(name) + \(AppIdentity.shortName) = \(randomEmoji())"
+        } else {
+            return AppIdentity.displayName
+        }
+    }
+
+    
     private func pasteMarkdownIntoCapturedApp() {
         if let markdown = textView.string {
             appController.process(markdown: markdown) { result in
@@ -71,17 +95,26 @@ class ViewController: NSViewController {
     }
     
     private func setupView() {
-        self.view.wantsLayer = true
-        self.view.layer?.backgroundColor = NSColor.whiteColor().CGColor
+        view.wantsLayer = true
+        view.layer?.backgroundColor = NSColor.whiteColor().CGColor
     }
     
     private func setupTextView() {
-        textView.textColor = NSColor(red:0.058, green:0.173, blue:0.166, alpha:1)
-        if let font = NSFont(name: "Menlo", size: 13) {
-            textView.font = font
-        } else {
-            textView.font = NSFont.userFixedPitchFontOfSize(12)
-        }
+        textView.font = NSFont(name: "Times New Roman", size: 14)
+        textView.layoutManager!.hyphenationFactor = 0.8
+    }
+    
+    private func setupHighlighter() {
+        highlighter = HGMarkdownHighlighter(textView: textView, waitInterval: 0)
+        let styleURL = NSBundle.mainBundle().URLForResource("Default", withExtension: "theme", subdirectory: "Theme")!
+        let style = String(contentsOfURL: styleURL, encoding: NSUTF8StringEncoding, error: nil)!
+        highlighter.readClearTextStylesFromTextView()
+        highlighter.applyStylesFromStylesheet(style, withErrorDelegate: nil, errorSelector: nil)
+        highlighter.extensions = Int32(hoedown_extensions.ALL.value)
+        highlighter.makeLinksClickable = false
+        highlighter.activate()
+        highlighter.parseAndHighlightNow()
+        view.layer!.backgroundColor = textView.backgroundColor.CGColor
     }
     
     private func checkIfScriptNeedsToBeInstalled(completion: Bool -> Void) {
@@ -100,8 +133,9 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView()
         setupTextView()
-    }    
+        setupHighlighter()
+        selectTextFieldContents()
+    }
 }

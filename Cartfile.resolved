@@ -1,4 +1,5 @@
 github "robrix/Box" "1.2.2"
 github "zats/MASPreferences" "e1bedd56618e7ef513d2c3de5940ce43f0e6fdad"
-github "shpakovski/MASShortcut" "3f63f8fefccf36f567308854f5b1e3908a15c9c3"
+github "shpakovski/MASShortcut" "1f3dbbce75729ac928838af5f726c13e1e15e683"
+github "zats/peg-markdown-highlight" "2ac812f53e02ac034f10ea7dc78f06a4d7a7cde6"
 github "antitypical/Result" "0.4.4"

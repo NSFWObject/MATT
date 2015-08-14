@@ -1,3 +1,4 @@
 github "shpakovski/MASShortcut" "master"
 github "zats/MASPreferences" "master"
 github "antitypical/Result" ~> 0.4.3
+github "zats/peg-markdown-highlight" "master"

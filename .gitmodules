@@ -7,3 +7,6 @@
 [submodule "Carthage/Checkouts/Result"]
 	path = Carthage/Checkouts/Result
 	url = https://github.com/antitypical/Result.git
+[submodule "Carthage/Checkouts/peg-markdown-highlight"]
+	path = Carthage/Checkouts/peg-markdown-highlight
+	url = https://github.com/zats/peg-markdown-highlight.git

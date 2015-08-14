@@ -84,8 +84,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     private func configureController(controller: WindowController) {
         windowController = controller
-        controller.focusManager = focusManager
         if let controller = controller.contentViewController as? ViewController {
+            controller.focusController = focusManager
             controller.appController = appController
             controller.presentPreferences = showPreferences
             controller.shortcutManager = shortcutManager
