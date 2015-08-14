@@ -10,7 +10,7 @@ import AppKit
 import MASShortcut
 import CocoaMark
 import hoedown
-
+import peg
 
 class ViewController: NSViewController {
     
@@ -114,7 +114,7 @@ class ViewController: NSViewController {
         let styleURL = NSBundle.mainBundle().URLForResource("Default", withExtension: "theme", subdirectory: "Theme")!
         let style = String(contentsOfURL: styleURL, encoding: NSUTF8StringEncoding, error: nil)!
         highlighter.readClearTextStylesFromTextView()
-        highlighter.applyStylesFromStylesheet(style, withErrorHandler: nil)
+        highlighter.applyStylesFromStylesheet(style, withErrorDelegate: nil, errorSelector: nil)
         highlighter.extensions = Int32(hoedown_extensions.ALL.value)
         highlighter.makeLinksClickable = false
         highlighter.activate()
