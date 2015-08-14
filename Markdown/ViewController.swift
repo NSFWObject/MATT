@@ -99,11 +99,6 @@ class ViewController: NSViewController {
         view.layer?.backgroundColor = NSColor.whiteColor().CGColor
     }
     
-    private func setupTitleLabel() {
-        titleLabel.wantsLayer = true
-        titleLabel.layer!.opacity = 0.5
-    }
-    
     private func setupTextView() {
         textView.font = NSFont(name: "Times New Roman", size: 14)
         textView.layoutManager!.hyphenationFactor = 0.8
@@ -138,7 +133,6 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTitleLabel()
         setupView()
         setupTextView()
         setupHighlighter()
