@@ -20,17 +20,17 @@ class WindowController: NSWindowController, NSWindowDelegate {
     // MARK: - Actions
     
     func applicationDidBecomeActiveObserver(sender: AnyObject) {
-        updateWindowTitle()
+        notifyViewControllerDidBecomeActive()
     }
     
     // MARK: - Private
     
-    private func updateWindowTitle() {
+    private func notifyViewControllerDidBecomeActive() {
         if let controller = self.contentViewController as? ViewController {
-            controller.updateWindowTitle()
+            controller.viewControllerDidBecomeActive()
         }
     }
-    
+        
     // MARK: - NSWindowController
     
     override func windowDidLoad() {

@@ -23,9 +23,8 @@ class ViewController: NSViewController {
             setupShortcuts()
         }
     }
-
+    var scriptManager: ScriptInstallationManager!
     let renderer = MarkdownRenderer()
-    let scriptManager = ScriptInstallationManager()
     
     @IBOutlet var textView: NSTextView!
     @IBOutlet weak var titleLabel: NSTextField!
@@ -38,8 +37,8 @@ class ViewController: NSViewController {
     
     // MARK: - Public 
     
-    func updateWindowTitle() {
-        self.titleLabel.stringValue = windowTitle()
+    func viewControllerDidBecomeActive() {
+        updateTitle()
     }
     
     // MARK: - Actions
@@ -58,6 +57,10 @@ class ViewController: NSViewController {
     }
     
     // MARK: - Private
+    
+    private func updateTitle() {
+        self.titleLabel.stringValue = windowTitle()
+    }
 
     private func windowTitle() -> String {
         let randomEmoji: Void -> String = {
