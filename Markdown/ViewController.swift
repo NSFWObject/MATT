@@ -120,8 +120,17 @@ class ViewController: NSViewController {
     }
     
     private func setupTextView() {
-        textView.font = NSFont(name: "Times New Roman", size: 14)
-        textView.layoutManager!.hyphenationFactor = 0.8
+        textView.font = fixedWidthFont()
+    }
+    
+    private func fixedWidthFont() -> NSFont {
+        let fontSize: CGFloat = 12
+        if let font = NSFont.userFixedPitchFontOfSize(fontSize) {
+            return font
+        } else if let font = NSFont(name: "Menlo", size: fontSize) {
+            return font
+        }
+        return NSFont.systemFontOfSize(fontSize)
     }
     
     private func setupHighlighter() {

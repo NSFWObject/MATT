@@ -490,33 +490,33 @@ I am [MATT](http://github.com/zats/matt),
 
 * Press `</string>
                                                     <attributes>
-                                                        <font key="NSFont" size="11" name="AmericanTypewriter"/>
+                                                        <font key="NSFont" size="11" name="HelveticaNeue"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" hyphenationFactor="0.029999999329447746"/>
                                                     </attributes>
                                                 </fragment>
-                                                <fragment content="⌃">
+                                                <fragment content="⌥">
                                                     <attributes>
                                                         <font key="NSFont" size="11" name="LucidaGrande"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" hyphenationFactor="0.029999999329447746"/>
                                                     </attributes>
                                                 </fragment>
                                                 <fragment>
-                                                    <string key="content">A` (Control + A) to show me. You can change it at any time in Preferences.
+                                                    <string key="content">D` (Option + D) to show me. You can change it at any time in Preferences.
 * Press `</string>
                                                     <attributes>
-                                                        <font key="NSFont" size="11" name="AmericanTypewriter"/>
+                                                        <font key="NSFont" size="11" name="HelveticaNeue"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" hyphenationFactor="0.029999999329447746"/>
                                                     </attributes>
                                                 </fragment>
-                                                <fragment content="⌃↩︎">
+                                                <fragment content="⌘↩︎">
                                                     <attributes>
                                                         <font key="NSFont" size="11" name="LucidaGrande"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" hyphenationFactor="0.029999999329447746"/>
                                                     </attributes>
                                                 </fragment>
                                                 <fragment>
-                                                    <mutableString key="content">` (Control + Enter) to paste formatted markdown into the previously active app. Or to simply copy it.
-* Make sure to enable launch MATT at login (again, in Preferences), this way it's always there when you need it.
+                                                    <mutableString key="content">` (Command + Enter) to paste formatted markdown into the previously active app. Or to simply copy it.
+* Make sure to enable launch MATT at login (again, in Preferences), this way it's always there when you need it.[^1]
 
 If you are looking for a good markdown resource, start from the [official documentation](http://daringfireball.net/projects/markdown/).
 
@@ -524,7 +524,7 @@ On top of standard markdown syntax, MATT understands tables, fenced code, footno
 
 [^1]: After all, this way app can be the most helpful</mutableString>
                                                     <attributes>
-                                                        <font key="NSFont" size="11" name="AmericanTypewriter"/>
+                                                        <font key="NSFont" size="11" name="HelveticaNeue"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" hyphenationFactor="0.029999999329447746"/>
                                                     </attributes>
                                                 </fragment>
