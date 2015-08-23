@@ -89,6 +89,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             controller.appController = appController
             controller.presentPreferences = showPreferences
             controller.shortcutManager = shortcutManager
+            controller.pasteboardController = pasteboardController
             controller.scriptManager = scriptManager
         }
     }

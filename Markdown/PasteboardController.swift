@@ -7,6 +7,7 @@
 //
 
 import AppKit
+import WebKit
 
 
 public class PasteboardController {
@@ -39,6 +40,68 @@ public class PasteboardController {
         }
         return nil
     }
+    
+    // MARK: - Markdown
+
+    private var lastHandledMarkdown: String?
+    
+    public func markdown() -> String? {
+        if let markdown = markdownContent() {
+            if lastHandledMarkdown == markdown {
+                return nil
+            }
+            lastHandledMarkdown = markdown
+            return markdown
+        } else {
+            lastHandledMarkdown = nil
+            return nil
+        }
+    }
+    
+    private func markdownContent() -> String? {
+        if let HTML = HTMLContent() {
+            return HTML
+        } else if let attributedString = attributedStringContent() {
+            return attributedString.string
+        }
+        return nil
+    }
+    
+    private func webarchiveData() -> String? {
+        let pasteboard = NSPasteboard.generalPasteboard()
+        if let items = pasteboard.pasteboardItems as? [NSPasteboardItem] {
+            for item in items {
+                if let data = item.dataForType("com.apple.webarchive") {
+                    if let webarchive = WebArchive(data: data),
+                        htmlData = webarchive.mainResource?.data {
+                            return NSString(data: htmlData, encoding: NSUTF8StringEncoding) as? String
+                    }
+                }
+            }
+        }
+        return nil
+    }
+    
+    private func attributedStringContent() -> NSAttributedString? {
+        let pasteboard = NSPasteboard.generalPasteboard()
+        if let data = pasteboard.dataForType(NSPasteboardTypeRTF) {
+            return NSAttributedString(RTF: data, documentAttributes: nil)
+        } else if let data = pasteboard.dataForType(NSPasteboardTypeRTFD) {
+            return NSAttributedString(RTFD: data, documentAttributes: nil)
+        }
+        return nil
+    }
+    
+    private func HTMLContent() -> String? {
+        let pasteboard = NSPasteboard.generalPasteboard()
+        if let data = pasteboard.dataForType(NSPasteboardTypeHTML) {
+            return NSString(data: data, encoding: NSUTF8StringEncoding) as? String
+        } else if let webarchive = webarchiveData() {
+            return webarchive
+        }
+        return nil
+    }
+
 }
 
 extension NSPasteboardItem: NSCopying {
