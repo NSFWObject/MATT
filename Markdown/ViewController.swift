@@ -15,17 +15,21 @@ import peg
 class ViewController: NSViewController {
     
     private var highlighter: HGMarkdownHighlighter!
-    var focusController: AppFocusController!
+    var focusController: AppFocusController! {
+        didSet {
+            updateTitle()
+        }
+    }
     var appController: AppController!
+    var pasteboardController: PasteboardController!
     var presentPreferences: (Void -> Void)!
     var shortcutManager: ShortcutManager! {
         didSet {
             setupShortcuts()
         }
     }
-
+    var scriptManager: ScriptInstallationManager!
     let renderer = MarkdownRenderer()
-    let scriptManager = ScriptInstallationManager()
     
     @IBOutlet var textView: NSTextView!
     @IBOutlet weak var titleLabel: NSTextField!
@@ -38,8 +42,9 @@ class ViewController: NSViewController {
     
     // MARK: - Public 
     
-    func updateWindowTitle() {
-        self.titleLabel.stringValue = windowTitle()
+    func viewControllerDidBecomeActive() {
+        updateTitle()
+//        pasteTextIfNeeded()
     }
     
     // MARK: - Actions
@@ -58,6 +63,16 @@ class ViewController: NSViewController {
     }
     
     // MARK: - Private
+    
+    private func pasteTextIfNeeded() {
+        if let markdown = pasteboardController.markdown() {
+            textView.string = markdown
+        }
+    }
+    
+    private func updateTitle() {
+        self.titleLabel.stringValue = windowTitle()
+    }
 
     private func windowTitle() -> String {
         let randomEmoji: Void -> String = {
@@ -66,11 +81,16 @@ class ViewController: NSViewController {
             return emojis[index]
         }
         
-        if let app = focusController.capturedApp, name = app.localizedName {
-            return "\(name) + \(AppIdentity.shortName) = \(randomEmoji())"
-        } else {
+        if focusController == nil {
             return AppIdentity.displayName
         }
+        
+        if let app = focusController.capturedApp{
+            if let name = app.localizedName {
+                return "\(name) + \(AppIdentity.shortName) = \(randomEmoji())"
+            }
+        }
+        return AppIdentity.displayName
     }
 
     
